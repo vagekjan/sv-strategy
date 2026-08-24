@@ -730,6 +730,11 @@ body.lock{overflow:hidden}
 
 
 <script>
+/* при перезагрузке всегда открывать сверху */
+if('scrollRestoration' in history) history.scrollRestoration='manual';
+if(!location.hash) window.scrollTo(0,0);
+window.addEventListener('load',function(){ if(!location.hash) window.scrollTo(0,0); });
+
 (function(){
   var toc=document.getElementById('toc'), mbar=document.getElementById('mbar'),
       sheet=document.getElementById('sheet'), mcur=document.getElementById('mcur'),
