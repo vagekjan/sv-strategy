@@ -22,7 +22,13 @@ body{background:var(--bg);color:var(--txt);font-family:'Instrument Sans',sans-se
 .hero p{font-size:clamp(16px,1.9vw,20px);color:#bcc4b7;margin-top:20px;max-width:62ch}
 .hero .rule{width:150px;height:2px;background:#d9b8a4;margin-top:30px}
 
-h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(28px,3.6vw,40px);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin:0}
+h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(32px,4.4vw,52px);font-weight:600;letter-spacing:-.02em;line-height:1.05;margin:0}
+.sect.dark{background:var(--grn);color:var(--grnink);margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw);padding:clamp(46px,6vw,72px) 0}
+.sect.dark .in{max-width:940px;margin:0 auto;padding:0 clamp(22px,5vw,44px)}
+.sect.dark h2{color:var(--grnink)}
+.sect.dark .lead{color:#bcc4b7}
+.sect.dark .rule{background:#d9b8a4}
+.bignum{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(90px,14vw,190px);line-height:.85;font-weight:400;color:#ca9072;letter-spacing:-.03em}
 .sect{margin-top:clamp(46px,7vw,74px)}
 .sect > .rule{width:120px;height:2px;background:var(--acc);margin:18px 0 0}
 .lead{font-size:clamp(16px,1.8vw,19px);color:var(--mut);margin-top:20px;max-width:70ch}
@@ -66,7 +72,8 @@ footer{margin-top:clamp(50px,7vw,80px);padding-top:26px;border-top:1px solid var
 
 <header class="hero">
   <div class="in">
-    <div class="kick">Первый этап работы</div>
+    <div class="bignum">01</div>
+    <div class="kick" style="margin-top:18px">Первый этап работы</div>
     <h1>Проектирование стратегии</h1>
     <p>Состав работы, этапы, критерии готовности и результат на выходе.</p>
     <div class="rule"></div>
@@ -75,11 +82,11 @@ footer{margin-top:clamp(50px,7vw,80px);padding-top:26px;border-top:1px solid var
 
 <div class="wrap">
 
-  <section class="sect">
+  <section class="sect dark"><div class="in">
     <h2>Что мы делаем на этом этапе</h2>
     <div class="rule"></div>
     <p class="lead">Проектируем систему решений: куда идём, на что опираемся, чего не хватает, какие действия дают наибольший эффект и в какой последовательности их запускать. Реализация оценивается и планируется после — когда понятно, что именно строим.</p>
-  </section>
+  </div></section>
 
   <section class="sect">
     <h2>Этапы работы</h2>
@@ -181,11 +188,11 @@ footer{margin-top:clamp(50px,7vw,80px);padding-top:26px;border-top:1px solid var
     </div>
   </section>
 
-  <section class="sect">
+  <section class="sect dark"><div class="in">
     <h2>Что происходит после</h2>
     <div class="rule"></div>
     <p class="lead">Когда стратегия собрана, становится понятен объём реализации: какие действия запускаем, кто их делает, какие ресурсы нужны и в какие сроки. На этом основании собирается смета и принимается отдельное решение о следующем этапе.</p>
-  </section>
+  </div></section>
 
   <footer>Вагэ Хачатрян · документ к обсуждению</footer>
 </div>
