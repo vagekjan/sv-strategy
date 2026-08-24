@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%231f2d27%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2245%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2238%22%20font-weight%3D%22600%22%20fill%3D%22%23f3efe9%22%20text-anchor%3D%22middle%22%3EС%3C/text%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2216%22%20r%3D%224%22%20fill%3D%22%23b67454%22/%3E%3C/svg%3E">
+<title>Стратегический этап · состав и результат</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap&subset=cyrillic,latin" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#f3efe9;--txt:#171310;--mut:#6b6158;--faint:#8d8478;--line:#e4dcd0;--acc:#b67454;--accink:#9c5c3d;--grn:#1f2d27;--grnink:#f4efe4}
+body{background:var(--bg);color:var(--txt);font-family:'Instrument Sans',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+.ser{font-family:'Cormorant Garamond',Georgia,serif}
+.wrap{max-width:940px;margin:0 auto;padding:clamp(40px,6vw,80px) clamp(22px,5vw,44px)}
+
+.hero{background:var(--grn);color:var(--grnink);padding:clamp(50px,8vw,96px) 0;position:relative;overflow:hidden}
+.hero .in{max-width:940px;margin:0 auto;padding:0 clamp(22px,5vw,44px);position:relative;z-index:2}
+.hero .kick{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#a7b1a3;font-weight:700}
+.hero h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(38px,6vw,66px);font-weight:500;line-height:1.05;letter-spacing:-.02em;margin:22px 0 0}
+.hero p{font-size:clamp(16px,1.9vw,20px);color:#bcc4b7;margin-top:20px;max-width:62ch}
+.hero .rule{width:150px;height:2px;background:#d9b8a4;margin-top:30px}
+
+h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(28px,3.6vw,40px);font-weight:600;letter-spacing:-.02em;line-height:1.1;margin:0}
+.sect{margin-top:clamp(46px,7vw,74px)}
+.sect > .rule{width:120px;height:2px;background:var(--acc);margin:18px 0 0}
+.lead{font-size:clamp(16px,1.8vw,19px);color:var(--mut);margin-top:20px;max-width:70ch}
+
+.stage{border-top:1px solid var(--line);padding:34px 0}
+.stage:last-child{border-bottom:1px solid var(--line)}
+.stage .top{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap}
+.stage .n{font-family:'Cormorant Garamond',Georgia,serif;font-size:34px;font-weight:600;color:var(--acc);line-height:1}
+.stage .t{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(23px,2.6vw,30px);font-weight:600;letter-spacing:-.02em;line-height:1.15}
+.stage .meta{font-size:13.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:600;margin-left:auto}
+.rows{margin-top:20px;display:grid;gap:14px}
+.row{display:grid;grid-template-columns:190px 1fr;gap:20px;align-items:baseline}
+@media(max-width:640px){.row{grid-template-columns:1fr;gap:4px}}
+.row .k{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--accink);font-weight:700}
+.row .v{font-size:16.5px;color:var(--txt);line-height:1.55}
+.row .v ul{list-style:none;display:grid;gap:7px}
+.row .v li{padding-left:16px;position:relative}
+.row .v li::before{content:"";position:absolute;left:0;top:10px;width:5px;height:5px;border-radius:50%;background:var(--acc)}
+
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px 40px;margin-top:24px}
+@media(max-width:700px){.grid2{grid-template-columns:1fr}}
+.art{border-top:1px solid var(--line);padding-top:16px}
+.art .an{font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;font-weight:600;color:var(--txt)}
+.art .ad{font-size:15px;color:var(--mut);margin-top:6px;line-height:1.5}
+
+.terms{margin-top:26px;display:grid;gap:0}
+.term{display:grid;grid-template-columns:230px 1fr;gap:24px;padding:20px 0;border-top:1px solid var(--line);align-items:baseline}
+@media(max-width:640px){.term{grid-template-columns:1fr;gap:4px}}
+.term .k{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:700}
+.term .v{font-family:'Cormorant Garamond',Georgia,serif;font-size:24px;font-weight:600;letter-spacing:-.01em;line-height:1.25}
+.price{background:#14100d;color:#efe7dd;padding:clamp(30px,4vw,44px);margin-top:34px;border-radius:2px}
+.price .k{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#9d9186;font-weight:700}
+.price .v{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(42px,6vw,68px);font-weight:600;letter-spacing:-.02em;line-height:1;margin-top:14px}
+.price .n{font-size:15.5px;color:#9d9186;margin-top:18px;line-height:1.55;max-width:60ch}
+
+.note{margin-top:30px;padding-left:20px;border-left:2px solid var(--acc);font-size:16px;color:var(--mut);line-height:1.6;max-width:70ch}
+footer{margin-top:clamp(50px,7vw,80px);padding-top:26px;border-top:1px solid var(--line);font-size:14.5px;color:var(--faint)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="in">
+    <div class="kick">Первый этап работы</div>
+    <h1>Проектирование стратегии</h1>
+    <p>Состав работы, этапы, критерии готовности и результат на выходе.</p>
+    <div class="rule"></div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="sect">
+    <h2>Что мы делаем на этом этапе</h2>
+    <div class="rule"></div>
+    <p class="lead">Проектируем систему решений: куда идём, на что опираемся, чего не хватает, какие действия дают наибольший эффект и в какой последовательности их запускать. Реализация оценивается и планируется после — когда понятно, что именно строим.</p>
+  </section>
+
+  <section class="sect">
+    <h2>Этапы работы</h2>
+    <div class="rule"></div>
+
+    <div class="stage">
+      <div class="top"><div class="n">01</div><div class="t">Замысел и цели</div><div class="meta">1–2 сессии</div></div>
+      <div class="rows">
+        <div class="row"><div class="k">Что делаем</div><div class="v">Разбираем видение, замыслы и горизонты: чего вы хотите достичь книгой и тем, что появляется после неё. Фиксируем ограничения и границы — чего мы сознательно не делаем.</div></div>
+        <div class="row"><div class="k">На выходе</div><div class="v">Сформулированные замыслы с критериями: по чему поймём, что цель достигнута.</div></div>
+        <div class="row"><div class="k">Критерий готовности</div><div class="v">Вы подтверждаете формулировки как свои — они описывают вашу задачу, а не мою интерпретацию.</div></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="top"><div class="n">02</div><div class="t">Исходная позиция: активы и дефициты</div><div class="meta">1–2 сессии + анализ</div></div>
+      <div class="rows">
+        <div class="row"><div class="k">Что делаем</div><div class="v">Собираем и оцениваем активы: экспертиза, репутация, отношения, доступы, аудитории, продукты, команда, интеллектуальные активы. Ранжируем по трудноповторимости и устойчивости. Фиксируем дефициты — чего не хватает для замысла.</div></div>
+        <div class="row"><div class="k">На выходе</div><div class="v">
+          <ul>
+            <li>Карта активов и пассивов</li>
+            <li>Приоритетные активы — на что опираемся</li>
+            <li>Список дефицитов и способы их закрыть: создать, купить, получить доступ</li>
+          </ul></div></div>
+        <div class="row"><div class="k">Критерий готовности</div><div class="v">Понятно, на чём именно строится преимущество и чего конкретно не хватает.</div></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="top"><div class="n">03</div><div class="t">Среда, стейкхолдеры и продуктовая логика</div><div class="meta">1–2 сессии + анализ</div></div>
+      <div class="rows">
+        <div class="row"><div class="k">Что делаем</div><div class="v">Определяем, кто нужен для реализации замысла: клиенты, партнёры, носители нужных активов, эксперты, институции. Ищем точки взаимной ценности. Проектируем продуктовую логику: что появляется после книги и почему именно это.</div></div>
+        <div class="row"><div class="k">На выходе</div><div class="v">
+          <ul>
+            <li>Карта стейкхолдеров</li>
+            <li>Карта смыслов</li>
+            <li>Продуктовая стратегия: книга и продукты вокруг неё</li>
+          </ul></div></div>
+        <div class="row"><div class="k">Критерий готовности</div><div class="v">Ясно, с кем и на каких условиях выстраивать отношения и какие продукты проектируем дальше.</div></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="top"><div class="n">04</div><div class="t">Маршрут и приоритеты</div><div class="meta">1–2 сессии</div></div>
+      <div class="rows">
+        <div class="row"><div class="k">Что делаем</div><div class="v">Собираем возможные комбинации действий, отбираем те, что работают сразу на несколько задач и создают активы для следующих шагов. Выстраиваем последовательность и приоритеты.</div></div>
+        <div class="row"><div class="k">На выходе</div><div class="v">
+          <ul>
+            <li>Ключевые рычаги и приоритетные стратегические ходы</li>
+            <li>Маршрут реализации по шагам</li>
+            <li>Что сознательно не делаем на этом горизонте</li>
+            <li>Показатели, по которым оцениваем движение</li>
+          </ul></div></div>
+        <div class="row"><div class="k">Критерий готовности</div><div class="v">Понятно, что делаем первым, что за ним и почему в таком порядке.</div></div>
+      </div>
+    </div>
+
+    <div class="stage">
+      <div class="top"><div class="n">05</div><div class="t">Сборка и защита стратегии</div><div class="meta">финальная встреча 1,5–2 часа</div></div>
+      <div class="rows">
+        <div class="row"><div class="k">Что делаем</div><div class="v">Собираю всё в единый документ и защищаю на встрече: как связаны замысел, активы, маршрут и конкретные действия. Вносим правки по итогам обсуждения.</div></div>
+        <div class="row"><div class="k">На выходе</div><div class="v">Готовая стратегия и план реализации с составом работ, конфигурацией участников и бюджетом.</div></div>
+        <div class="row"><div class="k">Критерий готовности</div><div class="v">Вы говорите: «Да, это оно» — стратегия отвечает на ваши вопросы и по ней можно действовать.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sect">
+    <h2>Что вы получаете на выходе</h2>
+    <div class="rule"></div>
+    <div class="grid2">
+      <div class="art"><div class="an">Продуктовая стратегия</div><div class="ad">Роль книги и продукты, которые появляются после неё: что, зачем и в какой последовательности.</div></div>
+      <div class="art"><div class="an">Карта активов и дефицитов</div><div class="ad">На что опираемся, что трудноповторимо и устойчиво, чего не хватает и как это закрыть.</div></div>
+      <div class="art"><div class="an">Карта стейкхолдеров</div><div class="ad">Люди, сообщества и организации, необходимые для реализации, и точки взаимной ценности.</div></div>
+      <div class="art"><div class="an">Карта смыслов</div><div class="ad">Ключевые смыслы проекта и то, как они доносятся без искажения.</div></div>
+      <div class="art"><div class="an">Приоритетные ходы</div><div class="ad">Действия с наибольшим эффектом — и обоснование, почему именно они.</div></div>
+      <div class="art"><div class="an">Маршрут реализации</div><div class="ad">Последовательность шагов на горизонте с показателями и точками пересборки.</div></div>
+      <div class="art"><div class="an">План реализации</div><div class="ad">Состав работ, конфигурация участников, что делает ваша команда и что подключается извне.</div></div>
+      <div class="art"><div class="an">Бюджет реализации</div><div class="ad">Смета следующего этапа в нескольких сценариях и сроки.</div></div>
+    </div>
+    <p class="note">Результат — не документ ради документа, а система решений: по ней понятно, что делать первым, что за ним и от чего отказаться.</p>
+  </section>
+
+  <section class="sect">
+    <h2>Формат и условия</h2>
+    <div class="rule"></div>
+    <div class="terms">
+      <div class="term"><div class="k">Срок</div><div class="v">6–8 недель</div></div>
+      <div class="term"><div class="k">Встречи</div><div class="v">6 стратегических сессий по 90 минут</div></div>
+      <div class="term"><div class="k">Между встречами</div><div class="v">Аналитику, исследование и упаковку беру на себя</div></div>
+      <div class="term"><div class="k">Ваше участие</div><div class="v">Ключевые решения и обратная связь — 1,5–2 часа в неделю</div></div>
+      <div class="term"><div class="k">Финал этапа</div><div class="v">Защита стратегии на встрече 1,5–2 часа</div></div>
+    </div>
+
+    <div class="price">
+      <div class="k">Стоимость первого этапа</div>
+      <div class="v">600 000 ₽</div>
+      <div class="n">Включает все сессии, исследование, аналитику и сборку. Реализация оценивается отдельно — после того, как понятен её состав.</div>
+    </div>
+  </section>
+
+  <section class="sect">
+    <h2>Что происходит после</h2>
+    <div class="rule"></div>
+    <p class="lead">Когда стратегия собрана, становится понятен объём реализации: какие действия запускаем, кто их делает, какие ресурсы нужны и в какие сроки. На этом основании собирается смета и принимается отдельное решение о следующем этапе.</p>
+  </section>
+
+  <footer>Вагэ Хачатрян · документ к обсуждению</footer>
+</div>
+
+</body>
+</html>
