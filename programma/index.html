@@ -39,6 +39,20 @@ h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54p
 .dark h2{color:var(--grnink)}
 .dark .lead{color:var(--grnbody)}
 
+/* ——— задача ——— */
+.task{padding:clamp(74px,13vw,140px) 0}
+.task .th{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(34px,6.6vw,72px);font-weight:500;
+  line-height:1.04;letter-spacing:-.022em;margin-top:22px;max-width:15ch}
+.task .tsub{font-size:clamp(17px,2.2vw,21px);color:var(--mut);margin-top:26px;max-width:52ch;line-height:1.55}
+.qs{margin-top:clamp(52px,8vw,88px);display:grid;grid-template-columns:1fr 1fr;
+  column-gap:clamp(30px,5vw,72px);row-gap:0;border-top:1px solid var(--line)}
+.q{padding:clamp(26px,3.6vw,36px) 0;border-bottom:1px solid var(--line)}
+.q .qn{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(24px,3.2vw,34px);
+  color:var(--accsoft);line-height:1;letter-spacing:-.02em}
+.q .qt{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accink);font-weight:700;margin-top:16px}
+.q .qd{font-size:clamp(15.5px,1.85vw,17px);color:var(--body);margin-top:11px;line-height:1.62;max-width:44ch}
+@media(max-width:760px){.qs{grid-template-columns:1fr}}
+
 /* ——— 13 результатов ——— */
 .grp{margin-top:clamp(34px,5vw,54px)}
 .grp .gt{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--grnacc);font-weight:700;padding-bottom:14px;border-bottom:1px solid rgba(240,233,220,.16)}
@@ -177,6 +191,7 @@ body.lock{overflow:hidden}
 <body>
 
 <nav class="toc" id="toc" aria-label="Содержание">
+  <a href="#task">Задача</a>
   <a href="#results-overview">13 результатов</a>
   <a href="#process">Как строится работа</a>
   <div class="sep"></div>
@@ -198,6 +213,7 @@ body.lock{overflow:hidden}
 
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Содержание документа">
   <div class="sh"><span>Содержание</span><button type="button" id="mclose">Закрыть</button></div>
+  <a href="#task">Задача</a>
   <a href="#results-overview">13 результатов</a>
   <a href="#process">Как строится работа</a>
   <a href="#stage-1"><i>01</i>Замыслы</a>
@@ -219,6 +235,48 @@ body.lock{overflow:hidden}
     <div class="facts"><span>6–8 недель</span><span>6 рабочих созвонов</span></div>
   </div>
 </header>
+
+<!-- ЗАДАЧА -->
+<section class="task" id="task">
+  <div class="wrap">
+    <div class="eyebrow">Что решаем</div>
+    <div class="th ser">Задача — найти наиболее сильный путь к замыслу</div>
+    <p class="tsub">Такой, который повышает вероятность результата, требует меньше ресурсов и по ходу создаёт новые возможности.</p>
+
+    <div class="qs">
+      <div class="q">
+        <div class="qn">01</div>
+        <div class="qt">Что строить?</div>
+        <div class="qd">Какие продукты имеют смысл и какую роль в общей конструкции должна играть книга?</div>
+      </div>
+      <div class="q">
+        <div class="qn">02</div>
+        <div class="qt">Для кого?</div>
+        <div class="qd">Какие аудитории действительно являются приоритетными?</div>
+      </div>
+      <div class="q">
+        <div class="qn">03</div>
+        <div class="qt">На что опереться?</div>
+        <div class="qd">Какие активы уже есть и каких не хватает для реализации замысла?</div>
+      </div>
+      <div class="q">
+        <div class="qn">04</div>
+        <div class="qt">С кем?</div>
+        <div class="qd">У кого уже есть необходимые нам активы — аудитория, доступ, компетенции, инфраструктура — и что мы можем предложить взамен?</div>
+      </div>
+      <div class="q">
+        <div class="qn">05</div>
+        <div class="qt">Какой ход выбрать?</div>
+        <div class="qd">Какая комбинация решений способна дать больший эффект при меньших затратах ресурсов и одновременно открыть следующие возможности?</div>
+      </div>
+      <div class="q">
+        <div class="qn">06</div>
+        <div class="qt">Как реализовать?</div>
+        <div class="qd">Какие проекты нужны, в какой последовательности, какой командой и с каким бюджетом?</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- 13 РЕЗУЛЬТАТОВ -->
 <section class="dark" id="results-overview">
@@ -657,7 +715,7 @@ body.lock{overflow:hidden}
       btnOpen=document.getElementById('mopen'), btnClose=document.getElementById('mclose'),
       cover=document.getElementById('cover');
 
-  var LABELS={'results-overview':'Стратегия — 13 результатов','process':'Как строится работа',
+  var LABELS={'task':'Задача','results-overview':'Стратегия — 13 результатов','process':'Как строится работа',
     'stage-1':'01 · Замыслы','stage-2':'02 · Исходная позиция','stage-3':'03 · Стратегические варианты',
     'stage-4':'04 · Выбор стратегии','stage-5':'05 · Проектирование реализации',
     'results-final':'Через 6–8 недель','format':'Формат работы','boundary':'Проектирование и реализация','price':'Стоимость'};
