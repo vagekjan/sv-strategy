@@ -16,7 +16,7 @@
   --grn:#0b1e1a; --grnink:#f0e9dc; --grnbody:#d3dacc; --grnmut:#a7b1a3; --grnacc:#ca9072;
   --dk:#14100d; --dkink:#efe7dd; --dkmut:#a89f92;
 }
-html{-webkit-text-size-adjust:100%}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{background:var(--bg);color:var(--txt);font-family:'Instrument Sans',-apple-system,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .ser{font-family:'Cormorant Garamond',Georgia,serif}
 .wrap{max-width:880px;margin:0 auto;padding:0 clamp(20px,5vw,40px)}
@@ -92,12 +92,105 @@ h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54p
 .final .note{font-size:15.5px;color:var(--dkmut);margin-top:30px;max-width:52ch;line-height:1.6}
 footer{background:var(--dk);color:#7d7466;font-size:14px;padding:0 0 46px}
 @media(max-width:640px){.ri{grid-template-columns:42px 1fr;gap:10px}}
+
+/* ——— оглавление (desktop) ——— */
+.toc{position:fixed;left:clamp(24px,3.4vw,56px);top:50%;transform:translateY(-50%);width:196px;z-index:40;
+  opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s ease}
+.toc.on{opacity:1;visibility:visible}
+.toc .tg{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);font-weight:700;margin:26px 0 11px}
+.toc .tg:first-child{margin-top:0}
+.toc a{display:block;text-decoration:none;color:var(--mut);font-size:13.5px;line-height:1.45;padding:5px 0;transition:color .2s}
+.toc a:hover{color:var(--txt)}
+.toc a.act{color:var(--accink);font-weight:600}
+.toc a i{font-family:'Cormorant Garamond',Georgia,serif;font-style:normal;color:var(--accsoft);margin-right:7px}
+.toc a.act i{color:var(--acc)}
+body.on-dark .toc .tg{color:#7f8c82}
+body.on-dark .toc a{color:#9aa79d}
+body.on-dark .toc a:hover{color:var(--grnink)}
+body.on-dark .toc a.act{color:var(--grnacc)}
+body.on-dark .toc a i{color:rgba(202,144,114,.5)}
+body.on-dark .toc a.act i{color:var(--grnacc)}
+@media(max-width:1239px){.toc{display:none}}
+
+/* ——— мобильная панель ——— */
+.mbar{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(243,239,233,.94);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:14px;
+  padding:11px clamp(18px,5vw,28px);transform:translateY(-101%);transition:transform .3s ease}
+.mbar.on{transform:none}
+.mbar .cur{font-size:13px;color:var(--txt);line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mbar .cur em{font-family:'Cormorant Garamond',Georgia,serif;font-style:normal;color:var(--acc);margin-right:8px}
+.mbar button{border:0;background:none;font-family:inherit;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accink);font-weight:700;cursor:pointer;padding:4px 0;flex:none}
+@media(min-width:1240px){.mbar{display:none}}
+
+.sheet{position:fixed;inset:0;z-index:70;background:var(--bg);overflow-y:auto;padding:clamp(24px,7vw,40px);
+  opacity:0;visibility:hidden;transition:opacity .28s ease,visibility .28s ease}
+.sheet.on{opacity:1;visibility:visible}
+.sheet .sh{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:26px}
+.sheet .sh span{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);font-weight:700}
+.sheet .sh button{border:0;background:none;font-family:inherit;font-size:13px;color:var(--accink);cursor:pointer;font-weight:600}
+.sheet .tg{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--faint);font-weight:700;margin:24px 0 8px}
+.sheet .tg:first-of-type{margin-top:0}
+.sheet a{display:block;text-decoration:none;color:var(--txt);font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:21px;line-height:1.3;padding:9px 0;border-bottom:1px solid var(--line)}
+.sheet a i{font-style:normal;color:var(--acc);margin-right:8px;font-size:16px}
+body.lock{overflow:hidden}
+
+/* ——— итоговая матрица результатов ——— */
+.matrix{margin-top:clamp(34px,5vw,52px);display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(28px,4vw,56px)}
+@media(max-width:760px){.matrix{grid-template-columns:1fr}}
+.mi{display:grid;grid-template-columns:38px 1fr;gap:12px;padding:18px 0;border-top:1px solid rgba(240,233,220,.13);align-items:baseline}
+.mi .mn{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:var(--grnacc)}
+.mi .mt{font-size:16px;font-weight:600;line-height:1.3;color:var(--grnink)}
+.mi .md{font-size:14.5px;color:var(--grnbody);margin-top:6px;line-height:1.5}
+
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto !important;transition:none !important}}
 </style>
 </head>
 <body>
 
+<nav class="toc" id="toc" aria-label="Содержание">
+    <div class="tg">Состав</div>
+    <a href="#results-overview">13 результатов</a>
+    <a href="#process">Как строится работа</a>
+    <div class="tg">Этапы</div>
+    <a href="#stage-1"><i>01</i>Замыслы</a>
+    <a href="#stage-2"><i>02</i>Исследование</a>
+    <a href="#stage-3"><i>03</i>Варианты</a>
+    <a href="#stage-4"><i>04</i>Выбор</a>
+    <a href="#stage-5"><i>05</i>Реализация</a>
+    <div class="tg">Итог</div>
+    <a href="#results-final">Что на выходе</a>
+    <a href="#format">Формат работы</a>
+    <a href="#boundary">Проектирование / реализация</a>
+    <a href="#price">Стоимость</a>
+</nav>
+
+<div class="mbar" id="mbar">
+  <div class="cur" id="mcur">Состав стратегии</div>
+  <button type="button" id="mopen" aria-expanded="false" aria-controls="sheet">Содержание</button>
+</div>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Содержание документа">
+  <div class="sh"><span>Содержание</span><button type="button" id="mclose">Закрыть</button></div>
+    <div class="tg">Состав</div>
+    <a href="#results-overview">13 результатов</a>
+    <a href="#process">Как строится работа</a>
+    <div class="tg">Этапы</div>
+    <a href="#stage-1"><i>01</i>Замыслы</a>
+    <a href="#stage-2"><i>02</i>Исследование</a>
+    <a href="#stage-3"><i>03</i>Варианты</a>
+    <a href="#stage-4"><i>04</i>Выбор</a>
+    <a href="#stage-5"><i>05</i>Реализация</a>
+    <div class="tg">Итог</div>
+    <a href="#results-final">Что на выходе</a>
+    <a href="#format">Формат работы</a>
+    <a href="#boundary">Проектирование / реализация</a>
+    <a href="#price">Стоимость</a>
+</div>
+
 <!-- ОБЛОЖКА -->
-<header class="cover">
+<header class="cover" id="cover">
   <div class="wrap">
     <div class="line"></div>
     <h1 class="ser">Проектирование<br>стратегии</h1>
@@ -107,7 +200,7 @@ footer{background:var(--dk);color:#7d7466;font-size:14px;padding:0 0 46px}
 </header>
 
 <!-- 13 РЕЗУЛЬТАТОВ -->
-<section class="dark">
+<section class="dark" id="results-overview">
   <div class="wrap">
     <div class="eyebrow">Что будет на выходе</div>
     <h2>Стратегия — 13 результатов</h2>
@@ -158,7 +251,7 @@ footer{background:var(--dk);color:#7d7466;font-size:14px;padding:0 0 46px}
 </section>
 
 <!-- КАК СТРОИТСЯ РАБОТА -->
-<section>
+<section id="process">
   <div class="wrap">
     <div class="eyebrow">Последовательность</div>
     <h2>Как строится работа</h2>
@@ -193,7 +286,7 @@ footer{background:var(--dk);color:#7d7466;font-size:14px;padding:0 0 46px}
 </section>
 
 <!-- ЭТАП 01 -->
-<section class="chap">
+<section class="chap" id="stage-1">
   <div class="wrap">
     <div class="cn">01</div>
     <h3 class="ser">Определяем замыслы и рамку стратегии</h3>
@@ -221,7 +314,7 @@ footer{background:var(--dk);color:#7d7466;font-size:14px;padding:0 0 46px}
 </section>
 
 <!-- ЭТАП 02 -->
-<section class="chap">
+<section class="chap" id="stage-2">
   <div class="wrap">
     <div class="cn">02</div>
     <h3 class="ser">Исследуем исходную позицию</h3>
@@ -252,7 +345,7 @@ footer{background:var(--dk);color:#7d7466;font-size:14px;padding:0 0 46px}
 </section>
 
 <!-- ЭТАП 03 -->
-<section class="chap">
+<section class="chap" id="stage-3">
   <div class="wrap">
     <div class="cn">03</div>
     <h3 class="ser">Формируем стратегические варианты</h3>
@@ -282,7 +375,7 @@ footer{background:var(--dk);color:#7d7466;font-size:14px;padding:0 0 46px}
 </section>
 
 <!-- ЭТАП 04 -->
-<section class="chap">
+<section class="chap" id="stage-4">
   <div class="wrap">
     <div class="cn">04</div>
     <h3 class="ser">Выбираем стратегию</h3>
@@ -308,7 +401,7 @@ footer{background:var(--dk);color:#7d7466;font-size:14px;padding:0 0 46px}
 </section>
 
 <!-- ЭТАП 05 -->
-<section class="chap">
+<section class="chap" id="stage-5">
   <div class="wrap">
     <div class="cn">05</div>
     <h3 class="ser">Проектируем реализацию</h3>
@@ -336,59 +429,31 @@ footer{background:var(--dk);color:#7d7466;font-size:14px;padding:0 0 46px}
   </div>
 </section>
 
-<!-- ИТОГ: 13 РЕЗУЛЬТАТОВ С ОПИСАНИЕМ -->
-<section class="dark">
+<!-- ИТОГ -->
+<section class="dark" id="results-final">
   <div class="wrap">
     <div class="eyebrow">Итог работы</div>
     <h2>Что будет на выходе</h2>
-
-    <div class="grp">
-      <div class="gt">I · Что строим</div>
-      <div class="items">
-        <div class="ri"><div class="rn">01</div><div><div class="rt">Видение и замыслы</div><div class="rd">Зафиксированные результаты, которых хотим достичь, и горизонт, на котором они рассматриваются.</div></div></div>
-        <div class="ri"><div class="rn">02</div><div><div class="rt">Целевые аудитории</div><div class="rd">Приоритетные сегменты, их задачи, мотивация и особенности принятия решений.</div></div></div>
-        <div class="ri"><div class="rn">03</div><div><div class="rt">Продуктовая стратегия</div><div class="rd">Состав продуктов, их аудитории, связи между ними и роль книги в общей конструкции.</div></div></div>
-        <div class="ri"><div class="rn">04</div><div><div class="rt">Смыслы и позиционирование</div><div class="rd">Смысловая территория и позиция Светланы относительно ключевых тем.</div></div></div>
-      </div>
-    </div>
-
-    <div class="grp">
-      <div class="gt">II · На что опираемся</div>
-      <div class="items">
-        <div class="ri"><div class="rn">05</div><div><div class="rt">Карта активов и дефицитов</div><div class="rd">Имеющиеся активы, их ценность и устойчивость, а также то, чего не хватает для реализации замыслов.</div></div></div>
-        <div class="ri"><div class="rn">06</div><div><div class="rt">Карта ключевых стейкхолдеров</div><div class="rd">Люди и организации, обладающие необходимыми для реализации активами.</div></div></div>
-        <div class="ri"><div class="rn">07</div><div><div class="rt">Карта взаимной ценности</div><div class="rd">Основания для взаимовыгодного взаимодействия с каждым из ключевых участников.</div></div></div>
-      </div>
-    </div>
-
-    <div class="grp">
-      <div class="gt">III · Какой путь выбираем</div>
-      <div class="items">
-        <div class="ri"><div class="rn">08</div><div><div class="rt">Стратегические рычаги и асимметричные ходы</div><div class="rd">Точки непропорционального эффекта и конкретные комбинации действий, которые их используют.</div></div></div>
-        <div class="ri"><div class="rn">09</div><div><div class="rt">Стратегические альтернативы и приоритеты</div><div class="rd">Рассмотренные варианты движения, сделанный выбор и основания этого выбора.</div></div></div>
-      </div>
-    </div>
-
-    <div class="grp">
-      <div class="gt">IV · Как реализуем</div>
-      <div class="items">
-        <div class="ri"><div class="rn">10</div><div><div class="rt">Стратегический маршрут и дорожная карта</div><div class="rd">Последовательность ходов, проекты, сроки, зависимости и контрольные точки.</div></div></div>
-        <div class="ri"><div class="rn">11</div><div><div class="rt">Конфигурация реализации</div><div class="rd">Необходимые роли и компетенции, задачи команды и внешних участников.</div></div></div>
-        <div class="ri"><div class="rn">12</div><div><div class="rt">Бюджет и сценарии</div><div class="rd">Варианты реализации с разным объёмом ресурсов, скоростью и масштабом.</div></div></div>
-      </div>
-    </div>
-
-    <div class="grp">
-      <div class="gt">V · Как понимаем, что работает</div>
-      <div class="items">
-        <div class="ri"><div class="rn">13</div><div><div class="rt">Критерии эффективности</div><div class="rd">Показатели и контрольные точки, по которым оценивается движение и принимаются решения.</div></div></div>
-      </div>
+    <div class="matrix">
+      <div class="mi"><div class="mn">01</div><div><div class="mt">Видение и замыслы</div><div class="md">Зафиксированные результаты, которых хотим достичь, и горизонт, на котором они рассматриваются.</div></div></div>
+      <div class="mi"><div class="mn">02</div><div><div class="mt">Целевые аудитории</div><div class="md">Приоритетные сегменты, их задачи, мотивация и особенности принятия решений.</div></div></div>
+      <div class="mi"><div class="mn">03</div><div><div class="mt">Продуктовая стратегия</div><div class="md">Состав продуктов, их аудитории, связи между ними и роль книги в общей конструкции.</div></div></div>
+      <div class="mi"><div class="mn">04</div><div><div class="mt">Смыслы и позиционирование</div><div class="md">Смысловая территория и позиция Светланы относительно ключевых тем.</div></div></div>
+      <div class="mi"><div class="mn">05</div><div><div class="mt">Карта активов и дефицитов</div><div class="md">Имеющиеся активы, их ценность и устойчивость, а также то, чего не хватает для реализации замыслов.</div></div></div>
+      <div class="mi"><div class="mn">06</div><div><div class="mt">Карта ключевых стейкхолдеров</div><div class="md">Люди и организации, обладающие необходимыми для реализации активами.</div></div></div>
+      <div class="mi"><div class="mn">07</div><div><div class="mt">Карта взаимной ценности</div><div class="md">Основания для взаимовыгодного взаимодействия с каждым из ключевых участников.</div></div></div>
+      <div class="mi"><div class="mn">08</div><div><div class="mt">Стратегические рычаги и асимметричные ходы</div><div class="md">Точки непропорционального эффекта и конкретные комбинации действий, которые их используют.</div></div></div>
+      <div class="mi"><div class="mn">09</div><div><div class="mt">Стратегические альтернативы и приоритеты</div><div class="md">Рассмотренные варианты движения, сделанный выбор и основания этого выбора.</div></div></div>
+      <div class="mi"><div class="mn">10</div><div><div class="mt">Стратегический маршрут и дорожная карта</div><div class="md">Последовательность ходов, проекты, сроки, зависимости и контрольные точки.</div></div></div>
+      <div class="mi"><div class="mn">11</div><div><div class="mt">Конфигурация реализации</div><div class="md">Необходимые роли и компетенции, задачи команды и внешних участников.</div></div></div>
+      <div class="mi"><div class="mn">12</div><div><div class="mt">Бюджет и сценарии</div><div class="md">Варианты реализации с разным объёмом ресурсов, скоростью и масштабом.</div></div></div>
+      <div class="mi"><div class="mn">13</div><div><div class="mt">Критерии эффективности</div><div class="md">Показатели и контрольные точки, по которым оценивается движение и принимаются решения.</div></div></div>
     </div>
   </div>
 </section>
 
 <!-- КАК УСТРОЕНА РАБОТА -->
-<section>
+<section id="format">
   <div class="wrap">
     <div class="eyebrow">Формат</div>
     <h2>Как устроена работа</h2>
@@ -410,7 +475,7 @@ footer{background:var(--dk);color:#7d7466;font-size:14px;padding:0 0 46px}
 </section>
 
 <!-- ГРАНИЦА -->
-<section>
+<section id="boundary">
   <div class="wrap narrow">
     <div class="eyebrow">Граница этапов</div>
     <h2>После проектирования становится понятно, что именно нужно реализовать</h2>
@@ -420,7 +485,7 @@ footer{background:var(--dk);color:#7d7466;font-size:14px;padding:0 0 46px}
 </section>
 
 <!-- ФИНАЛ -->
-<section class="final">
+<section class="final" id="price">
   <div class="wrap">
     <div class="line"></div>
     <h2 class="ser">Проектирование<br>стратегии</h2>
@@ -435,5 +500,72 @@ footer{background:var(--dk);color:#7d7466;font-size:14px;padding:0 0 46px}
 
 <footer><div class="wrap">Вагэ Хачатрян</div></footer>
 
+
+<script>
+(function(){
+  var toc=document.getElementById('toc'), mbar=document.getElementById('mbar'),
+      sheet=document.getElementById('sheet'), mcur=document.getElementById('mcur'),
+      open=document.getElementById('mopen'), close=document.getElementById('mclose'),
+      cover=document.getElementById('cover');
+
+  var LABELS={'results-overview':'Состав стратегии','process':'Как строится работа',
+    'stage-1':'01 / 05 · Замыслы','stage-2':'02 / 05 · Исследование','stage-3':'03 / 05 · Стратегические варианты',
+    'stage-4':'04 / 05 · Выбор','stage-5':'05 / 05 · Реализация',
+    'results-final':'Итог','format':'Формат работы','boundary':'Проектирование / реализация','price':'Стоимость'};
+
+  var ids=Object.keys(LABELS), secs=ids.map(function(i){return document.getElementById(i);}).filter(Boolean);
+  var current=null;
+  function setActive(id){
+    if(id===current) return; current=id;
+    document.querySelectorAll('.toc a, .sheet a').forEach(function(a){
+      a.classList.toggle('act', a.getAttribute('href')==='#'+id);
+    });
+    if(mcur){
+      var l=LABELS[id]||'', p=l.split(' \u00b7 ');
+      mcur.innerHTML = p.length>1 ? '<em>'+p[0]+'</em>'+p[1] : l;
+    }
+    var el=document.getElementById(id);
+    document.body.classList.toggle('on-dark', !!el && (el.classList.contains('dark')||el.classList.contains('final')));
+  }
+
+  var tick=false;
+  function update(){
+    tick=false;
+    var y=window.pageYOffset, h=window.innerHeight;
+    /* навигация появляется, когда обложка ушла */
+    var past = y > cover.offsetTop + cover.offsetHeight - h*0.35;
+    toc.classList.toggle('on', past);
+    mbar.classList.toggle('on', past);
+    /* активный раздел — последний, чей верх выше 42% экрана */
+    var line = y + h*0.42, act = secs[0];
+    for(var i=0;i<secs.length;i++){ if(secs[i].offsetTop <= line) act = secs[i]; }
+    if(act) setActive(act.id);
+  }
+  function onScroll(){ if(!tick){ tick=true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  update();
+
+  /* мобильное содержание */
+  function openSheet(){sheet.classList.add('on');document.body.classList.add('lock');open.setAttribute('aria-expanded','true');}
+  function closeSheet(){sheet.classList.remove('on');document.body.classList.remove('lock');open.setAttribute('aria-expanded','false');}
+  if(open) open.addEventListener('click',openSheet);
+  if(close) close.addEventListener('click',closeSheet);
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape') closeSheet(); });
+  sheet.addEventListener('click',function(e){ if(e.target.tagName==='A') closeSheet(); });
+
+  /* плавный переход с отступом */
+  document.querySelectorAll('.toc a, .sheet a').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var id=a.getAttribute('href').slice(1), el=document.getElementById(id);
+      if(!el) return; e.preventDefault();
+      var off=window.innerWidth<1240 ? 62 : 24;
+      var y=el.getBoundingClientRect().top+window.pageYOffset-off;
+      window.scrollTo({top:y, behavior:'smooth'});
+      history.replaceState(null,'','#'+id);
+    });
+  });
+})();
+</script>
 </body>
 </html>
