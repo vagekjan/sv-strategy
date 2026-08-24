@@ -64,31 +64,38 @@ h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54p
 .qs{margin-top:clamp(52px,8vw,88px);display:grid;grid-template-columns:1fr 1fr;
   column-gap:clamp(30px,5vw,72px);row-gap:0;border-top:1px solid var(--line)}
 .q{padding:clamp(26px,3.6vw,36px) 0;border-bottom:1px solid var(--line)}
-.q .qn{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(24px,3.2vw,34px);
-  color:var(--accsoft);line-height:1;letter-spacing:-.02em}
-.q .qt{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--accink);font-weight:700;margin-top:16px}
-.q .qd{font-size:clamp(15.5px,1.85vw,17px);color:var(--body);margin-top:11px;line-height:1.62;max-width:44ch}
+.q .qn{font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:var(--acc);letter-spacing:.06em}
+.q .qt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(25px,3.4vw,34px);font-weight:500;
+  letter-spacing:-.02em;line-height:1.12;margin-top:10px}
+.q .qd{font-size:16px;color:var(--mut);margin-top:12px;line-height:1.55;max-width:38ch}
 @media(max-width:760px){.qs{grid-template-columns:1fr}}
 
 /* ——— 13 результатов ——— */
-.grp{margin-top:clamp(34px,5vw,54px)}
-.grp .gt{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--grnacc);font-weight:700;padding-bottom:14px;border-bottom:1px solid rgba(240,233,220,.16)}
-.grp .items{display:grid;gap:0}
-.ri{display:grid;grid-template-columns:54px 1fr;gap:14px;padding:15px 0;border-bottom:1px solid rgba(240,233,220,.10);align-items:baseline}
-.ri .rn{font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;color:var(--grnmut)}
-.ri .rt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(19px,2.6vw,25px);font-weight:500;line-height:1.2;color:var(--grnink)}
+.grp{display:grid;grid-template-columns:minmax(190px,262px) 1fr;gap:clamp(16px,4vw,54px);
+  padding:clamp(28px,4vw,38px) 0;border-top:1px solid rgba(240,233,220,.16);align-items:start}
+.grp:first-of-type{margin-top:clamp(34px,5vw,52px)}
+.grp:last-of-type{border-bottom:1px solid rgba(240,233,220,.16)}
+.grp .gt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.2vw,31px);font-weight:500;
+  line-height:1.16;letter-spacing:-.015em;color:var(--grnink)}
+.grp .gt em{font-style:normal;color:var(--grnacc);margin-right:11px}
+.grp .items{display:grid;gap:9px}
+.ri{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:baseline}
+.ri .rn{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:var(--grnmut)}
+.ri .rt{font-size:16.5px;line-height:1.4;color:var(--grnbody)}
+@media(max-width:720px){.grp{grid-template-columns:1fr;gap:16px}}
 
 /* ——— обзор этапов ——— */
 .ov{margin-top:clamp(30px,5vw,50px)}
 .ovi{display:grid;grid-template-columns:64px 1fr;gap:clamp(14px,2.4vw,26px);padding:clamp(20px,3vw,26px) 0;border-top:1px solid var(--line);align-items:baseline}
 .ovi:last-child{border-bottom:1px solid var(--line)}
 .ovi .on{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(19px,2.6vw,24px);color:var(--accsoft)}
-.ovi .ot{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--txt);line-height:1.4}
-.ovi .od{font-size:16px;color:var(--mut);margin-top:9px;max-width:60ch;line-height:1.6}
+.ovi .ot{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3vw,29px);font-weight:500;
+  letter-spacing:-.015em;color:var(--txt);line-height:1.14}
+.ovi .od{font-size:16px;color:var(--mut);margin-top:8px;max-width:52ch;line-height:1.55}
 @media(max-width:560px){.ovi{grid-template-columns:44px 1fr;gap:12px}}
 
 /* ——— глава-этап ——— */
-.chap{padding:clamp(64px,11vw,116px) 0;border-top:1px solid var(--line)}
+.chap{padding:clamp(72px,12vw,132px) 0;border-top:1px solid var(--line)}
 .chap .cn{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(46px,10vw,90px);font-weight:400;color:var(--accsoft);line-height:.9;letter-spacing:-.03em}
 .chap h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(32px,6.4vw,62px);font-weight:500;line-height:1.04;letter-spacing:-.02em;margin:14px 0 0;max-width:16ch}
 .chap .cintro{font-size:clamp(16px,2vw,19px);color:var(--mut);margin-top:24px;max-width:60ch;line-height:1.6}
@@ -98,13 +105,20 @@ h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54p
 .bi{display:grid;grid-template-columns:minmax(180px,236px) 1fr;gap:clamp(12px,3vw,34px);padding:clamp(16px,2.4vw,20px) 0;border-top:1px solid var(--line);align-items:baseline}
 .bi:last-child{border-bottom:1px solid var(--line)}
 .bi .bt{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accink);font-weight:700;line-height:1.5}
-.bi .bd{font-size:clamp(15.5px,1.85vw,17px);color:var(--body);line-height:1.62;max-width:56ch}
+.bi .bd{font-size:17px;color:var(--body);line-height:1.6;max-width:46ch}
 @media(max-width:680px){.bi{grid-template-columns:1fr;gap:7px}}
 
 /* ——— после этапа ——— */
-.after{margin-top:clamp(34px,4.5vw,46px);background:var(--grn);color:var(--grnink);padding:clamp(28px,4.6vw,44px)}
+/* лёгкий результат этапа (01–04) */
+.res{margin-top:clamp(30px,4vw,42px);padding-top:18px;border-top:1px solid var(--acc)}
+.res .rl{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accink);font-weight:700}
+.res .rx{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,2.8vw,27px);font-weight:400;
+  line-height:1.26;margin-top:12px;max-width:46ch;color:var(--txt)}
+/* кульминация — после этапа 05 */
+.after{margin-top:clamp(40px,6vw,64px);background:var(--grn);color:var(--grnink);padding:clamp(36px,6vw,66px)}
 .after .at{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--grnacc);font-weight:700}
-.after .ad{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(21px,3.2vw,31px);font-weight:400;line-height:1.28;margin-top:16px;max-width:44ch}
+.after .ad{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(26px,4.4vw,44px);font-weight:400;
+  line-height:1.2;letter-spacing:-.015em;margin-top:20px;max-width:20ch}
 
 /* ——— раскрытие ——— */
 .more{display:inline-flex;align-items:baseline;gap:11px;margin-top:clamp(24px,3.4vw,32px);
@@ -119,14 +133,14 @@ h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54p
 .deep > .dinner{overflow:hidden;min-height:0}
 .dbody{margin-top:clamp(26px,3.6vw,36px);padding-left:clamp(18px,3vw,32px);border-left:1px solid var(--line);max-width:66ch}
 .dnote{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);font-weight:700}
-.part{padding:clamp(18px,2.6vw,24px) 0;border-top:1px solid var(--line)}
+.part{padding:clamp(20px,3vw,28px) 0;border-top:1px solid var(--line)}
 .part:first-of-type{border-top:0;padding-top:18px}
 .part .pt{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:700}
-.part .pd{font-size:15.5px;color:var(--body);margin-top:9px;line-height:1.68}
+.part .pd{font-size:16.5px;color:var(--body);margin-top:10px;line-height:1.7;max-width:60ch}
 .part .pd + .pd{margin-top:11px}
 .dafter{margin-top:clamp(22px,3vw,28px);padding-top:20px;border-top:1px solid var(--line)}
 .dafter .dt{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:700}
-.dafter p{font-size:15.5px;color:var(--body);margin-top:9px;line-height:1.68}
+.dafter p{font-size:16.5px;color:var(--body);margin-top:10px;line-height:1.7;max-width:60ch}
 .dafter p + p{margin-top:11px}
 
 /* ——— место под визуал ——— */
@@ -138,8 +152,8 @@ h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54p
   border-top:1px solid rgba(240,233,220,.14);align-items:baseline}
 .si:last-child{border-bottom:1px solid rgba(240,233,220,.14)}
 .si .sn{font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:var(--grnacc)}
-.si .st{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(21px,3.4vw,33px);font-weight:400;
-  line-height:1.2;letter-spacing:-.015em;color:var(--grnink);max-width:24ch}
+.si .st{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.6vw,35px);font-weight:400;
+  line-height:1.18;letter-spacing:-.015em;color:var(--grnink);max-width:24ch}
 @media(max-width:560px){.si{grid-template-columns:34px 1fr;gap:10px}}
 
 /* ——— формат ——— */
@@ -154,8 +168,12 @@ h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54p
 .final .line{width:110px;height:1px;background:var(--grnacc)}
 .final h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(34px,7vw,68px);font-weight:400;color:var(--dkink);margin:34px 0 0;line-height:1.04}
 .final .rows{margin-top:clamp(40px,7vh,64px)}
-.final .fr{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding:20px 0;border-top:1px solid rgba(239,231,221,.14);font-size:clamp(15px,1.9vw,18px);color:var(--dkmut)}
-.final .fr b{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(24px,4.4vw,40px);font-weight:500;color:var(--dkink)}
+.final .fr{display:grid;grid-template-columns:minmax(190px,300px) 1fr;gap:clamp(12px,3vw,36px);
+  padding:clamp(18px,2.6vw,24px) 0;border-top:1px solid rgba(239,231,221,.14);align-items:baseline}
+.final .fr b{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(23px,4vw,37px);font-weight:500;color:var(--dkink);letter-spacing:-.02em}
+.final .fr span{font-size:16px;color:var(--dkmut);line-height:1.5;max-width:42ch}
+.final .fr.pay b{color:var(--grnacc)}
+@media(max-width:640px){.final .fr{grid-template-columns:1fr;gap:6px}}
 .final .fr:last-of-type{border-bottom:1px solid rgba(239,231,221,.14)}
 .final .note{font-size:15.5px;color:var(--dkmut);margin-top:30px;max-width:52ch;line-height:1.6}
 footer{background:var(--dk);color:#7d7466;font-size:14px;padding:0 0 46px}
@@ -219,7 +237,6 @@ body.lock{overflow:hidden}
   <a href="#stage-5"><i>05</i>Реализация</a>
   <div class="sep"></div>
   <a href="#results-final">Через 6–8 недель</a>
-  <a href="#format">Формат работы</a>
   <a href="#price">Стоимость</a>
 </nav>
 
@@ -239,7 +256,6 @@ body.lock{overflow:hidden}
   <a href="#stage-4"><i>04</i>Выбор</a>
   <a href="#stage-5"><i>05</i>Реализация</a>
   <a href="#results-final">Через 6–8 недель</a>
-  <a href="#format">Формат работы</a>
   <a href="#price">Стоимость</a>
 </div>
 
@@ -267,33 +283,33 @@ body.lock{overflow:hidden}
     <div class="qs">
       <div class="q">
         <div class="qn">01</div>
-        <div class="qt">Что строить?</div>
-        <div class="qd">Какие продукты имеют смысл и какую роль в общей конструкции должна играть книга?</div>
+        <div class="qt ser">Что строить?</div>
+        <div class="qd">Какие продукты имеют смысл и какую роль должна играть книга?</div>
       </div>
       <div class="q">
         <div class="qn">02</div>
-        <div class="qt">Для кого?</div>
-        <div class="qd">Какие аудитории действительно являются приоритетными?</div>
+        <div class="qt ser">Для кого?</div>
+        <div class="qd">Какие аудитории действительно приоритетны?</div>
       </div>
       <div class="q">
         <div class="qn">03</div>
-        <div class="qt">На что опереться?</div>
-        <div class="qd">Какие активы уже есть и каких не хватает для реализации замысла?</div>
+        <div class="qt ser">На что опереться?</div>
+        <div class="qd">Какие активы уже есть и каких не хватает?</div>
       </div>
       <div class="q">
         <div class="qn">04</div>
-        <div class="qt">С кем?</div>
-        <div class="qd">У кого уже есть необходимые нам активы — аудитория, доступ, компетенции, инфраструктура — и что мы можем предложить взамен?</div>
+        <div class="qt ser">С кем?</div>
+        <div class="qd">У кого уже есть необходимые нам активы — и что можем дать взамен?</div>
       </div>
       <div class="q">
         <div class="qn">05</div>
-        <div class="qt">Какой ход выбрать?</div>
-        <div class="qd">Какая комбинация решений способна дать больший эффект при меньших затратах ресурсов и одновременно открыть следующие возможности?</div>
+        <div class="qt ser">Какой ход выбрать?</div>
+        <div class="qd">Какая комбинация даст больший эффект при меньших затратах ресурсов?</div>
       </div>
       <div class="q">
         <div class="qn">06</div>
-        <div class="qt">Как реализовать?</div>
-        <div class="qd">Какие проекты нужны, в какой последовательности, какой командой и с каким бюджетом?</div>
+        <div class="qt ser">Как реализовать?</div>
+        <div class="qd">Что запускать, в какой последовательности, какой командой и с каким бюджетом?</div>
       </div>
     </div>
   </div>
@@ -306,7 +322,7 @@ body.lock{overflow:hidden}
     <h2>Стратегия — 13 результатов</h2>
 
     <div class="grp">
-      <div class="gt">I · Что строим</div>
+      <div class="gt ser"><em>I</em>Что строим</div>
       <div class="items">
         <div class="ri"><div class="rn">01</div><div class="rt">Видение и замыслы</div></div>
         <div class="ri"><div class="rn">02</div><div class="rt">Целевые аудитории</div></div>
@@ -316,7 +332,7 @@ body.lock{overflow:hidden}
     </div>
 
     <div class="grp">
-      <div class="gt">II · На что опираемся</div>
+      <div class="gt ser"><em>II</em>На что опираемся</div>
       <div class="items">
         <div class="ri"><div class="rn">05</div><div class="rt">Карта активов и дефицитов</div></div>
         <div class="ri"><div class="rn">06</div><div class="rt">Карта ключевых стейкхолдеров</div></div>
@@ -325,7 +341,7 @@ body.lock{overflow:hidden}
     </div>
 
     <div class="grp">
-      <div class="gt">III · Какой путь выбираем</div>
+      <div class="gt ser"><em>III</em>Какой путь выбираем</div>
       <div class="items">
         <div class="ri"><div class="rn">08</div><div class="rt">Стратегические рычаги и асимметричные ходы</div></div>
         <div class="ri"><div class="rn">09</div><div class="rt">Стратегические альтернативы и приоритеты</div></div>
@@ -333,7 +349,7 @@ body.lock{overflow:hidden}
     </div>
 
     <div class="grp">
-      <div class="gt">IV · Как реализуем</div>
+      <div class="gt ser"><em>IV</em>Как реализуем</div>
       <div class="items">
         <div class="ri"><div class="rn">10</div><div class="rt">Стратегический маршрут и дорожная карта</div></div>
         <div class="ri"><div class="rn">11</div><div class="rt">Конфигурация реализации</div></div>
@@ -342,11 +358,12 @@ body.lock{overflow:hidden}
     </div>
 
     <div class="grp">
-      <div class="gt">V · Как понимаем, что работает</div>
+      <div class="gt ser"><em>V</em>Как понимаем, что работает</div>
       <div class="items">
         <div class="ri"><div class="rn">13</div><div class="rt">Критерии эффективности</div></div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -359,36 +376,36 @@ body.lock{overflow:hidden}
       <div class="ovi">
         <div class="on">01</div>
         <div>
-          <div class="ot">Замыслы и рамка стратегии</div>
-          <div class="od">Определяем, чего хотим достичь и относительно чего принимаем решения.</div>
+          <div class="ot">Замыслы и рамка</div>
+          <div class="od">Что хотим построить и относительно чего принимаем решения.</div>
         </div>
       </div>
       <div class="ovi">
         <div class="on">02</div>
         <div>
           <div class="ot">Исходная позиция</div>
-          <div class="od">Проверяем спрос, продуктовые гипотезы, активы и дефициты.</div>
+          <div class="od">Где есть спрос, на что можем опереться и чего не хватает.</div>
         </div>
       </div>
       <div class="ovi">
         <div class="on">03</div>
         <div>
           <div class="ot">Стратегические варианты</div>
-          <div class="od">Собираем возможные комбинации продуктов, активов, стейкхолдеров и стратегических ходов.</div>
+          <div class="od">Какими способами можно реализовать замысел.</div>
         </div>
       </div>
       <div class="ovi">
         <div class="on">04</div>
         <div>
           <div class="ot">Выбор стратегии</div>
-          <div class="od">Сравниваем варианты и определяем, на чём концентрируем ресурсы.</div>
+          <div class="od">На какой комбинации решений имеет смысл концентрировать ресурсы.</div>
         </div>
       </div>
       <div class="ovi">
         <div class="on">05</div>
         <div>
           <div class="ot">Проектирование реализации</div>
-          <div class="od">Определяем проекты, последовательность, сроки, команду, бюджет и критерии результата.</div>
+          <div class="od">Что запускать, в каком порядке, какой командой и с каким бюджетом.</div>
         </div>
       </div>
     </div>
@@ -400,22 +417,22 @@ body.lock{overflow:hidden}
   <div class="wrap">
     <div class="cn">01</div>
     <h3 class="ser">Определяем замыслы и рамку стратегии</h3>
-    <p class="cintro">Определяем, каких результатов хотим достичь и относительно чего дальше будем выбирать стратегические решения.</p>
+    <p class="cintro">Фиксируем, чего хотим достичь и относительно чего дальше будем принимать решения.</p>
 
     <div class="brief">
       <div class="bi"><div class="bt">Видение и замыслы</div>
-        <div class="bd">Конкретизируем, к каким результатам хотим прийти и что именно должно быть воплощено.</div></div>
+        <div class="bd">Что именно хотим построить.</div></div>
       <div class="bi"><div class="bt">Роль книги</div>
-        <div class="bd">Определяем функцию книги в более широкой стратегической и продуктовой конструкции.</div></div>
+        <div class="bd">Какую функцию книга играет в общей конструкции.</div></div>
       <div class="bi"><div class="bt">Продукты и аудитории</div>
-        <div class="bd">Формируем первоначальные продуктовые и аудиторные гипотезы для последующей проверки.</div></div>
+        <div class="bd">Какие первоначальные гипотезы необходимо проверить.</div></div>
       <div class="bi"><div class="bt">Критерии выбора</div>
-        <div class="bd">Определяем горизонт стратегии и параметры, относительно которых будем оценивать возможные решения.</div></div>
+        <div class="bd">Относительно чего будем сравнивать дальнейшие варианты.</div></div>
     </div>
 
-    <div class="after">
-      <div class="at">После этапа</div>
-      <div class="ad ser">Понятно, что именно хотим построить и относительно каких результатов дальше исследуем возможности.</div>
+    <div class="res">
+      <div class="rl">После этапа</div>
+      <div class="rx ser">Понятно, что хотим построить и относительно чего дальше исследуем возможности.</div>
     </div>
 
     <button class="more" type="button" aria-expanded="false" aria-controls="deep-1">
@@ -451,24 +468,24 @@ body.lock{overflow:hidden}
   <div class="wrap">
     <div class="cn">02</div>
     <h3 class="ser">Исследуем исходную позицию</h3>
-    <p class="cintro">Проверяем первоначальные гипотезы и определяем реальные возможности и ограничения.</p>
+    <p class="cintro">Проверяем гипотезы и понимаем реальные возможности и ограничения.</p>
 
     <div class="brief">
       <div class="bi"><div class="bt">Аудитории</div>
-        <div class="bd">Определяем приоритетные сегменты и проверяем реальный спрос.</div></div>
+        <div class="bd">Где существует реальный спрос.</div></div>
       <div class="bi"><div class="bt">Продуктовые гипотезы</div>
-        <div class="bd">Проверяем, какие идеи имеют основания, а какие необходимо изменить или исключить.</div></div>
+        <div class="bd">Что подтверждается, а что требует изменения.</div></div>
       <div class="bi"><div class="bt">Рынок</div>
-        <div class="bd">Исследуем существующие решения, аналоги и свободные возможности.</div></div>
+        <div class="bd">Какие решения уже существуют и где есть возможности.</div></div>
       <div class="bi"><div class="bt">Активы</div>
-        <div class="bd">Определяем, на что уже можем опереться и какие активы действительно имеют стратегическую ценность.</div></div>
+        <div class="bd">На что уже можем опереться.</div></div>
       <div class="bi"><div class="bt">Дефициты</div>
-        <div class="bd">Выявляем, чего не хватает для реализации перспективных замыслов.</div></div>
+        <div class="bd">Чего не хватает для реализации замысла.</div></div>
     </div>
 
-    <div class="after">
-      <div class="at">После этапа</div>
-      <div class="ad ser">Понятно, где существует реальный спрос, на что можем опереться и чего не хватает для реализации замыслов.</div>
+    <div class="res">
+      <div class="rl">После этапа</div>
+      <div class="rx ser">Понятно, где есть спрос, на что можем опереться и чего нам не хватает.</div>
     </div>
 
     <button class="more" type="button" aria-expanded="false" aria-controls="deep-2">
@@ -507,26 +524,24 @@ body.lock{overflow:hidden}
   <div class="wrap">
     <div class="cn">03</div>
     <h3 class="ser">Формируем стратегические варианты</h3>
-    <p class="cintro">На основании исследования собираем несколько целостных способов реализации замыслов.</p>
+    <p class="cintro">Ищем несколько сильных способов реализации замысла.</p>
 
     <div class="brief">
-      <div class="bi"><div class="bt">Продуктовая конструкция</div>
-        <div class="bd">Уточняем продукты, аудитории, роль книги и взаимосвязи между продуктами.</div></div>
-      <div class="bi"><div class="bt">Смыслы и позиционирование</div>
-        <div class="bd">Определяем смысловое поле Светланы, книги и будущих продуктов.</div></div>
+      <div class="bi"><div class="bt">Продукты</div>
+        <div class="bd">Что и для кого имеет смысл создавать.</div></div>
+      <div class="bi"><div class="bt">Смыслы</div>
+        <div class="bd">Какую позицию занимает Светлана и её проекты.</div></div>
       <div class="bi"><div class="bt">Стейкхолдеры</div>
-        <div class="bd">Ищем людей и организации, у которых уже существуют необходимые нам активы.</div></div>
+        <div class="bd">У кого есть необходимые нам активы.</div></div>
       <div class="bi"><div class="bt">Взаимная ценность</div>
-        <div class="bd">Определяем, на чём может строиться взаимовыгодное взаимодействие.</div></div>
-      <div class="bi"><div class="bt">Стратегические рычаги</div>
-        <div class="bd">Ищем точки, воздействие на которые способно дать непропорционально большой результат.</div></div>
-      <div class="bi"><div class="bt">Асимметричные ходы</div>
-        <div class="bd">Собираем конкретные комбинации действий, способные одновременно решать несколько задач и создавать следующие возможности.</div></div>
+        <div class="bd">Что можем дать друг другу.</div></div>
+      <div class="bi"><div class="bt">Рычаги и ходы</div>
+        <div class="bd">Какие комбинации способны дать непропорционально большой эффект.</div></div>
     </div>
 
-    <div class="after">
-      <div class="at">После этапа</div>
-      <div class="ad ser">Сформированы несколько обоснованных вариантов того, как можно реализовать замыслы.</div>
+    <div class="res">
+      <div class="rl">После этапа</div>
+      <div class="rx ser">Есть несколько обоснованных вариантов того, как можно реализовать замысел.</div>
     </div>
 
     <button class="more" type="button" aria-expanded="false" aria-controls="deep-3">
@@ -564,24 +579,24 @@ body.lock{overflow:hidden}
   <div class="wrap">
     <div class="cn">04</div>
     <h3 class="ser">Выбираем стратегию</h3>
-    <p class="cintro">Сравниваем сформированные варианты и выбираем комбинацию решений, на которой имеет смысл концентрировать ресурсы.</p>
+    <p class="cintro">Сравниваем варианты и определяем, на чём имеет смысл концентрировать ресурсы.</p>
 
     <div class="brief">
-      <div class="bi"><div class="bt">Альтернативы</div>
-        <div class="bd">Сравниваем несколько целостных вариантов движения.</div></div>
-      <div class="bi"><div class="bt">Эффект и ресурсы</div>
-        <div class="bd">Оцениваем потенциальный результат и необходимый объём ресурсов.</div></div>
-      <div class="bi"><div class="bt">Скорость, риски и зависимости</div>
-        <div class="bd">Смотрим, когда может появиться результат и от чего зависит успех каждого варианта.</div></div>
-      <div class="bi"><div class="bt">Накопительный эффект</div>
-        <div class="bd">Оцениваем, какие новые активы и следующие возможности создаёт каждый вариант.</div></div>
-      <div class="bi"><div class="bt">Приоритеты</div>
-        <div class="bd">Определяем, на каких продуктах, аудиториях, стейкхолдерах и ходах концентрируем ресурсы — и от чего сознательно отказываемся.</div></div>
+      <div class="bi"><div class="bt">Эффект</div>
+        <div class="bd">Какой результат способен дать вариант.</div></div>
+      <div class="bi"><div class="bt">Ресурсы</div>
+        <div class="bd">Что потребуется для его реализации.</div></div>
+      <div class="bi"><div class="bt">Скорость и риски</div>
+        <div class="bd">Когда может появиться результат и от чего он зависит.</div></div>
+      <div class="bi"><div class="bt">Новые возможности</div>
+        <div class="bd">Какие активы и следующие ходы создаёт вариант.</div></div>
+      <div class="bi"><div class="bt">Приоритет</div>
+        <div class="bd">Что выбираем — и от чего сознательно отказываемся.</div></div>
     </div>
 
-    <div class="after">
-      <div class="at">После этапа</div>
-      <div class="ad ser">Выбран конкретный стратегический вариант и зафиксировано, почему именно он становится приоритетным.</div>
+    <div class="res">
+      <div class="rl">После этапа</div>
+      <div class="rx ser">Выбран стратегический вариант и понятно, почему именно он.</div>
     </div>
 
     <button class="more" type="button" aria-expanded="false" aria-controls="deep-4">
@@ -615,24 +630,24 @@ body.lock{overflow:hidden}
   <div class="wrap">
     <div class="cn">05</div>
     <h3 class="ser">Проектируем реализацию</h3>
-    <p class="cintro">Переводим выбранную стратегию в конкретную конструкцию, по которой можно начинать действовать.</p>
+    <p class="cintro">Переводим выбранную стратегию в конкретный план действий.</p>
 
     <div class="brief">
       <div class="bi"><div class="bt">Проекты</div>
-        <div class="bd">Определяем, какие конкретные проекты необходимо запустить.</div></div>
+        <div class="bd">Что необходимо запустить.</div></div>
       <div class="bi"><div class="bt">Последовательность и сроки</div>
-        <div class="bd">Определяем порядок действий, зависимости, контрольные точки и временной план.</div></div>
+        <div class="bd">Что за чем происходит и когда.</div></div>
       <div class="bi"><div class="bt">Команда</div>
-        <div class="bd">Определяем необходимые роли и компетенции и то, кого потребуется привлечь.</div></div>
+        <div class="bd">Какие роли и компетенции необходимы.</div></div>
       <div class="bi"><div class="bt">Бюджет</div>
-        <div class="bd">Формируем сценарии реализации с различным объёмом ресурсов, скоростью и масштабом.</div></div>
-      <div class="bi"><div class="bt">Критерии эффективности</div>
-        <div class="bd">Определяем, по каким показателям будем оценивать движение и принимать дальнейшие решения.</div></div>
+        <div class="bd">Каких ресурсов требует реализация.</div></div>
+      <div class="bi"><div class="bt">Критерии</div>
+        <div class="bd">Как понимаем, что движемся правильно.</div></div>
     </div>
 
     <div class="after">
       <div class="at">После этапа</div>
-      <div class="ad ser">Есть выбранная стратегия и спроектированный маршрут, по которому можно начинать её реализацию.</div>
+      <div class="ad ser">Есть выбранная и обоснованная стратегия и спроектированный маршрут, по которому можно начинать её реализацию.</div>
     </div>
 
     <button class="more" type="button" aria-expanded="false" aria-controls="deep-5">
@@ -680,35 +695,13 @@ body.lock{overflow:hidden}
   </div>
 </section>
 
-<!-- ФОРМАТ -->
-<section id="format">
-  <div class="wrap">
-    <div class="eyebrow">Формат</div>
-    <h2>Как устроена работа</h2>
-    <div class="fmt">
-      <div class="fi">
-        <div class="fv ser">6–8 недель</div>
-        <div class="fd">Срок проектирования.</div>
-      </div>
-      <div class="fi">
-        <div class="fv ser">6 рабочих созвонов</div>
-        <div class="fd">Рабочие встречи и обсуждение промежуточных решений.</div>
-      </div>
-      <div class="fi">
-        <div class="fv ser">Между встречами</div>
-        <div class="fd">Исследование, аналитика, проверка гипотез и проектирование решений.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ГРАНИЦА -->
 <section id="boundary">
   <div class="wrap narrow">
     <div class="eyebrow">Граница этапов</div>
     <h2>После проектирования становится понятно, что именно нужно реализовать</h2>
-    <p class="lead">К этому моменту определены приоритетные проекты, их последовательность, объём работ, сроки, необходимые компетенции, конфигурация команды и бюджетные сценарии.</p>
-    <p class="lead">На основании этого отдельно определяется состав, сроки и стоимость этапа реализации.</p>
+    <p class="lead">К этому моменту понятны проекты, объём работ, последовательность, сроки, необходимые компетенции и бюджетные сценарии.</p>
+    <p class="lead">После этого отдельно определяются состав, сроки и стоимость реализации.</p>
   </div>
 </section>
 
@@ -718,9 +711,10 @@ body.lock{overflow:hidden}
     <div class="line"></div>
     <h2 class="ser">Проектирование<br>стратегии</h2>
     <div class="rows">
-      <div class="fr"><span>Срок</span><b>6–8 недель</b></div>
-      <div class="fr"><span>Встречи</span><b>6 рабочих созвонов</b></div>
-      <div class="fr"><span>Стоимость</span><b>600 000 ₽</b></div>
+      <div class="fr"><b>6–8 недель</b><span>Проектирование стратегии</span></div>
+      <div class="fr"><b>6 рабочих созвонов</b><span>Обсуждение промежуточных решений</span></div>
+      <div class="fr"><b>Между встречами</b><span>Исследование, аналитика, проверка гипотез и проектирование решений</span></div>
+      <div class="fr pay"><b>600 000 ₽</b><span></span></div>
     </div>
     <p class="note">Результат — выбранная и обоснованная стратегия и спроектированный маршрут её реализации.</p>
   </div>
@@ -744,7 +738,7 @@ window.addEventListener('load',function(){ if(!location.hash) window.scrollTo(0,
   var LABELS={'task':'Задача','results-overview':'Стратегия — 13 результатов','process':'Как строится работа',
     'stage-1':'01 · Замыслы','stage-2':'02 · Исходная позиция','stage-3':'03 · Стратегические варианты',
     'stage-4':'04 · Выбор стратегии','stage-5':'05 · Проектирование реализации',
-    'results-final':'Через 6–8 недель','format':'Формат работы','boundary':'Проектирование и реализация','price':'Стоимость'};
+    'results-final':'Через 6–8 недель','boundary':'Проектирование и реализация','price':'Стоимость'};
 
   /* ——— раскрытия ——— */
   document.querySelectorAll('.more').forEach(function(btn){
