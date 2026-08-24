@@ -23,22 +23,28 @@ body{background:var(--bg);color:var(--txt);font-family:'Instrument Sans',-apple-
 .narrow{max-width:720px}
 
 /* ——— обложка ——— */
-.cover{background:var(--grn);color:var(--grnink);min-height:88vh;display:flex;flex-direction:column;justify-content:center;padding:clamp(70px,12vh,120px) 0;position:relative;overflow:hidden}
-.cover .wrap{display:grid;grid-template-columns:1fr minmax(220px,306px);gap:clamp(30px,6vw,72px);align-items:center}
+.cover{background:var(--grn);color:var(--grnink);min-height:100vh;display:flex;flex-direction:column;
+  justify-content:center;padding:clamp(70px,12vh,120px) 0;position:relative;overflow:hidden}
+.cover .wrap{position:relative;z-index:2;max-width:880px;width:100%}
+.cover .col{max-width:min(56%,560px)}
 .cover .line{width:110px;height:1px;background:var(--grnacc)}
-.cover .por{position:relative}
-.cover .por img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;object-position:50% 18%;
-  filter:saturate(.88) contrast(1.02)}
-.cover .por::after{content:'';position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,rgba(11,30,26,.10) 0%,rgba(11,30,26,0) 34%,rgba(11,30,26,.30) 100%)}
-.cover .cap{margin-top:14px;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--grnmut)}
-@media(max-width:860px){
-  .cover .wrap{grid-template-columns:1fr;gap:clamp(30px,7vw,44px)}
-  .cover .por{max-width:236px}
-}
 .cover h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(42px,9vw,92px);font-weight:400;line-height:1.02;letter-spacing:-.02em;margin:38px 0 0}
 .cover .sub{font-size:clamp(16px,2.2vw,22px);color:var(--grnbody);margin-top:26px;font-weight:400}
 .cover .facts{margin-top:clamp(48px,9vh,86px);display:flex;gap:clamp(28px,6vw,64px);flex-wrap:wrap;font-size:clamp(14px,1.7vw,17px);color:var(--grnmut);letter-spacing:.02em}
+.cover .por{position:absolute;top:0;right:0;bottom:0;width:clamp(360px,42vw,720px);z-index:1}
+.cover .por img{width:100%;height:100%;object-fit:cover;object-position:52% 22%;display:block;filter:saturate(.9)}
+.cover .por::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,var(--grn) 0%,rgba(11,30,26,.86) 26%,rgba(11,30,26,.14) 68%,rgba(11,30,26,.34) 100%)}
+.cover .cap{position:absolute;right:clamp(20px,4vw,48px);bottom:clamp(22px,4vh,40px);z-index:3;
+  font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--grnmut)}
+@media(max-width:900px){
+  .cover{min-height:auto;padding:0}
+  .cover .por{position:relative;width:100%;height:52vh;min-height:320px}
+  .cover .por::after{background:linear-gradient(180deg,rgba(11,30,26,.16) 0%,rgba(11,30,26,.05) 40%,var(--grn) 100%)}
+  .cover .wrap{padding-top:clamp(28px,5vh,44px);padding-bottom:clamp(56px,10vh,90px)}
+  .cover .col{max-width:none}
+  .cover .cap{right:auto;left:clamp(20px,5vw,40px);bottom:auto;top:clamp(12px,2.4vh,20px)}
+}
 
 /* ——— общие ——— */
 section{padding:clamp(62px,11vw,120px) 0}
@@ -239,16 +245,14 @@ body.lock{overflow:hidden}
 
 <!-- ОБЛОЖКА -->
 <header class="cover" id="cover">
+  <div class="por"><img src="svetlana-cover.jpg" alt="Светлана Шмакова"></div>
+  <div class="cap">Светлана Шмакова</div>
   <div class="wrap">
-    <div>
+    <div class="col">
       <div class="line"></div>
       <h1 class="ser">Проектирование<br>стратегии</h1>
       <div class="sub">Состав, этапы и результаты работы</div>
       <div class="facts"><span>6–8 недель</span><span>6 рабочих созвонов</span></div>
-    </div>
-    <div>
-      <div class="por"><img src="svetlana-cover.jpg" alt="Светлана Шмакова" width="853" height="1137"></div>
-      <div class="cap">Светлана Шмакова</div>
     </div>
   </div>
 </header>
