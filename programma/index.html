@@ -388,18 +388,19 @@ footer{background:var(--dk);color:#7a7264;font-size:13.5px;padding:0 0 44px;lett
 
 /* ═══════════ ИСХОДНАЯ СИТУАЦИЯ — досье ═══════════ */
 #situation{padding-bottom:clamp(90px,13vw,180px)}
+/* служебный заголовок раздела уступает смысловой кульминации */
+#situation h2{font-size:clamp(26px,3.2vw,36px);font-weight:500;letter-spacing:-.018em;max-width:none}
 .dossier{margin-top:clamp(52px,8vw,96px)}
 
 /* 1 · входной объект */
-.d1{display:grid;grid-template-columns:minmax(260px,42%) 1fr;gap:clamp(24px,5vw,72px);align-items:start;
-  padding-bottom:clamp(46px,7vw,80px)}
-.d1 .dt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(27px,3.6vw,38px);font-weight:500;
+.d1{display:grid;grid-template-columns:minmax(280px,44%) 1fr;gap:clamp(24px,5vw,72px);align-items:start;
+  padding-bottom:clamp(50px,7.4vw,86px)}
+.d1 .dt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(29px,3.9vw,42px);font-weight:500;
   line-height:1.1;letter-spacing:-.02em;text-wrap:balance;hyphens:none}
 .d1 .dd{font-size:17px;color:var(--body);line-height:1.64;max-width:46ch;padding-top:6px}
 
 /* 2 · смысловой поворот — кульминация блока */
-.d2{padding:clamp(52px,7vw,88px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  max-width:960px}
+.d2{padding:clamp(56px,7.6vw,96px) 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .d2 .dt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(34px,5.4vw,60px);font-weight:400;
   line-height:1.04;letter-spacing:-.028em;max-width:15ch;text-wrap:balance;hyphens:none}
 .d2 .dd{font-size:clamp(17px,1.9vw,19px);color:var(--body);line-height:1.6;max-width:50ch;
@@ -407,7 +408,7 @@ footer{background:var(--dk);color:#7a7264;font-size:13.5px;padding:0 0 44px;lett
 
 /* 3 · ресурсное основание — компактно и аналитично */
 .d3{display:grid;grid-template-columns:minmax(180px,240px) 1fr;gap:clamp(18px,4vw,54px);align-items:baseline;
-  padding-top:clamp(40px,5.6vw,64px);max-width:860px}
+  padding-top:clamp(44px,6vw,70px)}
 .d3 .dt{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);font-weight:700;line-height:1.5}
 .d3 .dd{font-size:17px;color:var(--body);line-height:1.62;max-width:48ch}
 @media(max-width:820px){
@@ -423,7 +424,7 @@ footer{background:var(--dk);color:#7a7264;font-size:13.5px;padding:0 0 44px;lett
 .hyi{display:grid;grid-template-columns:44px 1fr;gap:clamp(12px,2vw,20px);align-items:baseline;
   padding:clamp(20px,2.8vw,26px) 0;border-bottom:1px solid var(--hair);max-width:800px}
 .hyi:first-of-type{border-top:1px solid var(--hair);margin-top:22px}
-.hyi .hn{font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;color:var(--acc);letter-spacing:.04em}
+.hyi .hn{font-family:'Cormorant Garamond',Georgia,serif;font-size:20px;color:var(--acc);letter-spacing:.04em}
 .hyi .hx{font-size:17px;color:var(--body);line-height:1.6;max-width:48ch}
 .hynote{font-size:15.5px;color:var(--mut);margin-top:20px;max-width:46ch;line-height:1.55;padding-left:clamp(44px,6vw,64px)}
 @media(max-width:620px){
@@ -439,9 +440,9 @@ footer{background:var(--dk);color:#7a7264;font-size:13.5px;padding:0 0 44px;lett
 
 /* ═══════════ ЗАДАЧА — аналитическая рамка ═══════════ */
 .task{padding:var(--sp) 0}
-.task .thead{max-width:640px}
-.task .th{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(24px,2.9vw,32px);font-weight:500;
-  line-height:1.14;letter-spacing:-.018em;margin-top:18px;max-width:22ch;text-wrap:balance;hyphens:none}
+.task .thead{max-width:720px}
+.task .th{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(25px,3vw,34px);font-weight:500;
+  line-height:1.12;letter-spacing:-.018em;margin-top:18px;max-width:30ch;text-wrap:balance;hyphens:none}
 .task .tsub{font-size:16.5px;color:var(--mut);margin-top:18px;max-width:50ch;line-height:1.56}
 
 .phases{margin-top:clamp(58px,9vw,110px)}
