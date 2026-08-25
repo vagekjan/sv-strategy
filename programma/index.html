@@ -461,6 +461,28 @@ h2,.dsi .dt,.qq .qt,.lg .lt2,.mi3 .mv{text-wrap:balance}
   .phase .pl{font-size:20px}
 }
 
+
+/* 15 · «Задача»: группы — тихая ось, вопросы — главный объект */
+.task .th{font-size:clamp(23px,2.6vw,29px);max-width:34ch;color:var(--body);font-weight:500;
+  letter-spacing:-.012em;line-height:1.16}
+.task .tsub{font-size:16.5px;color:var(--mut);max-width:50ch;margin-top:16px}
+.phases{padding-top:clamp(52px,7vw,86px)}
+.phase{grid-template-columns:minmax(130px,190px) 1fr;padding:clamp(38px,5.4vw,62px) 0;align-items:start}
+.phase:first-child{border-top:1px solid var(--line);padding-top:clamp(32px,4.4vw,46px)}
+.phase + .phase{border-top:1px solid var(--hair)}
+.phase .pl{font-family:'Instrument Sans',sans-serif;font-size:12px;letter-spacing:.2em;text-transform:uppercase;
+  font-weight:700;color:var(--mut);padding-top:11px;line-height:1.4}
+.phase .pq{gap:clamp(30px,4.4vw,64px)}
+.qq .qn{font-size:15px}
+.qq .qt{font-size:clamp(26px,3.4vw,36px);margin-top:11px}
+.qq .qd{font-size:16px;color:var(--mut);margin-top:13px;max-width:33ch}
+@media(max-width:860px){.phase{grid-template-columns:1fr;gap:22px}.phase .pl{padding-top:0}}
+@media(max-width:620px){
+  .task .th{font-size:22px;max-width:none}
+  .qq .qt{font-size:25px}
+  .phase{padding:clamp(30px,7vw,40px) 0}
+}
+
 </style>
 </head>
 <body>
