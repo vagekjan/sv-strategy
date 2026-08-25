@@ -422,6 +422,16 @@ footer{background:var(--dk);color:#7a7264;font-size:13.5px;padding:0 0 44px;lett
 .chap.peak .res .rx{font-size:clamp(23px,3.2vw,33px)}
 @media(max-width:880px){.chap.peak .top{grid-template-columns:1fr}}
 
+
+/* 12 · крупные statement: ровные строки, без разрывов по дефису */
+.statement{max-width:30ch;text-wrap:balance;hyphens:none}
+.task .th{text-wrap:balance;hyphens:none}
+h2,h3,.cover h1,.final h2,.dsi .dt,.qq .qt,.ri .rt,.res .rx,.cert .cd,.bt2.lead2,.lg .lt2,.mi3 .mv{
+  hyphens:none;overflow-wrap:normal}
+h2,.dsi .dt,.qq .qt,.lg .lt2,.mi3 .mv{text-wrap:balance}
+.nb{white-space:nowrap}
+@media(max-width:620px){.statement{max-width:none}}
+
 </style>
 </head>
 <body>
@@ -491,7 +501,7 @@ footer{background:var(--dk);color:#7a7264;font-size:13.5px;padding:0 0 44px;lett
         <p>Обе гипотезы требуют проверки и могут измениться в ходе исследования.</p>
       </div>
     </div>
-    <p class="statement ser">Задача проектирования — не подтвердить заранее выбранную идею, а найти наиболее сильную конструкцию относительно личного и бизнес-замысла Светланы.</p>
+    <p class="statement ser">Задача проектирования — не подтвердить заранее выбранную идею, а найти наиболее сильную конструкцию относительно личного и <span class="nb">бизнес-замысла</span> Светланы.</p>
   </div>
 </section>
 
@@ -833,7 +843,7 @@ footer{background:var(--dk);color:#7a7264;font-size:13.5px;padding:0 0 44px;lett
     <div class="col"><div class="eyebrow">Через 6–8 недель</div>
     <h2>От набора возможностей — к обоснованной стратегии</h2></div>
     <div class="certs">
-      <div class="cert"><div class="ct">Что строить</div><div class="cd ser">Понятна продуктовая и бизнес-конструкция, которая соответствует исходному замыслу.</div></div>
+      <div class="cert"><div class="ct">Что строить</div><div class="cd ser">Понятна продуктовая и <span class="nb">бизнес-конструкция</span>, которая соответствует исходному замыслу.</div></div>
       <div class="cert"><div class="ct">Для кого</div><div class="cd ser">Понятно, какие аудитории приоритетны и какую ценность для них создаём.</div></div>
       <div class="cert"><div class="ct">На что опереться</div><div class="cd ser">Понятно, какие активы уже есть, чего не хватает и где находятся недостающие возможности.</div></div>
       <div class="cert"><div class="ct">С кем</div><div class="cd ser">Понятно, какие стейкхолдеры могут усилить конструкцию и на чём строится взаимная ценность.</div></div>
