@@ -256,9 +256,7 @@ body.lock{overflow:hidden}
 .more.onDark{color:var(--gracc);border-bottom-color:var(--grline)}
 .more.onDark:hover{color:var(--grink);border-bottom-color:var(--gracc)}
 .more.onDark .sign{color:var(--gracc)}
-.deep{display:grid;grid-template-rows:0fr;transition:grid-template-rows .42s cubic-bezier(.4,0,.2,1)}
-.deep.on{grid-template-rows:1fr}
-.deep > .dinner{overflow:hidden;min-height:0}
+.deep{max-height:0;overflow:hidden;transition:max-height .42s cubic-bezier(.4,0,.2,1)}
 .dbody{margin-top:clamp(26px,3.6vw,36px);padding-left:clamp(18px,3vw,32px);border-left:1px solid var(--line);max-width:64ch}
 .dgroup{padding:clamp(20px,3vw,26px) 0;border-top:1px solid var(--line)}
 .dgroup:first-of-type{border-top:0;padding-top:14px}
@@ -313,6 +311,117 @@ body.lock{overflow:hidden}
 footer{background:var(--dk);color:#7a7264;font-size:13.5px;padding:0 0 44px;letter-spacing:.02em}
 
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto !important;transition:none !important}}
+
+/* ═══ ITERATION 2 ═══ */
+
+/* 1 · архитектура: сборка системы 01–08 → 09–11 → 12 */
+.lay{padding:clamp(18px,2.4vw,24px) 0 clamp(18px,2.4vw,24px) clamp(34px,5vw,64px)}
+.lay::before{top:calc(clamp(18px,2.4vw,24px) + 9px)}
+.lay.grp{margin-top:clamp(30px,4vw,44px);margin-bottom:clamp(30px,4vw,44px);
+  padding-top:clamp(28px,3.6vw,36px);padding-bottom:clamp(28px,3.6vw,36px)}
+.lay.grp::before{top:calc(clamp(28px,3.6vw,36px) + 9px);width:15px;height:15px}
+.lay.last{padding-top:clamp(28px,3.6vw,36px)}
+.lay.last::before{top:calc(clamp(28px,3.6vw,36px) + 9px);background:var(--gracc);width:9px;height:9px;
+  border-color:var(--gracc)}
+.arch::before{bottom:auto;height:calc(100% - 30px)}
+
+/* 2 · этапы 02–03 как рабочая пара */
+#stage-2{border-top:1px solid var(--line)}
+#stage-3{border-top:0;padding-top:clamp(46px,7vw,86px)}
+#stage-2,#stage-3{background:var(--paper2)}
+#stage-2{padding-bottom:clamp(46px,7vw,86px)}
+#stage-3 .top{position:relative}
+#stage-3 .cn::before{content:'';position:absolute;left:0;top:calc(-1 * clamp(24px,3.6vw,44px));
+  width:34px;height:1px;background:var(--acc)}
+/* 05 — выход из исследования в проектирование реализации */
+#stage-5{border-top:1px solid var(--acc)}
+
+/* 3 · финальная треть: ускорить проход перед ценой */
+#next{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,8vw,104px)}
+#next h2{font-size:clamp(30px,4.6vw,48px)}
+#next .lead{margin-top:18px;font-size:clamp(16.5px,1.8vw,18.5px)}
+.bnd{margin-top:clamp(34px,4.4vw,50px)}
+.bi2{padding:clamp(19px,2.6vw,25px) 0}
+.bt2{font-size:16px}
+.bt2.lead2{font-size:clamp(19px,2.3vw,23px)}
+#results-final{padding-bottom:clamp(66px,9vw,116px)}
+
+/* 4 · читаемость мелких подписей */
+@media(max-width:760px){
+  .eyebrow,.lay .lt,.motif .cap,.phase .pl,.focus .fl,.res .rl,.bl,.cert .ct,.dgroup .dh,
+  .sheet .tg,.hypo .hl,.dark .part .pt{font-size:12px;letter-spacing:.16em}
+  .sheet .sh span{font-size:12px}
+}
+
+/* 5 · mobile: схемы крупнее и чётче */
+@media(max-width:760px){
+  .motif{margin-left:calc(-1 * clamp(22px,5vw,56px));margin-right:calc(-1 * clamp(22px,5vw,56px))}
+  .motif svg{padding:0 8px}
+  .motif .cap{margin-left:clamp(22px,5vw,56px)}
+  .proc .canvas{margin-left:calc(-1 * clamp(10px,3vw,30px));margin-right:calc(-1 * clamp(10px,3vw,30px))}
+  .chap .top{gap:26px}
+}
+/* 6 · mobile: фокус этапа вертикальным списком без висячих точек */
+@media(max-width:620px){
+  .focus ul{display:block}
+  .focus li{display:block;padding:3px 0}
+  .focus li:not(:last-child)::after{content:none}
+  .focus li::before{content:'';display:inline-block;width:8px;height:1px;background:var(--acc);
+    vertical-align:middle;margin-right:11px}
+  .chap.peak .focus li::before{background:var(--gracc)}
+}
+/* 7 · mobile: ритм и плотность */
+@media(max-width:620px){
+  :root{--sp:clamp(58px,13vw,86px)}
+  .chap{padding:clamp(60px,14vw,92px) 0}
+  .chap.peak{padding:clamp(78px,18vw,120px) 0}
+  .task .hero{min-height:auto;padding:clamp(70px,16vh,110px) 0}
+  .phase{padding:clamp(24px,6vw,34px) 0}
+  .dossier{gap:24px}
+  .lay .items{gap:16px}
+  .final{min-height:auto;padding:clamp(70px,14vh,110px) 0}
+  .final .price{margin-top:clamp(32px,6vh,52px)}
+  .final .terms{margin-top:clamp(36px,7vh,60px)}
+}
+/* 8 · touch targets */
+@media(hover:none){
+  .more{padding:10px 0}
+  .sheet a{padding:15px 0}
+  .nav button{padding:10px 0}
+  .nav .track a{padding:8px 3px}
+}
+
+
+/* 9 · длинные «После этапа» на мобильном */
+@media(max-width:620px){
+  .res .rx{font-size:20px;line-height:1.3}
+  .chap .cintro{font-size:17px}
+  .statement{font-size:clamp(23px,6vw,30px)}
+  #next h2,h2{font-size:clamp(30px,8vw,40px)}
+  .task .th{font-size:clamp(38px,11vw,52px)}
+}
+
+/* 10 · длина строки: кириллица уже латиницы, ужимаем колонки */
+.lead{max-width:52ch}
+.bt2{max-width:50ch}
+.dgroup p,.dgroup ul{max-width:50ch}
+.dsi .dd{max-width:46ch}
+.ri .rs{max-width:42ch}
+.remark{max-width:54ch}
+.hypo .hb p{max-width:48ch}
+.dark .part .pd{max-width:50ch}
+
+/* 11 · этап 04: вес кульминации выше соседних */
+.chap.peak{padding:clamp(120px,17vw,220px) 0}
+.chap.peak .top{grid-template-columns:1fr minmax(320px,540px);gap:clamp(36px,6vw,96px)}
+.chap.peak .cn{font-size:clamp(60px,10vw,116px)}
+.chap.peak h3{font-size:clamp(38px,6vw,68px)}
+.chap.peak .cintro{font-size:clamp(18px,2vw,21px);max-width:42ch}
+.chap.peak .focus{margin-top:clamp(52px,7vw,80px)}
+.chap.peak .res{margin-top:clamp(44px,5.6vw,60px)}
+.chap.peak .res .rx{font-size:clamp(23px,3.2vw,33px)}
+@media(max-width:880px){.chap.peak .top{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -480,7 +589,7 @@ footer{background:var(--dk);color:#7a7264;font-size:13.5px;padding:0 0 44px;lett
           <div class="ri"><div class="rn">11</div><div><div class="rt ser">Бюджет и сценарии</div><div class="rs">Какие ресурсы нужны и чем отличаются сценарии.</div></div></div>
         </div>
       </div>
-      <div class="lay">
+      <div class="lay last">
         <div class="lt">Как оцениваем движение</div>
         <div class="items">
           <div class="ri"><div class="rn">12</div><div><div class="rt ser">Критерии эффективности</div><div class="rs">По чему понимаем, что движемся к замыслу.</div></div></div>
@@ -616,7 +725,7 @@ footer{background:var(--dk);color:#7a7264;font-size:13.5px;padding:0 0 44px;lett
         <h3 class="ser">Стратегические конфигурации</h3>
         <p class="cintro">Что действительно имеет смысл строить и как соединить продукты, аудитории, смыслы, ресурсы и потенциальных партнёров в работающую стратегическую конструкцию.</p>
       </div>
-      <div class="motif"><svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="140" cy="150" r="2.5" fill="#cdc4b8" opacity="0.45"/><circle cx="100" cy="246" r="2.5" fill="#cdc4b8" opacity="0.45"/><circle cx="332" cy="52" r="2.5" fill="#cdc4b8" opacity="0.45"/><circle cx="296" cy="268" r="2.5" fill="#cdc4b8" opacity="0.45"/><path d="M 58 60 L 216 92 L 358 160 L 456 118" fill="none" stroke="#4a443c" stroke-width="1.6" opacity="1" stroke-linejoin="round" stroke-linecap="round"/><path d="M 58 60 L 216 92 L 250 208 L 456 118" fill="none" stroke="#4a443c" stroke-width="1.6" opacity="0.72" stroke-dasharray="1.5 4" stroke-linejoin="round" stroke-linecap="round"/><path d="M 58 60 L 250 208 L 358 160 L 456 118" fill="none" stroke="#4a443c" stroke-width="1.6" opacity="0.72" stroke-dasharray="7 4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="58" cy="60" r="5.5" fill="#4a443c" opacity="1"/><circle cx="216" cy="92" r="5.5" fill="#4a443c" opacity="1"/><circle cx="250" cy="208" r="5.5" fill="#4a443c" opacity="1"/><circle cx="358" cy="160" r="5.5" fill="#4a443c" opacity="1"/><circle cx="456" cy="118" r="5.5" fill="#4a443c" opacity="1"/><text x="216" y="74" font-family="Cormorant Garamond,Georgia,serif" font-size="15" fill="#a89f93" text-anchor="middle">A</text><text x="250" y="190" font-family="Cormorant Garamond,Georgia,serif" font-size="15" fill="#a89f93" text-anchor="middle">B</text><text x="250" y="230" font-family="Cormorant Garamond,Georgia,serif" font-size="15" fill="#a89f93" text-anchor="middle">C</text></svg><div class="cap">Стратегические конфигурации</div></div>
+      <div class="motif"><svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="140" cy="150" r="2.5" fill="#cdc4b8" opacity="0.45"/><circle cx="100" cy="246" r="2.5" fill="#cdc4b8" opacity="0.45"/><circle cx="332" cy="52" r="2.5" fill="#cdc4b8" opacity="0.45"/><circle cx="296" cy="268" r="2.5" fill="#cdc4b8" opacity="0.45"/><path d="M 58 60 L 216 92 L 358 160 L 456 118" fill="none" stroke="#4a443c" stroke-width="1.6" opacity="1" stroke-linejoin="round" stroke-linecap="round"/><path d="M 58 60 L 216 92 L 250 208 L 456 118" fill="none" stroke="#4a443c" stroke-width="1.6" opacity="0.72" stroke-dasharray="1.5 4" stroke-linejoin="round" stroke-linecap="round"/><path d="M 58 60 L 250 208 L 358 160 L 456 118" fill="none" stroke="#4a443c" stroke-width="1.6" opacity="0.72" stroke-dasharray="7 4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="58" cy="60" r="5.5" fill="#4a443c" opacity="1"/><circle cx="216" cy="92" r="5.5" fill="#4a443c" opacity="1"/><circle cx="250" cy="208" r="5.5" fill="#4a443c" opacity="1"/><circle cx="358" cy="160" r="5.5" fill="#4a443c" opacity="1"/><circle cx="456" cy="118" r="5.5" fill="#4a443c" opacity="1"/><text x="216" y="72" font-family="Cormorant Garamond,Georgia,serif" font-size="18" fill="#a89f93" text-anchor="middle">A</text><text x="378" y="146" font-family="Cormorant Garamond,Georgia,serif" font-size="18" fill="#a89f93" text-anchor="middle">B</text><text x="250" y="234" font-family="Cormorant Garamond,Georgia,serif" font-size="18" fill="#a89f93" text-anchor="middle">C</text></svg><div class="cap">Стратегические конфигурации</div></div>
     </div>
     <div class="focus">
       <div class="fl">Фокус этапа</div>
@@ -692,7 +801,7 @@ footer{background:var(--dk);color:#7a7264;font-size:13.5px;padding:0 0 44px;lett
         <h3 class="ser">Проектирование реализации</h3>
         <p class="cintro">Как превратить выбранную стратегическую конфигурацию в реалистичную систему реализации.</p>
       </div>
-      <div class="motif"><svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="140" cy="150" r="2.5" fill="#cdc4b8" opacity="0.28"/><circle cx="100" cy="246" r="2.5" fill="#cdc4b8" opacity="0.28"/><circle cx="332" cy="52" r="2.5" fill="#cdc4b8" opacity="0.28"/><circle cx="296" cy="268" r="2.5" fill="#cdc4b8" opacity="0.28"/><circle cx="216" cy="92" r="3.5" fill="#cdc4b8" opacity="0.4"/><path d="M 58 60 L 250 208 L 358 160 L 456 118" fill="none" stroke="#a89f93" stroke-width="1" opacity="0.3" stroke-dasharray="2 5" stroke-linejoin="round" stroke-linecap="round"/><path d="M 58 60 C 58 128.0, 62 128.0, 62 196" fill="none" stroke="#a89f93" stroke-width="1" opacity=".3" stroke-dasharray="2 5"/><path d="M 250 208 C 250 202.0, 196 202.0, 196 196" fill="none" stroke="#a89f93" stroke-width="1" opacity=".3" stroke-dasharray="2 5"/><path d="M 358 160 C 358 178.0, 330 178.0, 330 196" fill="none" stroke="#a89f93" stroke-width="1" opacity=".3" stroke-dasharray="2 5"/><path d="M 456 118 C 456 157.0, 458 157.0, 458 196" fill="none" stroke="#a89f93" stroke-width="1" opacity=".3" stroke-dasharray="2 5"/><line x1="50" y1="196" x2="470" y2="196" stroke="#a45132" stroke-width="2.4" opacity="1"/><circle cx="62" cy="196" r="6.5" fill="#a45132"/><line x1="62" y1="209" x2="62" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="52" y1="236" x2="72" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="129.0" y1="188" x2="129.0" y2="204" stroke="#a89f93" stroke-width="1" opacity="0.85"/><circle cx="196" cy="196" r="5.5" fill="#a45132"/><line x1="196" y1="209" x2="196" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="186" y1="236" x2="206" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="263.0" y1="188" x2="263.0" y2="204" stroke="#a89f93" stroke-width="1" opacity="0.85"/><circle cx="330" cy="196" r="5.5" fill="#a45132"/><line x1="330" y1="209" x2="330" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="320" y1="236" x2="340" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="394.0" y1="188" x2="394.0" y2="204" stroke="#a89f93" stroke-width="1" opacity="0.85"/><circle cx="458" cy="196" r="5.5" fill="#a45132"/><line x1="458" y1="209" x2="458" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="448" y1="236" x2="468" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/></svg><div class="cap">Маршрут реализации</div></div>
+      <div class="motif"><svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="140" cy="150" r="2.5" fill="#cdc4b8" opacity="0.4"/><circle cx="100" cy="246" r="2.5" fill="#cdc4b8" opacity="0.4"/><circle cx="332" cy="52" r="2.5" fill="#cdc4b8" opacity="0.4"/><circle cx="296" cy="268" r="2.5" fill="#cdc4b8" opacity="0.4"/><circle cx="216" cy="92" r="4" fill="#cdc4b8" opacity="0.55"/><path d="M 58 60 L 250 208 L 358 160 L 456 118" fill="none" stroke="#a89f93" stroke-width="1" opacity="0.42" stroke-dasharray="2 5" stroke-linejoin="round" stroke-linecap="round"/><path d="M 58 60 C 58 128.0, 62 128.0, 62 196" fill="none" stroke="#a89f93" stroke-width="1" opacity=".45" stroke-dasharray="2 5"/><path d="M 250 208 C 250 202.0, 196 202.0, 196 196" fill="none" stroke="#a89f93" stroke-width="1" opacity=".45" stroke-dasharray="2 5"/><path d="M 358 160 C 358 178.0, 330 178.0, 330 196" fill="none" stroke="#a89f93" stroke-width="1" opacity=".45" stroke-dasharray="2 5"/><path d="M 456 118 C 456 157.0, 458 157.0, 458 196" fill="none" stroke="#a89f93" stroke-width="1" opacity=".45" stroke-dasharray="2 5"/><line x1="50" y1="196" x2="470" y2="196" stroke="#a45132" stroke-width="2.4" opacity="1"/><circle cx="62" cy="196" r="6.5" fill="#a45132"/><line x1="62" y1="209" x2="62" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="52" y1="236" x2="72" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="129.0" y1="188" x2="129.0" y2="204" stroke="#a89f93" stroke-width="1" opacity="0.85"/><circle cx="196" cy="196" r="5.5" fill="#a45132"/><line x1="196" y1="209" x2="196" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="186" y1="236" x2="206" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="263.0" y1="188" x2="263.0" y2="204" stroke="#a89f93" stroke-width="1" opacity="0.85"/><circle cx="330" cy="196" r="5.5" fill="#a45132"/><line x1="330" y1="209" x2="330" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="320" y1="236" x2="340" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="394.0" y1="188" x2="394.0" y2="204" stroke="#a89f93" stroke-width="1" opacity="0.85"/><circle cx="458" cy="196" r="5.5" fill="#a45132"/><line x1="458" y1="209" x2="458" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="448" y1="236" x2="468" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/></svg><div class="cap">Маршрут реализации</div></div>
     </div>
     <div class="focus">
       <div class="fl">Фокус этапа</div>
@@ -805,6 +914,7 @@ window.addEventListener('load',function(){ if(!location.hash) window.scrollTo(0,
         if(sec && sec.getBoundingClientRect().top<0) window.scrollTo({top:sec.offsetTop-70, behavior:'auto'});
       }
       panel.classList.toggle('on',opening);
+      panel.style.maxHeight = opening ? panel.scrollHeight+'px' : '0px';
       btn.setAttribute('aria-expanded',opening?'true':'false');
       label.textContent=opening?'Свернуть':open0;
       sign.textContent=opening?'−':'+';
@@ -839,8 +949,14 @@ window.addEventListener('load',function(){ if(!location.hash) window.scrollTo(0,
     if(act) setActive(act.id);
   }
   function onScroll(){ if(!tick){ tick=true; requestAnimationFrame(update); } }
+  if(document.fonts && document.fonts.ready) document.fonts.ready.then(function(){
+    document.querySelectorAll('.deep.on').forEach(function(p){ p.style.maxHeight=p.scrollHeight+'px'; });
+  });
   window.addEventListener('scroll', onScroll, {passive:true});
-  window.addEventListener('resize', function(){ current=null; onScroll(); });
+  window.addEventListener('resize', function(){
+    current=null; onScroll();
+    document.querySelectorAll('.deep.on').forEach(function(p){ p.style.maxHeight=p.scrollHeight+'px'; });
+  });
   update();
 
   var lastFocus=null;
