@@ -3,395 +3,332 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230b1e1a%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2245%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2238%22%20font-weight%3D%22600%22%20fill%3D%22%23f0e9dc%22%20text-anchor%3D%22middle%22%3EС%3C/text%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2216%22%20r%3D%224%22%20fill%3D%22%23ca9072%22/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20rx%3D%2214%22%20fill%3D%22%230b1e1a%22/%3E%3Ctext%20x%3D%2232%22%20y%3D%2245%22%20font-family%3D%22Georgia%2Cserif%22%20font-size%3D%2238%22%20font-weight%3D%22600%22%20fill%3D%22%23f0e9dc%22%20text-anchor%3D%22middle%22%3E%D0%A1%3C/text%3E%3Ccircle%20cx%3D%2250%22%20cy%3D%2216%22%20r%3D%224%22%20fill%3D%22%23ca9072%22/%3E%3C/svg%3E">
 <title>Проектирование стратегии</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Instrument+Sans:wght@400;500;600;700&display=swap&subset=cyrillic,latin" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Instrument+Sans:wght@400;500;600;700&display=swap&subset=cyrillic,latin" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  /* светлые «бумажные» секции */
-  --bg:#f3eee6; --surface:#faf7f1;
-  --txt:#17130f;          /* primary — почти чёрный тёплый графит */
-  --body:#2c2620;         /* основной содержательный текст */
-  --mut:#5c554c;          /* secondary — тёмный тёплый серый */
-  --faint:#5c554c;
-  --line:#d8cfc3;         /* разделители */
-  --acc:#a45132;          /* акцент на светлом — глубокий терракот */
-  --accink:#8e4426;       /* акцент для мелкого текста */
-  --accsoft:#b98a70;      /* только декоративное */
-  --ink:#4a443c;          /* нейтральный графит для схем */
-  --inkq:#8d857b;         /* приглушённый графит для схем */
-  /* тёмно-зелёные секции */
-  --grn:#0b1e1a; --grnink:#f0e9dc; --grnbody:#d3dacc; --grnmut:#a7b1a3; --grnacc:#ca9072;
-  --dk:#14100d; --dkink:#efe7dd; --dkmut:#a89f92;
+  --paper:#f3eee6; --paper2:#eee8de;
+  --ink:#17130f; --body:#2c2620; --mut:#5c554c; --faint:#6b6258;
+  --line:#ddd5c9; --hair:#e6dfd4;
+  --acc:#a45132; --accink:#8e4426; --accsoft:#c39176;
+  --gr:#0b1e1a; --gr2:#0e2620; --grink:#f0e9dc; --grbody:#cfd7cb; --grmut:#93a197; --gracc:#ca9072; --grline:#22352f;
+  --dk:#12100c; --dkink:#efe7dd; --dkmut:#948b7e;
+  --sp:clamp(76px,11vw,150px);
 }
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
-body{background:var(--bg);color:var(--txt);font-family:'Instrument Sans',-apple-system,sans-serif;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body{background:var(--paper);color:var(--ink);font-family:'Instrument Sans',-apple-system,sans-serif;
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .ser{font-family:'Cormorant Garamond',Georgia,serif}
-.wrap{max-width:880px;margin:0 auto;padding:0 clamp(20px,5vw,40px)}
-.narrow{max-width:720px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 clamp(22px,5vw,56px)}
+.col{max-width:720px}
+section{padding:var(--sp) 0}
+
+/* ——— тёмные уровни ——— */
+.dark{background:var(--gr);color:var(--grink)}
+.dark2{background:var(--gr2);color:var(--grink)}
+
+/* ——— типографика ——— */
+.eyebrow{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accink);font-weight:700}
+.dark .eyebrow,.dark2 .eyebrow{color:var(--gracc)}
+h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(34px,5.6vw,62px);font-weight:500;
+  letter-spacing:-.022em;line-height:1.04;margin-top:20px;max-width:19ch}
+.dark h2,.dark2 h2{color:var(--grink)}
+h3{font-family:'Cormorant Garamond',Georgia,serif;font-weight:500;letter-spacing:-.02em;line-height:1.06}
+.lead{font-size:clamp(17px,1.9vw,19.5px);color:var(--body);margin-top:24px;max-width:60ch;line-height:1.6}
+.dark .lead,.dark2 .lead{color:var(--grbody)}
+.hd2{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--mut)}
+.dark .hd2{color:var(--grmut)}
+
+/* ——— шапка ——— */
+.nav{position:fixed;top:0;left:0;right:0;z-index:60;height:54px;display:flex;align-items:center;
+  justify-content:space-between;gap:20px;padding:0 clamp(20px,5vw,44px);
+  background:rgba(238,232,222,.94);backdrop-filter:blur(8px);border-bottom:1px solid rgba(180,168,152,.3);
+  transform:translateY(-100%);transition:transform .24s ease,background .3s ease,border-color .3s ease}
+.nav.on{transform:none}
+.nav .here{font-size:14px;color:var(--body);line-height:1.3;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.nav .here em{font-family:'Cormorant Garamond',Georgia,serif;font-style:normal;font-size:15px;color:var(--acc);margin-right:9px}
+.nav .here em::after{content:' ·';color:var(--accsoft)}
+.nav .rt{display:flex;align-items:center;gap:clamp(14px,2.4vw,26px);flex:none}
+.nav .track{display:none;align-items:center;gap:11px}
+.nav.stages .track{display:flex}
+.nav .track a{font-family:'Cormorant Garamond',Georgia,serif;font-size:14px;text-decoration:none;
+  color:var(--faint);opacity:.55;transition:opacity .2s,color .2s}
+.nav .track a:hover{opacity:1}
+.nav .track a.act{color:var(--acc);opacity:1}
+.nav button{border:0;background:none;font-family:inherit;font-size:14px;color:var(--mut);cursor:pointer;
+  padding:6px 0;transition:color .18s}
+.nav button:hover{color:var(--accink)}
+.nav button:focus-visible{outline:2px solid var(--acc);outline-offset:4px}
+body.on-dark .nav{background:rgba(12,32,27,.92);border-bottom-color:rgba(240,233,220,.13)}
+body.on-dark .nav .here{color:var(--grbody)}
+body.on-dark .nav .here em{color:var(--gracc)}
+body.on-dark .nav button{color:var(--grmut)}
+body.on-dark .nav button:hover{color:var(--gracc)}
+body.on-dark .nav .track a{color:var(--grmut)}
+body.on-dark .nav .track a.act{color:var(--gracc)}
+@media(max-width:620px){.nav .track{display:none !important}.nav{height:50px}.nav .here,.nav button{font-size:13.5px}}
+
+/* ——— оглавление ——— */
+.sheet{position:fixed;inset:0;z-index:70;background:var(--paper);overflow-y:auto;
+  padding:clamp(44px,9vh,92px) clamp(24px,6vw,64px) clamp(60px,10vh,110px);
+  opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity .2s,visibility .2s,transform .2s}
+.sheet.on{opacity:1;visibility:visible;transform:none}
+.sheet .inner{max-width:640px;margin:0 auto}
+.sheet .sh{display:flex;justify-content:space-between;align-items:baseline;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.sheet .sh span{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accink);font-weight:700}
+.sheet .sh button{border:0;background:none;font-family:inherit;font-size:14px;color:var(--mut);cursor:pointer}
+.sheet .sh button:hover{color:var(--accink)}
+.sheet .tg{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);font-weight:700;margin:clamp(32px,5vh,50px) 0 6px}
+.sheet a{display:block;text-decoration:none;color:var(--ink);font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:clamp(23px,3.4vw,30px);font-weight:500;letter-spacing:-.015em;line-height:1.25;
+  padding:13px 0;border-bottom:1px solid var(--line);transition:color .18s}
+.sheet a:hover,.sheet a.act{color:var(--accink)}
+.sheet a i{font-style:normal;color:var(--accsoft);margin-right:12px;font-size:.82em}
+.sheet a i::after{content:' ·'}
+.sheet a.act i{color:var(--acc)}
+body.lock{overflow:hidden}
 
 /* ——— обложка ——— */
-.cover{background:var(--grn);color:var(--grnink);min-height:100vh;display:flex;flex-direction:column;
+.cover{background:var(--gr);color:var(--grink);min-height:100vh;display:flex;flex-direction:column;
   justify-content:center;padding:clamp(70px,12vh,120px) 0;position:relative;overflow:hidden}
-.cover .wrap{position:relative;z-index:2;max-width:880px;width:100%}
-.cover .col{max-width:min(56%,560px)}
-.cover .line{width:110px;height:1px;background:var(--grnacc)}
-.cover h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(42px,9vw,92px);font-weight:400;line-height:1.02;letter-spacing:-.02em;margin:38px 0 0}
-.cover .sub{font-size:clamp(16px,2.2vw,22px);color:var(--grnbody);margin-top:26px;font-weight:400}
-.cover .facts{margin-top:clamp(48px,9vh,86px);display:flex;gap:clamp(28px,6vw,64px);flex-wrap:wrap;font-size:clamp(14px,1.7vw,17px);color:var(--grnmut);letter-spacing:.02em}
-.cover .por{position:absolute;top:0;right:0;bottom:0;width:clamp(360px,42vw,720px);z-index:1}
-.cover .por img{width:100%;height:100%;object-fit:cover;object-position:52% 22%;display:block;filter:saturate(.9)}
+.cover .wrap{position:relative;z-index:2;width:100%}
+.cover .cc{max-width:min(58%,600px)}
+.cover .line{width:96px;height:1px;background:var(--gracc)}
+.cover h1{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(44px,8.4vw,96px);font-weight:400;
+  line-height:1.0;letter-spacing:-.028em;margin:36px 0 0}
+.cover .sub{font-size:clamp(16px,2vw,21px);color:var(--grbody);margin-top:26px}
+.cover .facts{margin-top:clamp(46px,9vh,84px);display:flex;gap:clamp(26px,5vw,56px);flex-wrap:wrap;
+  font-size:14.5px;color:var(--grmut);letter-spacing:.02em}
+.cover .por{position:absolute;top:0;right:0;bottom:0;width:clamp(340px,42vw,700px);z-index:1}
+.cover .por img{width:100%;height:100%;object-fit:cover;object-position:52% 22%;display:block;filter:saturate(.86)}
 .cover .por::after{content:'';position:absolute;inset:0;
-  background:linear-gradient(90deg,var(--grn) 0%,rgba(11,30,26,.86) 26%,rgba(11,30,26,.14) 68%,rgba(11,30,26,.34) 100%)}
+  background:linear-gradient(90deg,var(--gr) 0%,rgba(11,30,26,.88) 28%,rgba(11,30,26,.16) 68%,rgba(11,30,26,.36) 100%)}
 .cover .cap{position:absolute;right:clamp(20px,4vw,48px);bottom:clamp(22px,4vh,40px);z-index:3;
-  font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--grnmut)}
+  font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--grmut)}
 @media(max-width:900px){
   .cover{min-height:auto;padding:0}
-  .cover .por{position:relative;width:100%;height:52vh;min-height:320px}
-  .cover .por::after{background:linear-gradient(180deg,rgba(11,30,26,.16) 0%,rgba(11,30,26,.05) 40%,var(--grn) 100%)}
-  .cover .wrap{padding-top:clamp(28px,5vh,44px);padding-bottom:clamp(56px,10vh,90px)}
-  .cover .col{max-width:none}
-  .cover .cap{right:auto;left:clamp(20px,5vw,40px);bottom:auto;top:clamp(12px,2.4vh,20px)}
+  .cover .por{position:relative;width:100%;height:50vh;min-height:300px}
+  .cover .por::after{background:linear-gradient(180deg,rgba(11,30,26,.18) 0%,rgba(11,30,26,.05) 42%,var(--gr) 100%)}
+  .cover .wrap{padding-top:clamp(26px,5vh,42px);padding-bottom:clamp(54px,10vh,88px)}
+  .cover .cc{max-width:none}
+  .cover .cap{right:auto;left:clamp(22px,5vw,40px);bottom:auto;top:clamp(12px,2.4vh,20px)}
 }
 
-/* ——— общие ——— */
-section{padding:clamp(62px,11vw,120px) 0}
-.eyebrow{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--accink);font-weight:700}
-.dark .eyebrow{color:var(--grnacc)}
-h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54px);font-weight:500;letter-spacing:-.02em;line-height:1.06;margin:18px 0 0}
-.lead{font-size:clamp(16px,2vw,19px);color:var(--body);margin-top:24px;max-width:64ch}
-.dark{background:var(--grn);color:var(--grnink)}
-.dark h2{color:var(--grnink)}
-.dark .lead{color:var(--grnbody)}
+/* ——— тип 1: досье (исходная ситуация) ——— */
+.dossier{margin-top:clamp(44px,6vw,70px);display:grid;gap:clamp(30px,4vw,42px)}
+.dsi{display:grid;grid-template-columns:minmax(200px,300px) 1fr;gap:clamp(20px,4vw,60px);
+  padding-top:clamp(22px,3vw,30px);border-top:1px solid var(--line);align-items:start}
+.dsi .dt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,2.9vw,29px);font-weight:500;
+  letter-spacing:-.018em;line-height:1.14}
+.dsi .dd{font-size:16.5px;color:var(--body);line-height:1.62;max-width:52ch}
+@media(max-width:760px){.dsi{grid-template-columns:1fr;gap:10px}}
+.hypo{margin-top:clamp(46px,6vw,72px);background:var(--paper2);padding:clamp(26px,4vw,44px);
+  display:grid;grid-template-columns:minmax(180px,240px) 1fr;gap:clamp(18px,4vw,54px);align-items:start}
+.hypo .hl{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accink);font-weight:700;line-height:1.5}
+.hypo .hb p{font-size:16.5px;color:var(--body);line-height:1.62;max-width:54ch;padding-left:20px;position:relative}
+.hypo .hb p + p{margin-top:14px}
+.hypo .hb p::before{content:'';position:absolute;left:0;top:13px;width:9px;height:1px;background:var(--acc)}
+.hypo .hb p:last-child{color:var(--mut);font-size:15.5px}
+.hypo .hb p:last-child::before{background:var(--line)}
+@media(max-width:760px){.hypo{grid-template-columns:1fr;gap:16px}}
+.statement{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(24px,3.6vw,38px);font-weight:400;
+  line-height:1.22;letter-spacing:-.018em;margin-top:clamp(46px,6vw,72px);max-width:26ch}
 
-/* ——— исходная ситуация ——— */
-.situ{padding:clamp(72px,12vw,130px) 0;border-bottom:1px solid var(--line)}
-.situ .sl{margin-top:clamp(34px,5vw,52px)}
-.situ .si2{padding:clamp(22px,3.2vw,30px) 0;border-top:1px solid var(--line);max-width:70ch}
-.situ .si2:last-of-type{border-bottom:1px solid var(--line)}
-.situ .sq{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(21px,2.9vw,28px);font-weight:500;
-  letter-spacing:-.015em;line-height:1.16;color:var(--txt);max-width:26ch}
-.situ .sx{font-size:17px;color:var(--body);margin-top:11px;line-height:1.6;max-width:58ch}
-.situ .hyp{margin-top:clamp(30px,4vw,42px);padding-left:clamp(16px,2.6vw,26px);border-left:1px solid var(--acc)}
-.situ .hl{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accink);font-weight:700}
-.situ .hx{font-size:17px;color:var(--body);margin-top:12px;line-height:1.62;max-width:58ch}
-.situ .hx + .hx{margin-top:11px}
-.situ .snote{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,2.7vw,26px);font-weight:400;
-  line-height:1.26;color:var(--txt);margin-top:clamp(34px,5vw,48px);max-width:38ch}
-
-/* ——— задача ——— */
+/* ——— тип 2: statement-экран (задача) ——— */
 .task{padding:0}
-.task .intro{min-height:96vh;display:flex;flex-direction:column;justify-content:center;
-  padding:clamp(80px,14vh,130px) 0}
-.task .th{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(34px,6.6vw,72px);font-weight:500;
-  line-height:1.04;letter-spacing:-.022em;margin-top:22px;max-width:15ch}
-.task .tsub{font-size:clamp(17px,2.2vw,21px);color:var(--body);margin-top:26px;max-width:50ch;line-height:1.55}
-.qs{padding:clamp(70px,12vh,120px) 0 clamp(92px,15vw,170px);display:grid;grid-template-columns:1fr 1fr;
-  column-gap:clamp(46px,8vw,120px);row-gap:clamp(48px,7vw,84px);border-top:1px solid var(--line)}
-@media(max-height:700px){.task .intro{min-height:auto;padding:clamp(80px,12vh,120px) 0}}
-.q .qn{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:var(--acc);letter-spacing:.08em}
-.q .qt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(27px,3.6vw,38px);font-weight:500;
-  letter-spacing:-.02em;line-height:1.1;margin-top:12px}
-.q .qd{font-size:16.5px;color:var(--body);margin-top:14px;line-height:1.55;max-width:36ch}
-@media(max-width:800px){.qs{grid-template-columns:1fr;row-gap:clamp(42px,9vw,58px)}}
+.task .hero{min-height:92vh;display:flex;flex-direction:column;justify-content:center;padding:clamp(80px,13vh,130px) 0}
+.task .th{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(40px,7.6vw,86px);font-weight:400;
+  line-height:1.02;letter-spacing:-.03em;margin-top:22px;max-width:14ch}
+.task .tsub{font-size:clamp(17px,2vw,20px);color:var(--body);margin-top:28px;max-width:52ch;line-height:1.56}
+@media(max-height:720px){.task .hero{min-height:auto;padding:clamp(80px,12vh,120px) 0}}
+.phases{padding:clamp(66px,10vh,110px) 0 var(--sp);border-top:1px solid var(--line)}
+.phase{display:grid;grid-template-columns:minmax(120px,180px) 1fr;gap:clamp(20px,4vw,60px);
+  padding:clamp(30px,4.4vw,48px) 0;align-items:start}
+.phase + .phase{border-top:1px solid var(--hair)}
+.phase .pl{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accink);font-weight:700;padding-top:8px}
+.phase .pq{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,56px)}
+.qq .qn{font-family:'Cormorant Garamond',Georgia,serif;font-size:14px;color:var(--acc);letter-spacing:.06em}
+.qq .qt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(25px,3.2vw,34px);font-weight:500;
+  letter-spacing:-.02em;line-height:1.1;margin-top:10px}
+.qq .qd{font-size:16px;color:var(--mut);margin-top:12px;line-height:1.52;max-width:34ch}
+@media(max-width:860px){.phase{grid-template-columns:1fr;gap:18px}.phase .pl{padding-top:0}}
+@media(max-width:620px){.phase .pq{grid-template-columns:1fr;gap:28px}}
 
-/* ——— архитектура: сетка ——— */
-#results-overview .wrap{max-width:840px}
-.map{margin-top:clamp(52px,8vw,86px)}
-.grp{padding-top:clamp(48px,7vw,80px)}
-.grp:first-child{padding-top:0}
-.grp .gt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(25px,3.4vw,36px);font-weight:500;
-  line-height:1.12;letter-spacing:-.018em;color:var(--grnink)}
-.grp .gt em{font-style:normal;color:var(--grnacc);margin-right:14px}
-.grp .gd{font-size:17px;color:var(--grnbody);margin-top:14px;line-height:1.55;max-width:52ch}
-.grp .items{margin-top:clamp(26px,3.4vw,36px);display:grid;grid-template-columns:1fr 1fr;
-  column-gap:clamp(30px,5vw,64px);row-gap:clamp(16px,2.2vw,22px)}
-.grp.solo .items{grid-template-columns:1fr}
-.ri{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:baseline}
-.ri .rn{font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;color:var(--grnacc);letter-spacing:.02em}
-.ri .rt{font-size:19px;line-height:1.34;color:var(--grnink)}
-@media(max-width:720px){
-  .grp .items{grid-template-columns:1fr;row-gap:15px}
-  .ri{grid-template-columns:32px 1fr;gap:10px}
-  .ri .rt{font-size:18px}
-}
+/* ——— тип 3: архитектура ——— */
+.arch{margin-top:clamp(48px,7vw,80px);position:relative}
+.arch::before{content:'';position:absolute;left:6px;top:8px;bottom:8px;width:1px;background:var(--grline)}
+.lay{position:relative;padding:clamp(22px,3vw,28px) 0 clamp(22px,3vw,28px) clamp(34px,5vw,64px)}
+.lay::before{content:'';position:absolute;left:0;top:calc(clamp(22px,3vw,28px) + 9px);width:13px;height:13px;
+  border-radius:50%;background:var(--gr);border:1px solid var(--gracc)}
+.lay .lt{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gracc);font-weight:700}
+.lay .items{margin-top:16px;display:grid;gap:14px}
+.ri{display:grid;grid-template-columns:36px 1fr;gap:12px;align-items:baseline}
+.ri .rn{font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;color:var(--grmut)}
+.ri .rt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(21px,2.7vw,26px);font-weight:500;
+  letter-spacing:-.015em;line-height:1.14;color:var(--grink)}
+.ri .rs{font-size:15.5px;color:var(--grbody);margin-top:6px;line-height:1.5;max-width:46ch}
+.lay.grp{background:rgba(240,233,220,.035);margin-left:clamp(20px,3vw,34px);padding-left:clamp(20px,3vw,34px)}
+.lay.grp::before{left:calc(-1 * clamp(20px,3vw,34px));background:var(--gracc)}
+.lay.grp .items{gap:20px}
+@media(max-width:560px){.ri{grid-template-columns:30px 1fr;gap:9px}.lay{padding-left:30px}}
 
-/* ——— маршрут ——— */
-.route{margin-top:clamp(48px,7vw,78px);position:relative}
-.route .rail{display:grid;grid-template-columns:repeat(5,auto);justify-content:space-between;
-  align-items:end;position:relative;padding-bottom:26px}
-.route .rail::before{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--line)}
-.route .pt{position:relative;text-align:left;padding-right:clamp(8px,2vw,20px)}
-.route .pt::after{content:'';position:absolute;left:0;bottom:-4px;width:7px;height:7px;border-radius:50%;
-  background:var(--inkq)}
-.route .pt.last::after{background:var(--acc);width:9px;height:9px;bottom:-5px}
-.route .pn{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:var(--mut);letter-spacing:.06em}
-.route .pw{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(19px,2.6vw,28px);font-weight:500;
-  letter-spacing:-.015em;line-height:1.1;margin-top:8px;color:var(--txt)}
-.route .cone{margin-top:22px;height:52px;width:100%}
-.route .rnote{font-size:16.5px;color:var(--body);margin-top:clamp(26px,3.4vw,34px);max-width:62ch;line-height:1.6}
-@media(max-width:720px){
-  .route .rail{grid-template-columns:1fr;justify-content:start;gap:20px;padding-bottom:0;padding-left:22px}
-  .route .rail::before{left:4px;right:auto;top:6px;bottom:6px;width:1px;height:auto}
-  .route .pt::after{left:-22px;bottom:auto;top:8px}
-  .route .cone{display:none}
-}
+/* ——— тип 4: процесс ——— */
+.proc{margin-top:clamp(44px,6vw,72px);display:grid;grid-template-columns:minmax(300px,470px) 1fr;
+  gap:clamp(30px,5vw,80px);align-items:center}
+.proc .canvas svg{width:100%;height:auto;display:block}
+.proc .legend{display:grid;gap:clamp(16px,2.4vw,22px)}
+.lg{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:baseline}
+.lg .ln{font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:var(--acc)}
+.lg .lt2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,2.5vw,25px);font-weight:500;
+  letter-spacing:-.015em;line-height:1.12}
+.lg .ld{font-size:15.5px;color:var(--mut);margin-top:5px;line-height:1.5;max-width:40ch}
+.lg.pair .lt2{color:var(--accink)}
+@media(max-width:900px){.proc{grid-template-columns:1fr;gap:34px}}
+.remark{font-size:16.5px;color:var(--body);margin-top:clamp(34px,4.5vw,48px);max-width:62ch;line-height:1.6;
+  padding-left:20px;border-left:1px solid var(--acc)}
+.mode{margin-top:clamp(48px,7vw,78px);display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,3vw,40px);
+  padding-top:clamp(26px,3.4vw,34px);border-top:1px solid var(--line)}
+.mi3 .mv{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,2.4vw,25px);font-weight:500;
+  letter-spacing:-.018em;line-height:1.12}
+.mi3 .md3{font-size:15px;color:var(--mut);margin-top:9px;line-height:1.5}
+@media(max-width:900px){.mode{grid-template-columns:1fr 1fr}}
+@media(max-width:560px){.mode{grid-template-columns:1fr;gap:22px}}
 
-/* ——— микросхемы этапов ——— */
-.motif{margin-top:clamp(30px,4vw,42px);max-width:400px}
+/* ——— этапы ——— */
+.chap{padding:var(--sp) 0;border-top:1px solid var(--line)}
+.chap .top{display:grid;grid-template-columns:1fr minmax(280px,460px);gap:clamp(30px,5vw,80px);align-items:start}
+.chap .cn{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(52px,9vw,96px);font-weight:400;
+  color:var(--acc);line-height:.86;letter-spacing:-.04em}
+.chap h3{font-size:clamp(34px,5.4vw,58px);margin-top:16px;max-width:13ch}
+.chap .cintro{font-size:clamp(17px,1.9vw,19.5px);color:var(--body);margin-top:22px;max-width:46ch;line-height:1.58}
 .motif svg{width:100%;height:auto;display:block}
-.motif .cap{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);font-weight:700;margin-top:16px}
+.motif .cap{font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);font-weight:700;margin-top:16px}
+@media(max-width:880px){.chap .top{grid-template-columns:1fr;gap:34px}}
+.focus{margin-top:clamp(40px,5.5vw,64px);padding-top:clamp(22px,3vw,28px);border-top:1px solid var(--line);
+  display:grid;grid-template-columns:minmax(120px,180px) 1fr;gap:clamp(16px,4vw,60px);align-items:baseline}
+.focus .fl{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--mut);font-weight:700}
+.focus ul{list-style:none;display:flex;flex-wrap:wrap}
+.focus li{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(19px,2.3vw,23px);line-height:1.3}
+.focus li:not(:last-child)::after{content:'·';color:var(--acc);margin:0 12px}
+.focus .also{font-size:15.5px;color:var(--mut);margin-top:12px;line-height:1.5;max-width:54ch}
+.focus .dec{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(19px,2.3vw,23px);line-height:1.34;max-width:44ch}
+@media(max-width:760px){.focus{grid-template-columns:1fr;gap:12px}}
+.res{margin-top:clamp(34px,4.4vw,46px);display:grid;grid-template-columns:minmax(120px,180px) 1fr;
+  gap:clamp(16px,4vw,60px);align-items:baseline;padding-top:clamp(20px,2.6vw,26px);border-top:1px solid var(--acc)}
+.res .rl{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accink);font-weight:700}
+.res .rx{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(21px,2.9vw,29px);font-weight:400;
+  line-height:1.24;max-width:44ch}
+@media(max-width:760px){.res{grid-template-columns:1fr;gap:12px}}
 
-/* ——— обзор этапов ——— */
-.ov{margin-top:clamp(30px,5vw,50px)}
-.ovi{display:grid;grid-template-columns:64px 1fr;gap:clamp(14px,2.4vw,26px);padding:clamp(20px,3vw,26px) 0;border-top:1px solid var(--line);align-items:baseline}
-.ovi:last-child{border-bottom:1px solid var(--line)}
-.ovi .on{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(19px,2.6vw,24px);color:var(--accsoft)}
-.ovi .ot{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3vw,29px);font-weight:500;
-  letter-spacing:-.015em;color:var(--txt);line-height:1.14}
-.ovi .od{font-size:16px;color:var(--mut);margin-top:8px;max-width:52ch;line-height:1.55}
-@media(max-width:560px){.ovi{grid-template-columns:44px 1fr;gap:12px}}
+/* ——— этап 04: кульминация ——— */
+.chap.peak{background:var(--gr2);color:var(--grink);border-top:0;padding:clamp(100px,15vw,190px) 0}
+.chap.peak .cn{color:var(--gracc)}
+.chap.peak h3{color:var(--grink)}
+.chap.peak .cintro{color:var(--grbody)}
+.chap.peak .motif .cap{color:var(--grmut)}
+.chap.peak .focus{border-top-color:var(--grline)}
+.chap.peak .focus .fl{color:var(--grmut)}
+.chap.peak .focus .dec{color:var(--grink)}
+.chap.peak .res{border-top-color:var(--gracc)}
+.chap.peak .res .rl{color:var(--gracc)}
+.chap.peak .res .rx{color:var(--grink)}
+.chap.peak .more{color:var(--gracc);border-bottom-color:var(--grline)}
+.chap.peak .more:hover{color:var(--grink);border-bottom-color:var(--gracc)}
+.chap.peak .more .sign{color:var(--gracc)}
+.chap.peak .dbody{border-left-color:var(--grline)}
+.chap.peak .dgroup{border-top-color:var(--grline)}
+.chap.peak .dgroup .dh{color:var(--gracc)}
+.chap.peak .dgroup p,.chap.peak .dgroup li{color:var(--grbody)}
+.chap.peak .dgroup li::before{background:var(--gracc)}
 
-/* ——— глава-этап ——— */
-.chap{padding:clamp(72px,12vw,132px) 0;border-top:1px solid var(--line)}
-.chap .cn{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(46px,10vw,90px);font-weight:400;color:var(--acc);line-height:.9;letter-spacing:-.03em}
-.chap h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(32px,6.4vw,62px);font-weight:500;line-height:1.04;letter-spacing:-.02em;margin:14px 0 0;max-width:16ch}
-.chap .cintro{font-size:clamp(16px,2vw,19px);color:var(--body);margin-top:24px;max-width:60ch;line-height:1.6}
-
-/* ——— короткие направления этапа ——— */
-.brief{margin-top:clamp(36px,5vw,54px)}
-.bi{display:grid;grid-template-columns:minmax(180px,236px) 1fr;gap:clamp(12px,3vw,34px);padding:clamp(16px,2.4vw,20px) 0;border-top:1px solid var(--line);align-items:baseline}
-.bi:last-child{border-bottom:1px solid var(--line)}
-.bi .bt{font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--accink);font-weight:700;line-height:1.5}
-.bi .bd{font-size:17px;color:var(--body);line-height:1.6;max-width:46ch}
-@media(max-width:680px){.bi{grid-template-columns:1fr;gap:7px}}
-
-/* ——— после этапа ——— */
-/* лёгкий результат этапа (01–04) */
-.res{margin-top:clamp(30px,4vw,42px);padding-top:18px;border-top:1px solid var(--acc)}
-.res .rl{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accink);font-weight:700}
-.res .rx{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,2.8vw,27px);font-weight:400;
-  line-height:1.26;margin-top:12px;max-width:46ch;color:var(--txt)}
-/* кульминация — после этапа 05 */
-.after{margin-top:clamp(40px,6vw,64px);background:var(--grn);color:var(--grnink);padding:clamp(36px,6vw,66px)}
-.after .at{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--grnacc);font-weight:700}
-.after .ad{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(26px,4.4vw,44px);font-weight:400;
-  line-height:1.2;letter-spacing:-.015em;margin-top:20px;max-width:20ch}
-
-/* ——— раскрытие ——— */
-.more{display:inline-flex;align-items:baseline;gap:11px;margin-top:clamp(24px,3.4vw,32px);
+/* ——— раскрытия ——— */
+.more{display:inline-flex;align-items:baseline;gap:11px;margin-top:clamp(28px,3.6vw,36px);
   border:0;background:none;padding:6px 0;cursor:pointer;font-family:inherit;
   font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--accink);
   border-bottom:1px solid var(--line);transition:color .2s,border-color .2s}
 .more:hover{color:var(--acc);border-color:var(--acc)}
 .more:focus-visible{outline:2px solid var(--acc);outline-offset:4px}
 .more .sign{font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;line-height:0;color:var(--acc);transform:translateY(1px)}
+.more.onDark{color:var(--gracc);border-bottom-color:var(--grline)}
+.more.onDark:hover{color:var(--grink);border-bottom-color:var(--gracc)}
+.more.onDark .sign{color:var(--gracc)}
 .deep{display:grid;grid-template-rows:0fr;transition:grid-template-rows .42s cubic-bezier(.4,0,.2,1)}
 .deep.on{grid-template-rows:1fr}
 .deep > .dinner{overflow:hidden;min-height:0}
-.dbody{margin-top:clamp(26px,3.6vw,36px);padding-left:clamp(18px,3vw,32px);border-left:1px solid var(--line);max-width:66ch}
-.dnote{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--faint);font-weight:700}
-.part{padding:clamp(20px,3vw,28px) 0;border-top:1px solid var(--line)}
-.part:first-of-type{border-top:0;padding-top:18px}
-.part .pt{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:700}
-.part .pd{font-size:16.5px;color:var(--body);margin-top:10px;line-height:1.7;max-width:60ch}
-.part .pd + .pd{margin-top:11px}
-.dafter{margin-top:clamp(22px,3vw,28px);padding-top:20px;border-top:1px solid var(--line)}
-.dafter .dt{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);font-weight:700}
-.dafter p{font-size:16.5px;color:var(--body);margin-top:10px;line-height:1.7;max-width:60ch}
-.dafter p + p{margin-top:11px}
-
-/* ——— место под визуал ——— */
-.plate{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.dbody{margin-top:clamp(26px,3.6vw,36px);padding-left:clamp(18px,3vw,32px);border-left:1px solid var(--line);max-width:64ch}
+.dgroup{padding:clamp(20px,3vw,26px) 0;border-top:1px solid var(--line)}
+.dgroup:first-of-type{border-top:0;padding-top:14px}
+.dgroup .dh{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accink);font-weight:700}
+.dgroup p{font-size:16.5px;color:var(--body);margin-top:10px;line-height:1.7;max-width:58ch}
+.dgroup ul{list-style:none;margin-top:12px;max-width:58ch}
+.dgroup li{font-size:16.5px;color:var(--body);line-height:1.62;padding:5px 0 5px 20px;position:relative}
+.dgroup li::before{content:'';position:absolute;left:2px;top:15px;width:6px;height:1px;background:var(--acc)}
+.dark .dbody{border-left-color:var(--grline)}
+.dark .part{border-top:1px solid var(--grline);padding:clamp(18px,2.6vw,24px) 0}
+.dark .part:first-of-type{border-top:0}
+.dark .part .pt{font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gracc);font-weight:700}
+.dark .part .pd{font-size:16.5px;color:var(--grbody);margin-top:9px;line-height:1.68;max-width:58ch}
 
 /* ——— итог ——— */
-.sum{margin-top:clamp(36px,5vw,56px)}
-.si{display:grid;grid-template-columns:44px 1fr;gap:clamp(12px,2vw,20px);padding:clamp(20px,3vw,26px) 0;
-  border-top:1px solid rgba(240,233,220,.14);align-items:baseline}
-.si:last-child{border-bottom:1px solid rgba(240,233,220,.14)}
-.si .sn{font-family:'Cormorant Garamond',Georgia,serif;font-size:16px;color:var(--grnacc)}
-.si .st{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3.6vw,35px);font-weight:400;
-  line-height:1.18;letter-spacing:-.015em;color:var(--grnink);max-width:24ch}
-@media(max-width:560px){.si{grid-template-columns:34px 1fr;gap:10px}}
+.certs{margin-top:clamp(46px,7vw,78px);display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(34px,5vw,72px)}
+.cert{padding:clamp(24px,3.2vw,32px) 0;border-top:1px solid var(--grline)}
+.cert .ct{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--gracc);font-weight:700}
+.cert .cd{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,2.5vw,26px);font-weight:400;
+  line-height:1.26;margin-top:12px;max-width:36ch;color:var(--grink)}
+@media(max-width:760px){.certs{grid-template-columns:1fr}}
 
-/* ——— формат ——— */
-.fmt{margin-top:clamp(30px,5vw,48px)}
-.fi{padding:clamp(22px,3.4vw,30px) 0;border-top:1px solid var(--line)}
-.fi:last-child{border-bottom:1px solid var(--line)}
-.fi .fv{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(26px,4.4vw,40px);font-weight:500;letter-spacing:-.02em;line-height:1.1}
-.fi .fd{font-size:16px;color:var(--body);margin-top:10px;max-width:58ch;line-height:1.6}
-
-#value{padding:clamp(66px,10vw,116px) 0 clamp(50px,8vw,90px)}
-.vstate{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(26px,4.2vw,42px);font-weight:400;
-  line-height:1.22;letter-spacing:-.015em;max-width:22ch;color:var(--txt)}
+/* ——— переход к реализации ——— */
+.bnd{margin-top:clamp(44px,6vw,70px);display:grid;gap:0}
+.bi2{display:grid;grid-template-columns:minmax(180px,250px) 1fr;gap:clamp(18px,4vw,56px);
+  padding:clamp(24px,3.4vw,32px) 0;border-top:1px solid var(--line);align-items:start}
+.bi2:last-of-type{border-bottom:1px solid var(--line)}
+.bl{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accink);font-weight:700;line-height:1.5}
+.bt2{font-size:16.5px;color:var(--body);line-height:1.62;max-width:56ch}
+.bt2.lead2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,2.6vw,25px);color:var(--ink);
+  line-height:1.26;max-width:34ch}
+.bt2.lead2 + .bt2{margin-top:14px}
+@media(max-width:760px){.bi2{grid-template-columns:1fr;gap:10px}}
+.bfin{font-size:15.5px;color:var(--mut);margin-top:clamp(26px,3.4vw,34px);max-width:50ch}
 
 /* ——— финал ——— */
-.final{background:var(--dk);color:var(--dkink);min-height:82vh;display:flex;flex-direction:column;justify-content:center;padding:clamp(70px,12vh,110px) 0}
-.final .line{width:110px;height:1px;background:var(--grnacc)}
-.final h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(34px,7vw,68px);font-weight:400;color:var(--dkink);margin:34px 0 0;line-height:1.04}
-.final .rows{margin-top:clamp(40px,7vh,64px)}
-.final .fr{display:grid;grid-template-columns:minmax(190px,300px) 1fr;gap:clamp(12px,3vw,36px);
-  padding:clamp(18px,2.6vw,24px) 0;border-top:1px solid rgba(239,231,221,.14);align-items:baseline}
-.final .fr b{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(23px,4vw,37px);font-weight:500;color:var(--dkink);letter-spacing:-.02em}
-.final .fr span{font-size:16px;color:var(--dkmut);line-height:1.5;max-width:42ch}
-.final .fr.pay b{color:var(--grnacc)}
-@media(max-width:640px){.final .fr{grid-template-columns:1fr;gap:6px}}
-.final .fr:last-of-type{border-bottom:1px solid rgba(239,231,221,.14)}
-.final .note{font-size:15.5px;color:var(--dkmut);margin-top:30px;max-width:52ch;line-height:1.6}
-footer{background:var(--dk);color:#7d7466;font-size:14px;padding:0 0 46px}
-@media(max-width:640px){.ri{grid-template-columns:42px 1fr;gap:10px}}
-
-/* ——— колонтитул ——— */
-.nav{position:fixed;top:0;left:0;right:0;z-index:60;height:54px;display:flex;align-items:center;
-  justify-content:space-between;gap:20px;padding:0 clamp(20px,5vw,44px);
-  background:rgba(238,233,225,.92);backdrop-filter:blur(6px);border-bottom:1px solid rgba(180,168,152,.28);
-  transform:translateY(-100%);transition:transform .22s ease,background .3s ease,border-color .3s ease}
-.nav.on{transform:none}
-.nav .here{font-size:14px;color:var(--body);line-height:1.3;min-width:0;
-  overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.nav .here em{font-family:'Cormorant Garamond',Georgia,serif;font-style:normal;font-size:15px;
-  color:var(--acc);margin-right:10px;letter-spacing:.04em}
-.nav .here em::after{content:' ·';color:var(--accsoft)}
-.nav button{flex:none;border:0;background:none;font-family:inherit;font-size:14px;color:var(--mut);
-  cursor:pointer;padding:6px 0;transition:color .18s ease}
-.nav button:hover{color:var(--accink)}
-.nav button:focus-visible{outline:2px solid var(--acc);outline-offset:4px}
-body.on-dark .nav{background:rgba(14,34,29,.9);border-bottom-color:rgba(240,233,220,.13)}
-body.on-dark .nav .here{color:var(--grnbody)}
-body.on-dark .nav .here em{color:var(--grnacc)}
-body.on-dark .nav .here em::after{color:rgba(202,144,114,.5)}
-body.on-dark .nav button{color:var(--grnmut)}
-body.on-dark .nav button:hover{color:var(--grnacc)}
-@media(max-width:640px){.nav{height:50px}.nav .here,.nav button{font-size:13.5px}}
-
-/* ——— оглавление ——— */
-.sheet{position:fixed;inset:0;z-index:70;background:var(--bg);overflow-y:auto;
-  padding:clamp(46px,9vh,96px) clamp(24px,6vw,64px) clamp(60px,10vh,110px);
-  opacity:0;visibility:hidden;transform:translateY(-8px);
-  transition:opacity .2s ease,visibility .2s ease,transform .2s ease}
-.sheet.on{opacity:1;visibility:visible;transform:none}
-.sheet .inner{max-width:640px;margin:0 auto}
-.sheet .sh{display:flex;justify-content:space-between;align-items:baseline;
-  padding-bottom:20px;border-bottom:1px solid var(--line)}
-.sheet .sh span{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--accink);font-weight:700}
-.sheet .sh button{border:0;background:none;font-family:inherit;font-size:14px;color:var(--mut);cursor:pointer;
-  transition:color .18s ease}
-.sheet .sh button:hover{color:var(--accink)}
-.sheet .tg{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--faint);font-weight:700;
-  margin:clamp(34px,5vh,52px) 0 6px}
-.sheet a{display:block;text-decoration:none;color:var(--txt);
-  font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(23px,3.4vw,30px);font-weight:500;
-  letter-spacing:-.015em;line-height:1.25;padding:13px 0;border-bottom:1px solid var(--line);
-  transition:color .18s ease}
-.sheet a:hover{color:var(--accink)}
-.sheet a i{font-style:normal;color:var(--accsoft);margin-right:12px;font-size:.82em;letter-spacing:.04em}
-.sheet a i::after{content:' ·'}
-.sheet a.act{color:var(--accink)}
-.sheet a.act i{color:var(--acc)}
-.sheet a:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
-body.lock{overflow:hidden}
+.final{background:var(--dk);color:var(--dkink);min-height:96vh;display:flex;flex-direction:column;
+  justify-content:center;padding:clamp(80px,12vh,130px) 0}
+.final .line{width:96px;height:1px;background:var(--gracc)}
+.final h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,4.6vw,50px);font-weight:400;
+  color:var(--dkink);margin-top:32px;line-height:1.04;max-width:14ch}
+.final .price{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(62px,12vw,150px);font-weight:400;
+  letter-spacing:-.042em;line-height:.92;color:var(--gracc);margin-top:clamp(44px,8vh,84px)}
+.final .terms{margin-top:clamp(52px,9vh,96px);display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,4vw,60px);
+  max-width:820px}
+.final .fr{padding-top:20px;border-top:1px solid rgba(239,231,221,.16)}
+.final .fr b{display:block;font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3vw,30px);
+  font-weight:500;color:var(--dkink);letter-spacing:-.02em;line-height:1.1}
+.final .fr span{display:block;font-size:15px;color:var(--dkmut);line-height:1.5;margin-top:10px;max-width:38ch}
+.final .note{font-size:15.5px;color:var(--dkmut);margin-top:clamp(44px,7vh,74px);max-width:46ch}
+@media(max-width:640px){.final .terms{grid-template-columns:1fr;gap:26px}}
+footer{background:var(--dk);color:#7a7264;font-size:13.5px;padding:0 0 44px;letter-spacing:.02em}
 
 @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto !important;transition:none !important}}
-
-/* ——— архитектура стратегии ——— */
-#results-overview .sec2{font-size:clamp(16px,2vw,19px);color:var(--grnmut);margin-top:12px}
-.arch{margin-top:clamp(46px,7vw,76px)}
-.layer{padding-top:clamp(30px,4.4vw,46px)}
-.layer:first-child{padding-top:0}
-.layer .lt{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--grnacc);font-weight:700;
-  padding-bottom:16px;border-bottom:1px solid rgba(240,233,220,.18)}
-.res-item{display:grid;grid-template-columns:44px 1fr;gap:clamp(12px,2vw,18px);
-  padding:clamp(20px,2.8vw,26px) 0;border-bottom:1px solid rgba(240,233,220,.09);align-items:baseline}
-.res-item .rn{font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;color:var(--grnacc)}
-.res-item .rt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3vw,28px);font-weight:500;
-  line-height:1.16;letter-spacing:-.015em;color:var(--grnink)}
-.res-item .rs{font-size:16px;color:var(--grnmut);margin-top:8px;line-height:1.5;max-width:50ch}
-.more.onDark{color:var(--grnacc);border-bottom-color:rgba(240,233,220,.28)}
-.more.onDark:hover{color:var(--grnink);border-bottom-color:var(--grnacc)}
-.more.onDark .sign{color:var(--grnacc)}
-.dark .dbody{border-left-color:rgba(240,233,220,.18)}
-.dark .part{border-top-color:rgba(240,233,220,.12)}
-.dark .part .pt{color:var(--grnacc)}
-.dark .part .pd{color:var(--grnbody)}
-@media(max-width:560px){.res-item{grid-template-columns:34px 1fr;gap:10px}}
-
-/* ——— карта процесса ——— */
-.steps{margin-top:clamp(40px,6vw,64px)}
-.step{display:grid;grid-template-columns:44px 1fr;gap:clamp(12px,2vw,20px);
-  padding:clamp(18px,2.6vw,24px) 0;border-top:1px solid var(--line);align-items:baseline}
-.step:last-of-type{border-bottom:1px solid var(--line)}
-.step .sn{font-family:'Cormorant Garamond',Georgia,serif;font-size:17px;color:var(--acc)}
-.step .stt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(21px,2.8vw,27px);font-weight:500;
-  letter-spacing:-.015em;line-height:1.14;color:var(--txt)}
-.step .sd{font-size:16px;color:var(--body);margin-top:7px;line-height:1.55;max-width:54ch}
-.step.pair{position:relative}
-.step.pair::before{content:'';position:absolute;left:14px;top:0;bottom:0;width:1px;background:var(--acc);opacity:.45}
-.pairnote{margin-top:14px;padding-left:calc(44px + clamp(12px,2vw,20px));font-size:14.5px;color:var(--acc);
-  letter-spacing:.02em}
-.remark{font-size:16.5px;color:var(--body);margin-top:clamp(28px,4vw,38px);max-width:64ch;line-height:1.62}
-@media(max-width:560px){.step{grid-template-columns:34px 1fr;gap:10px}.pairnote{padding-left:44px}}
-
-/* ——— режим работы ——— */
-.mode{margin-top:clamp(40px,6vw,64px)}
-.mi3{padding:clamp(20px,2.8vw,26px) 0;border-top:1px solid var(--line)}
-.mi3:last-child{border-bottom:1px solid var(--line)}
-.mi3 .mv{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3vw,29px);font-weight:500;
-  letter-spacing:-.018em;line-height:1.12;color:var(--txt)}
-.mi3 .md3{font-size:16.5px;color:var(--body);margin-top:9px;line-height:1.58;max-width:56ch}
-
-/* ——— этапы: что формируется ——— */
-.forms{margin-top:clamp(28px,4vw,38px)}
-.forms .fl{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut);font-weight:700}
-.forms ul{list-style:none;margin-top:12px;display:flex;flex-wrap:wrap;gap:8px 0}
-.forms li{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(18px,2.3vw,22px);
-  color:var(--txt);line-height:1.3}
-.forms li:not(:last-child)::after{content:'·';color:var(--acc);margin:0 12px}
-.forms .dec{font-size:clamp(17px,2.2vw,20px);color:var(--body);margin-top:13px;line-height:1.5;max-width:52ch}
-.forms .also{font-size:15.5px;color:var(--mut);margin-top:12px;line-height:1.55;max-width:56ch}
-
-/* ——— раскрытие: два режима работы ——— */
-.dgroup{padding:clamp(20px,3vw,26px) 0;border-top:1px solid var(--line)}
-.dgroup:first-of-type{border-top:0;padding-top:16px}
-.dgroup .dh{font-size:11.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--accink);font-weight:700}
-.dgroup p{font-size:16.5px;color:var(--body);margin-top:10px;line-height:1.7;max-width:60ch}
-.dgroup ul{list-style:none;margin-top:12px;max-width:60ch}
-.dgroup li{font-size:16.5px;color:var(--body);line-height:1.62;padding:5px 0 5px 20px;position:relative}
-.dgroup li::before{content:'';position:absolute;left:2px;top:15px;width:5px;height:1px;background:var(--acc)}
-
-/* ——— итог: 6 определённостей ——— */
-.certs{margin-top:clamp(44px,7vw,72px)}
-.cert{padding:clamp(24px,3.4vw,32px) 0;border-top:1px solid rgba(240,233,220,.14)}
-.cert:last-child{border-bottom:1px solid rgba(240,233,220,.14)}
-.cert .ct{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--grnacc);font-weight:700}
-.cert .cd{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(21px,3vw,29px);font-weight:400;
-  line-height:1.24;margin-top:13px;max-width:44ch;color:var(--grnink)}
-
-/* ——— граница ——— */
-.bnd{margin-top:clamp(36px,5vw,54px)}
-.bnd .bi2{padding:clamp(24px,3.4vw,32px) 0;border-top:1px solid var(--line)}
-.bnd .bi2:last-of-type{border-bottom:1px solid var(--line)}
-.bnd .bl{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accink);font-weight:700}
-.bnd .bt2.lead2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,2.8vw,26px);
-  color:var(--txt);line-height:1.28;max-width:34ch;margin-top:14px}
-.bnd .bt2.lead2 + .bt2{margin-top:16px}
-.bnd .bt2{font-size:clamp(17px,2.1vw,19.5px);color:var(--body);margin-top:12px;max-width:58ch;line-height:1.6}
-.bnd .bfin{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(21px,3vw,29px);font-weight:400;
-  line-height:1.26;margin-top:clamp(30px,4vw,42px);max-width:40ch;color:var(--txt)}
-
-/* ——— финал ——— */
-.final .price{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(46px,9vw,96px);font-weight:400;
-  letter-spacing:-.03em;line-height:1;color:var(--grnacc);margin-top:clamp(34px,5vh,52px)}
-.final .terms{margin-top:clamp(38px,6vh,58px)}
 </style>
 </head>
 <body>
 
 <nav class="nav" id="nav" aria-label="Положение в документе">
-  <div class="here" id="here">Задача</div>
-  <button type="button" id="mopen" aria-expanded="false" aria-controls="sheet">Содержание</button>
+  <div class="here" id="here">Исходная ситуация</div>
+  <div class="rt">
+    <div class="track" id="track" aria-label="Этапы">
+      <a href="#stage-1" data-st="1">01</a>
+      <a href="#stage-2" data-st="2">02</a>
+      <a href="#stage-3" data-st="3">03</a>
+      <a href="#stage-4" data-st="4">04</a>
+      <a href="#stage-5" data-st="5">05</a>
+    </div>
+    <button type="button" id="mopen" aria-expanded="false" aria-controls="sheet">Содержание</button>
+  </div>
 </nav>
 
 <div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Содержание документа">
@@ -415,702 +352,426 @@ body.lock{overflow:hidden}
   </div>
 </div>
 
-<!-- ОБЛОЖКА -->
 <header class="cover" id="cover">
   <div class="por"><img src="svetlana-cover.jpg" alt="Светлана Шмакова"></div>
   <div class="cap">Светлана Шмакова</div>
   <div class="wrap">
-    <div class="col">
+    <div class="cc">
       <div class="line"></div>
       <h1 class="ser">Проектирование<br>стратегии</h1>
       <div class="sub">Архитектура, этапы и результаты работы</div>
-      <div class="facts"><span>6–8 недель</span><span>6 рабочих созвонов</span></div>
+      <div class="facts"><span>6–8 недель</span><span>6 рабочих встреч</span></div>
     </div>
   </div>
 </header>
 
-<!-- ИСХОДНАЯ СИТУАЦИЯ -->
-<section class="situ" id="situation">
+<section id="situation">
   <div class="wrap">
-    <div class="eyebrow">Исходная ситуация</div>
-    <h2>С чего начинаем</h2>
-
-    <div class="sl">
-      <div class="si2">
-        <div class="sq ser">Книга — один из исходных замыслов</div>
-        <div class="sx">Книга о преемственности и наследовании капитала в семейных династиях уже написана. Какую роль она играет в более широкой конструкции — самостоятельный продукт, точка входа в аудиторию, основание для следующих продуктов — предстоит определить.</div>
-      </div>
-      <div class="si2">
-        <div class="sq ser">Вопрос шире продвижения книги</div>
-        <div class="sx">Мы начинали с вопроса, как продвигать книгу. Но за ним стоит другой: какая продуктовая и бизнес-конструкция имеет смысл вокруг экспертизы Светланы и её замысла.</div>
-      </div>
-      <div class="si2">
-        <div class="sq ser">Есть на что опереться</div>
-        <div class="sx">Экспертиза, собственный опыт, репутация, выступления, связи и отношения. Часть этих активов может стать основанием стратегии — какая именно, определяется в работе.</div>
+    <div class="col"><div class="eyebrow">Исходная ситуация</div>
+    <h2>С чего начинаем</h2></div>
+    <div class="dossier">
+      <div class="dsi"><div class="dt ser">Книга — один из исходных замыслов</div><div class="dd">Книга о преемственности и наследовании капитала в семейных династиях уже написана. Какую роль она играет в более широкой конструкции — самостоятельный продукт, точка входа в аудиторию, основание для следующих продуктов — предстоит определить.</div></div>
+      <div class="dsi"><div class="dt ser">Вопрос шире продвижения книги</div><div class="dd">Мы начинали с вопроса, как продвигать книгу. Но за ним стоит другой: какая продуктовая и бизнес-конструкция имеет смысл вокруг экспертизы Светланы и её замысла.</div></div>
+      <div class="dsi"><div class="dt ser">Есть на что опереться</div><div class="dd">Экспертиза, собственный опыт, репутация, выступления, связи и отношения. Часть этих активов может стать основанием стратегии — какая именно, определяется в работе.</div></div>
+    </div>
+    <div class="hypo">
+      <div class="hl">Предварительные<br>гипотезы</div>
+      <div class="hb">
+        <p>Приоритетная аудитория — состоявшиеся предприниматели со сформированным капиталом, находящиеся на этапе, когда возникают вопросы преемственности.</p>
+        <p>Доступ к такой аудитории сложно получить рекламой, но она уже собрана у других носителей — и там возможен обмен взаимной ценностью.</p>
+        <p>Обе гипотезы требуют проверки и могут измениться в ходе исследования.</p>
       </div>
     </div>
-
-    <div class="hyp">
-      <div class="hl">Предварительные гипотезы</div>
-      <div class="hx">Приоритетная аудитория — состоявшиеся предприниматели со сформированным капиталом, находящиеся на этапе, когда возникают вопросы преемственности.</div>
-      <div class="hx">Доступ к такой аудитории сложно получить рекламой, но она уже собрана у других носителей — и там возможен обмен взаимной ценностью.</div>
-      <div class="hx">Обе гипотезы требуют проверки и могут измениться в ходе исследования.</div>
-    </div>
-
-    <p class="snote ser">Задача проектирования — не подтвердить заранее выбранную идею, а найти наиболее сильную конструкцию относительно личного и бизнес-замысла Светланы.</p>
+    <p class="statement ser">Задача проектирования — не подтвердить заранее выбранную идею, а найти наиболее сильную конструкцию относительно личного и бизнес-замысла Светланы.</p>
   </div>
 </section>
 
-<!-- ЗАДАЧА -->
 <section class="task" id="task">
   <div class="wrap">
-    <div class="intro">
-      <div class="eyebrow">Задача</div>
+    <div class="hero"><div class="col"><div class="eyebrow">Задача</div>
       <div class="th ser">Найти наиболее сильный путь к замыслу</div>
-      <p class="tsub">Не просто определить, какие проекты можно запустить, а понять, что действительно имеет смысл строить, для кого, на что можно опереться и какой путь с большей вероятностью приведёт к желаемому результату.</p>
+      <p class="tsub">Не просто определить, какие проекты можно запустить, а понять, что действительно имеет смысл строить, для кого, на что можно опереться и какой путь с большей вероятностью приведёт к желаемому результату.</p></div>
     </div>
-
-    <div class="qs">
-      <div class="q">
-        <div class="qn">01</div>
-        <div class="qt ser">Что строить?</div>
-        <div class="qd">Какие продукты имеют смысл и какую роль среди них должна играть книга?</div>
+    <div class="phases">
+      <div class="phase">
+        <div class="pl">Предмет</div>
+        <div class="pq">
+          <div class="qq"><div class="qn">01</div><div class="qt ser">Что строить?</div><div class="qd">Какие продукты имеют смысл и какую роль среди них должна играть книга?</div></div>
+          <div class="qq"><div class="qn">02</div><div class="qt ser">Для кого?</div><div class="qd">Кому это действительно нужно и за какую ценность люди готовы платить, участвовать или поддерживать?</div></div>
+        </div>
       </div>
-      <div class="q">
-        <div class="qn">02</div>
-        <div class="qt ser">Для кого?</div>
-        <div class="qd">Кому это действительно нужно и за какую ценность люди готовы платить, участвовать или поддерживать?</div>
+      <div class="phase">
+        <div class="pl">Ресурс</div>
+        <div class="pq">
+          <div class="qq"><div class="qn">03</div><div class="qt ser">На что опереться?</div><div class="qd">Какие активы уже есть и каких ресурсов, компетенций и возможностей не хватает?</div></div>
+          <div class="qq"><div class="qn">04</div><div class="qt ser">С кем?</div><div class="qd">У кого есть недостающие ресурсы и где возможна взаимная ценность?</div></div>
+        </div>
       </div>
-      <div class="q">
-        <div class="qn">03</div>
-        <div class="qt ser">На что опереться?</div>
-        <div class="qd">Какие активы уже есть и каких ресурсов, компетенций и возможностей не хватает?</div>
-      </div>
-      <div class="q">
-        <div class="qn">04</div>
-        <div class="qt ser">С кем?</div>
-        <div class="qd">У кого есть недостающие ресурсы и где возможна взаимная ценность?</div>
-      </div>
-      <div class="q">
-        <div class="qn">05</div>
-        <div class="qt ser">Какой путь выбрать?</div>
-        <div class="qd">Какая комбинация продуктов, партнёров и стратегических ходов даст наибольший эффект относительно необходимых ресурсов?</div>
-      </div>
-      <div class="q">
-        <div class="qn">06</div>
-        <div class="qt ser">Как реализовать?</div>
-        <div class="qd">Что запускать, в какой последовательности, какой командой и с каким бюджетом?</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- АРХИТЕКТУРА СТРАТЕГИИ -->
-<section class="dark" id="results-overview">
-  <div class="wrap">
-    <div class="eyebrow">Что будет спроектировано</div>
-    <h2>Архитектура стратегии</h2>
-    <div class="sec2">12 конкретных результатов</div>
-    <p class="lead">От личного и бизнес-замысла — к продуктовой конструкции, ресурсам, стратегическим ходам и конкретному маршруту реализации.</p>
-
-    <div class="arch">
-      <div class="layer">
-        <div class="lt">Куда идём</div>
-        <div class="res-item"><div class="rn">01</div><div><div class="rt ser">Видение и замыслы</div><div class="rs">Личная и бизнес-конструкция, к которой хотим прийти.</div></div></div>
-      </div>
-      <div class="layer">
-        <div class="lt">Для кого</div>
-        <div class="res-item"><div class="rn">02</div><div><div class="rt ser">Целевые аудитории</div><div class="rs">Кому создаём ценность и какие аудитории приоритетны.</div></div></div>
-      </div>
-      <div class="layer">
-        <div class="lt">Что строим</div>
-        <div class="res-item"><div class="rn">03</div><div><div class="rt ser">Продуктовая стратегия</div><div class="rs">Продукты, их взаимосвязь и роль книги.</div></div></div>
-      </div>
-      <div class="layer">
-        <div class="lt">Какую позицию занимаем</div>
-        <div class="res-item"><div class="rn">04</div><div><div class="rt ser">Смыслы и позиционирование</div><div class="rs">Какую идею несём и чем отличаемся от альтернатив.</div></div></div>
-      </div>
-      <div class="layer">
-        <div class="lt">На что опираемся</div>
-        <div class="res-item"><div class="rn">05</div><div><div class="rt ser">Активы и дефициты</div><div class="rs">Что уже есть и чего объективно не хватает.</div></div></div>
-      </div>
-      <div class="layer">
-        <div class="lt">Кто может усилить</div>
-        <div class="res-item"><div class="rn">06</div><div><div class="rt ser">Ключевые стейкхолдеры</div><div class="rs">Люди и организации с необходимыми нам ресурсами.</div></div></div>
-      </div>
-      <div class="layer">
-        <div class="lt">Почему им это интересно</div>
-        <div class="res-item"><div class="rn">07</div><div><div class="rt ser">Взаимная ценность</div><div class="rs">На чём может строиться обмен ценностью.</div></div></div>
-      </div>
-      <div class="layer">
-        <div class="lt">За счёт чего усиливаем</div>
-        <div class="res-item"><div class="rn">08</div><div><div class="rt ser">Стратегические рычаги и асимметричные ходы</div><div class="rs">Где эффект непропорционален затраченным ресурсам.</div></div></div>
-      </div>
-      <div class="layer">
-        <div class="lt">Как переводим в реализацию</div>
-        <div class="res-item"><div class="rn">09</div><div><div class="rt ser">Стратегический маршрут</div><div class="rs">Что запускаем, в каком порядке и с какими контрольными точками.</div></div></div>
-        <div class="res-item"><div class="rn">10</div><div><div class="rt ser">Конфигурация реализации</div><div class="rs">Кто и что делает: внутренний контур, внешние, партнёры.</div></div></div>
-        <div class="res-item"><div class="rn">11</div><div><div class="rt ser">Бюджет и сценарии</div><div class="rs">Какие ресурсы нужны и чем отличаются сценарии.</div></div></div>
-      </div>
-      <div class="layer">
-        <div class="lt">Как оцениваем движение</div>
-        <div class="res-item"><div class="rn">12</div><div><div class="rt ser">Критерии эффективности</div><div class="rs">По чему понимаем, что движемся к замыслу.</div></div></div>
-      </div>
-    </div>
-
-    <button class="more onDark" type="button" aria-expanded="false" aria-controls="deep-arch">
-      <span class="txt">Подробнее о 12 результатах</span><span class="sign">+</span>
-    </button>
-    <div class="deep" id="deep-arch">
-      <div class="dinner">
-        <div class="dbody">
-          <div class="part"><div class="pt">01 · Видение и замыслы</div>
-            <div class="pd">Личная и бизнес-стратегия Светланы: куда она хочет прийти, какую роль занимать и какую конструкцию создать вокруг своей экспертизы и деятельности. Все последующие решения оцениваются относительно этого замысла.</div></div>
-          <div class="part"><div class="pt">02 · Целевые аудитории</div>
-            <div class="pd">Для кого создаётся ценность, какие аудитории существуют и какие из них являются приоритетными.</div></div>
-          <div class="part"><div class="pt">03 · Продуктовая стратегия</div>
-            <div class="pd">Какие продукты имеют смысл, как они связаны между собой и какую роль в общей конструкции должна играть книга.</div></div>
-          <div class="part"><div class="pt">04 · Смыслы и позиционирование</div>
-            <div class="pd">Какую позицию Светлана и её продукты занимают для аудитории, какую идею и ценность несут и чем отличаются от альтернатив.</div></div>
-          <div class="part"><div class="pt">05 · Активы и дефициты</div>
-            <div class="pd">Что уже есть для реализации замысла и чего объективно не хватает: ресурсов, компетенций, доступов, инфраструктуры, аудитории.</div></div>
-          <div class="part"><div class="pt">06 · Ключевые стейкхолдеры</div>
-            <div class="pd">Кто обладает ресурсами, аудиториями, компетенциями, доступами, влиянием или инфраструктурой, которые могут быть важны для реализации стратегии.</div></div>
-          <div class="part"><div class="pt">07 · Взаимная ценность</div>
-            <div class="pd">Почему потенциальным стейкхолдерам может быть интересно взаимодействовать со Светланой и какую ценность каждая сторона может дать другой.</div></div>
-          <div class="part"><div class="pt">08 · Стратегические рычаги и асимметричные ходы</div>
-            <div class="pd">Где можно получить непропорционально большой эффект относительно необходимых ресурсов и какие неочевидные комбинации позволяют это сделать.</div></div>
-          <div class="part"><div class="pt">09 · Стратегический маршрут</div>
-            <div class="pd">Последовательность ключевых проектов и промежуточных результатов, через которые реализуется выбранная стратегия: что запускается, в каком порядке, какие существуют зависимости и контрольные точки.</div></div>
-          <div class="part"><div class="pt">10 · Конфигурация реализации</div>
-            <div class="pd">Какая конфигурация людей, компетенций и ответственности позволит реализовать стратегию: что остаётся внутри доверенного контура, где необходимо личное участие Светланы, каких ролей не хватает и что можно привлекать снаружи.</div></div>
-          <div class="part"><div class="pt">11 · Бюджет и сценарии</div>
-            <div class="pd">Какие ресурсы потребуются для реализации и как отличаются возможные сценарии по стоимости, скорости и масштабу.</div></div>
-          <div class="part"><div class="pt">12 · Критерии эффективности</div>
-            <div class="pd">По каким показателям и контрольным точкам можно оценивать движение к замыслу и принимать решения: продолжать, усиливать, корректировать или останавливать отдельные направления.</div></div>
+      <div class="phase">
+        <div class="pl">Решение</div>
+        <div class="pq">
+          <div class="qq"><div class="qn">05</div><div class="qt ser">Какой путь выбрать?</div><div class="qd">Какая комбинация продуктов, партнёров и стратегических ходов даст наибольший эффект относительно необходимых ресурсов?</div></div>
+          <div class="qq"><div class="qn">06</div><div class="qt ser">Как реализовать?</div><div class="qd">Что запускать, в какой последовательности, какой командой и с каким бюджетом?</div></div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- КАК СТРОИТСЯ РАБОТА -->
-<section id="process">
+<section class="dark" id="results-overview">
   <div class="wrap">
-    <div class="eyebrow">Как строится работа</div>
-    <h2>От замысла — к конкретному маршруту</h2>
-
-    <div class="steps">
-      <div class="step">
-        <div class="sn">01</div>
-        <div><div class="stt">Видение и замыслы</div><div class="sd">Определяем, куда хотим прийти.</div></div>
+    <div class="col"><div class="eyebrow">Что будет спроектировано</div>
+    <h2>Архитектура стратегии</h2>
+    <p class="lead">От личного и бизнес-замысла — к продуктовой конструкции, ресурсам, стратегическим ходам и конкретному маршруту реализации.</p></div>
+    <div class="arch">
+      <div class="lay">
+        <div class="lt">Куда идём</div>
+        <div class="items">
+          <div class="ri"><div class="rn">01</div><div><div class="rt ser">Видение и замыслы</div><div class="rs">Личная и бизнес-конструкция, к которой хотим прийти.</div></div></div>
+        </div>
       </div>
-      <div class="step pair">
-        <div class="sn">02</div>
-        <div><div class="stt">Исследование поля</div><div class="sd">Понимаем исходную позицию и поле возможностей.</div></div>
+      <div class="lay">
+        <div class="lt">Для кого</div>
+        <div class="items">
+          <div class="ri"><div class="rn">02</div><div><div class="rt ser">Целевые аудитории</div><div class="rs">Кому создаём ценность и какие аудитории приоритетны.</div></div></div>
+        </div>
       </div>
-      <div class="step pair">
-        <div class="sn">03</div>
-        <div><div class="stt">Стратегические конфигурации</div><div class="sd">Собираем возможные стратегические конфигурации.</div></div>
+      <div class="lay">
+        <div class="lt">Что строим</div>
+        <div class="items">
+          <div class="ri"><div class="rn">03</div><div><div class="rt ser">Продуктовая стратегия</div><div class="rs">Продукты, их взаимосвязь и роль книги.</div></div></div>
+        </div>
       </div>
-      <div class="pairnote">02 и 03 идут в связке и уточняют друг друга</div>
-      <div class="step" style="margin-top:clamp(18px,2.6vw,24px)">
-        <div class="sn">04</div>
-        <div><div class="stt">Стратегический выбор</div><div class="sd">Определяем, на чём концентрируемся.</div></div>
+      <div class="lay">
+        <div class="lt">Какую позицию занимаем</div>
+        <div class="items">
+          <div class="ri"><div class="rn">04</div><div><div class="rt ser">Смыслы и позиционирование</div><div class="rs">Какую идею несём и чем отличаемся от альтернатив.</div></div></div>
+        </div>
       </div>
-      <div class="step">
-        <div class="sn">05</div>
-        <div><div class="stt">Проектирование реализации</div><div class="sd">Переводим выбранное направление в конкретную конструкцию реализации.</div></div>
+      <div class="lay">
+        <div class="lt">На что опираемся</div>
+        <div class="items">
+          <div class="ri"><div class="rn">05</div><div><div class="rt ser">Активы и дефициты</div><div class="rs">Что уже есть и чего объективно не хватает.</div></div></div>
+        </div>
+      </div>
+      <div class="lay">
+        <div class="lt">Кто может усилить</div>
+        <div class="items">
+          <div class="ri"><div class="rn">06</div><div><div class="rt ser">Ключевые стейкхолдеры</div><div class="rs">Люди и организации с необходимыми нам ресурсами.</div></div></div>
+        </div>
+      </div>
+      <div class="lay">
+        <div class="lt">Почему им это интересно</div>
+        <div class="items">
+          <div class="ri"><div class="rn">07</div><div><div class="rt ser">Взаимная ценность</div><div class="rs">На чём может строиться обмен ценностью.</div></div></div>
+        </div>
+      </div>
+      <div class="lay">
+        <div class="lt">За счёт чего усиливаем</div>
+        <div class="items">
+          <div class="ri"><div class="rn">08</div><div><div class="rt ser">Стратегические рычаги и асимметричные ходы</div><div class="rs">Где эффект непропорционален затраченным ресурсам.</div></div></div>
+        </div>
+      </div>
+      <div class="lay grp">
+        <div class="lt">Как переводим в реализацию</div>
+        <div class="items">
+          <div class="ri"><div class="rn">09</div><div><div class="rt ser">Стратегический маршрут</div><div class="rs">Что запускаем, в каком порядке и с какими контрольными точками.</div></div></div>
+          <div class="ri"><div class="rn">10</div><div><div class="rt ser">Конфигурация реализации</div><div class="rs">Кто и что делает: внутренний контур, внешние, партнёры.</div></div></div>
+          <div class="ri"><div class="rn">11</div><div><div class="rt ser">Бюджет и сценарии</div><div class="rs">Какие ресурсы нужны и чем отличаются сценарии.</div></div></div>
+        </div>
+      </div>
+      <div class="lay">
+        <div class="lt">Как оцениваем движение</div>
+        <div class="items">
+          <div class="ri"><div class="rn">12</div><div><div class="rt ser">Критерии эффективности</div><div class="rs">По чему понимаем, что движемся к замыслу.</div></div></div>
+        </div>
       </div>
     </div>
+    <button class="more onDark" type="button" aria-expanded="false" aria-controls="deep-arch">
+      <span class="txt">Подробнее о 12 результатах</span><span class="sign">+</span>
+    </button>
+    <div class="deep" id="deep-arch"><div class="dinner"><div class="dbody">
+      <div class="part"><div class="pt">01 · Видение и замыслы</div><div class="pd">Личная и бизнес-стратегия Светланы: куда она хочет прийти, какую роль занимать и какую конструкцию создать вокруг своей экспертизы и деятельности. Все последующие решения оцениваются относительно этого замысла.</div></div>
+      <div class="part"><div class="pt">02 · Целевые аудитории</div><div class="pd">Для кого создаётся ценность, какие аудитории существуют и какие из них являются приоритетными.</div></div>
+      <div class="part"><div class="pt">03 · Продуктовая стратегия</div><div class="pd">Какие продукты имеют смысл, как они связаны между собой и какую роль в общей конструкции должна играть книга.</div></div>
+      <div class="part"><div class="pt">04 · Смыслы и позиционирование</div><div class="pd">Какую позицию Светлана и её продукты занимают для аудитории, какую идею и ценность несут и чем отличаются от альтернатив.</div></div>
+      <div class="part"><div class="pt">05 · Активы и дефициты</div><div class="pd">Что уже есть для реализации замысла и чего объективно не хватает: ресурсов, компетенций, доступов, инфраструктуры, аудитории.</div></div>
+      <div class="part"><div class="pt">06 · Ключевые стейкхолдеры</div><div class="pd">Кто обладает ресурсами, аудиториями, компетенциями, доступами, влиянием или инфраструктурой, которые могут быть важны для реализации стратегии.</div></div>
+      <div class="part"><div class="pt">07 · Взаимная ценность</div><div class="pd">Почему потенциальным стейкхолдерам может быть интересно взаимодействовать со Светланой и какую ценность каждая сторона может дать другой.</div></div>
+      <div class="part"><div class="pt">08 · Стратегические рычаги и асимметричные ходы</div><div class="pd">Где можно получить непропорционально большой эффект относительно необходимых ресурсов и какие неочевидные комбинации позволяют это сделать.</div></div>
+      <div class="part"><div class="pt">09 · Стратегический маршрут</div><div class="pd">Последовательность ключевых проектов и промежуточных результатов, через которые реализуется выбранная стратегия: что запускается, в каком порядке, какие существуют зависимости и контрольные точки.</div></div>
+      <div class="part"><div class="pt">10 · Конфигурация реализации</div><div class="pd">Какая конфигурация людей, компетенций и ответственности позволит реализовать стратегию: что остаётся внутри доверенного контура, где необходимо личное участие Светланы, каких ролей не хватает и что можно привлекать снаружи.</div></div>
+      <div class="part"><div class="pt">11 · Бюджет и сценарии</div><div class="pd">Какие ресурсы потребуются для реализации и как отличаются возможные сценарии по стоимости, скорости и масштабу.</div></div>
+      <div class="part"><div class="pt">12 · Критерии эффективности</div><div class="pd">По каким показателям и контрольным точкам можно оценивать движение к замыслу и принимать решения: продолжать, усиливать, корректировать или останавливать отдельные направления.</div></div>
+    </div></div></div>
+  </div>
+</section>
 
+<section id="process">
+  <div class="wrap">
+    <div class="col"><div class="eyebrow">Как строится работа</div>
+    <h2>От замысла — к конкретному маршруту</h2></div>
+    <div class="proc">
+      <div class="canvas"><svg viewBox="0 0 520 330" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="260" y1="52" x2="260" y2="292" stroke="#ddd5c9" stroke-width="1" opacity="1"/><path d="M 260 60 C 260 96, 150 96, 150 126" fill="none" stroke="#ddd5c9" stroke-width="1"/><path d="M 260 60 C 260 96, 370 96, 370 126" fill="none" stroke="#ddd5c9" stroke-width="1"/><path d="M 150 126 C 150 196, 260 196, 260 228" fill="none" stroke="#ddd5c9" stroke-width="1"/><path d="M 370 126 C 370 196, 260 196, 260 228" fill="none" stroke="#ddd5c9" stroke-width="1"/><path d="M 164 120 C 215 104, 305 104, 356 120" fill="none" stroke="#a45132" stroke-width="1.4" opacity=".9"/><path d="M 356 134 C 305 150, 215 150, 164 134" fill="none" stroke="#a45132" stroke-width="1.4" opacity=".9"/><path d="M 354 120 l -5 -3 l 0 6 z" fill="#a45132" transform="rotate(0 354 120)"/><path d="M 166 134 l -5 -3 l 0 6 z" fill="#a45132" transform="rotate(180 166 134)"/><circle cx="260" cy="44" r="7" fill="#4a443c"/><circle cx="150" cy="126" r="7" fill="#4a443c"/><circle cx="370" cy="126" r="7" fill="#4a443c"/><circle cx="260" cy="238" r="9" fill="#a45132"/><circle cx="260" cy="238" r="17" fill="none" stroke="#a45132" stroke-width="1" opacity=".45"/><circle cx="260" cy="300" r="7" fill="#4a443c"/></svg></div>
+      <div class="legend">
+        <div class="lg"><div class="ln">01</div><div><div class="lt2 ser">Видение и замыслы</div><div class="ld">Определяем, куда хотим прийти.</div></div></div>
+        <div class="lg pair"><div class="ln">02</div><div><div class="lt2 ser">Исследование поля</div><div class="ld">Понимаем исходную позицию и поле возможностей.</div></div></div>
+        <div class="lg pair"><div class="ln">03</div><div><div class="lt2 ser">Стратегические конфигурации</div><div class="ld">Собираем возможные стратегические конфигурации.</div></div></div>
+        <div class="lg"><div class="ln">04</div><div><div class="lt2 ser">Стратегический выбор</div><div class="ld">Определяем, на чём концентрируемся.</div></div></div>
+        <div class="lg"><div class="ln">05</div><div><div class="lt2 ser">Проектирование реализации</div><div class="ld">Переводим выбранное направление в конкретную конструкцию реализации.</div></div></div>
+      </div>
+    </div>
     <p class="remark">Этапы задают логику движения, но не привязаны к встречам один к одному: отдельные этапы могут занимать несколько встреч, а исследование, проектирование и проверка гипотез частично идут параллельно и уточняют друг друга.</p>
-
     <div class="mode">
-      <div class="mi3">
-        <div class="mv ser">6 рабочих встреч</div>
-        <div class="md3">Примерно по 90 минут: обсуждаем промежуточные решения и фиксируем ключевые выборы.</div>
-      </div>
-      <div class="mi3">
-        <div class="mv ser">1,5–2 часа в неделю</div>
-        <div class="md3">Ориентировочная нагрузка Светланы: ключевые решения и обратная связь.</div>
-      </div>
-      <div class="mi3">
-        <div class="mv ser">Между встречами</div>
-        <div class="md3">Исследование, аналитику, интервью при необходимости, проверку гипотез и проектирование решений беру на себя.</div>
-      </div>
-      <div class="mi3">
-        <div class="mv ser">Финальный разбор</div>
-        <div class="md3">Разбираем собранную стратегию и маршрут её реализации.</div>
-      </div>
+      <div class="mi3"><div class="mv ser">6 рабочих встреч</div><div class="md3">Примерно по 90 минут: обсуждаем промежуточные решения и фиксируем ключевые выборы.</div></div>
+      <div class="mi3"><div class="mv ser">1,5–2 часа в неделю</div><div class="md3">Ориентировочная нагрузка Светланы: ключевые решения и обратная связь.</div></div>
+      <div class="mi3"><div class="mv ser">Между встречами</div><div class="md3">Исследование, аналитику, интервью при необходимости, проверку гипотез и проектирование решений беру на себя.</div></div>
+      <div class="mi3"><div class="mv ser">Финальный разбор</div><div class="md3">Разбираем собранную стратегию и маршрут её реализации.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ЭТАП 01 -->
 <section class="chap" id="stage-1">
   <div class="wrap">
-    <div class="cn">01</div>
-    <h3 class="ser">Видение и замыслы</h3>
-    <p class="cintro">Куда Светлана хочет прийти лично и как предприниматель, какую роль занимать и какую бизнес-конструкцию создать.</p>
-
-    <div class="motif" aria-hidden="true">
-      <svg viewBox="0 0 400 128">
-        <circle cx="40" cy="40" r="4" fill="#4a443c"/>
-        <circle cx="112" cy="26" r="4" fill="#4a443c"/>
-        <circle cx="196" cy="52" r="4" fill="#4a443c"/>
-        <circle cx="268" cy="30" r="4" fill="#4a443c"/>
-        <circle cx="348" cy="60" r="4" fill="#4a443c"/>
-        <circle cx="76" cy="92" r="4" fill="#4a443c"/>
-        <circle cx="160" cy="104" r="4" fill="#4a443c"/>
-        <circle cx="244" cy="88" r="4" fill="#4a443c"/>
-        <circle cx="324" cy="106" r="4" fill="#4a443c"/>
-        <line x1="0" y1="126" x2="400" y2="126" stroke="#d8cfc3" stroke-width="1"/>
-      </svg>
-      <div class="cap">Поле замыслов</div>
+    <div class="top">
+      <div>
+        <div class="cn">01</div>
+        <h3 class="ser">Видение и замыслы</h3>
+        <p class="cintro">Куда Светлана хочет прийти лично и как предприниматель, какую роль занимать и какую бизнес-конструкцию создать.</p>
+      </div>
+      <div class="motif"><svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="58" cy="60" r="5" fill="#4a443c" opacity="0.5"/><circle cx="140" cy="150" r="5" fill="#4a443c" opacity="0.5"/><circle cx="100" cy="246" r="5" fill="#4a443c" opacity="0.5"/><circle cx="216" cy="92" r="5" fill="#4a443c" opacity="0.5"/><circle cx="250" cy="208" r="5" fill="#4a443c" opacity="0.5"/><circle cx="332" cy="52" r="5" fill="#4a443c" opacity="0.5"/><circle cx="358" cy="160" r="5" fill="#4a443c" opacity="0.5"/><circle cx="296" cy="268" r="5" fill="#4a443c" opacity="0.5"/><circle cx="456" cy="118" r="5" fill="#4a443c" opacity="0.5"/><circle cx="58" cy="60" r="13" fill="none" stroke="#ddd5c9" stroke-width="1" opacity=".35"/><circle cx="140" cy="150" r="13" fill="none" stroke="#ddd5c9" stroke-width="1" opacity=".35"/><circle cx="100" cy="246" r="13" fill="none" stroke="#ddd5c9" stroke-width="1" opacity=".35"/><circle cx="216" cy="92" r="13" fill="none" stroke="#ddd5c9" stroke-width="1" opacity=".35"/><circle cx="250" cy="208" r="13" fill="none" stroke="#ddd5c9" stroke-width="1" opacity=".35"/><circle cx="332" cy="52" r="13" fill="none" stroke="#ddd5c9" stroke-width="1" opacity=".35"/><circle cx="358" cy="160" r="13" fill="none" stroke="#ddd5c9" stroke-width="1" opacity=".35"/><circle cx="296" cy="268" r="13" fill="none" stroke="#ddd5c9" stroke-width="1" opacity=".35"/><circle cx="456" cy="118" r="13" fill="none" stroke="#ddd5c9" stroke-width="1" opacity=".35"/></svg><div class="cap">Поле замыслов</div></div>
     </div>
-
-    <div class="forms">
+    <div class="focus">
       <div class="fl">Фокус этапа</div>
-      <ul>
-        <li>Видение и замыслы</li>
-      </ul>
+      <div>
+        <ul><li>Видение и замыслы</li></ul>
+      </div>
     </div>
-
     <div class="res">
       <div class="rl">После этапа</div>
       <div class="rx ser">Понятно, куда хотим прийти и относительно чего будем оценивать дальнейшие стратегические решения.</div>
     </div>
-
     <button class="more" type="button" aria-expanded="false" aria-controls="deep-1">
       <span class="txt">Подробнее об этапе</span><span class="sign">+</span>
     </button>
-    <div class="deep" id="deep-1">
-      <div class="dinner">
-        <div class="dbody">
-          <div class="dgroup">
-            <div class="dh">Вместе со Светланой</div>
-            <p>Разбираем:</p>
-            <ul>
-              <li>личные цели</li>
-              <li>бизнес-цели</li>
-              <li>исходные замыслы</li>
-              <li>желаемый масштаб</li>
-              <li>роль самой Светланы</li>
-              <li>ограничения</li>
-              <li>горизонт, на котором рассматриваем замысел</li>
-              <li>критерии желаемого результата</li>
-            </ul>
-          </div>
-          <div class="dgroup">
-            <div class="dh">Между встречами</div>
-            <ul>
-              <li>структурируем исходные гипотезы</li>
-              <li>выявляем противоречия</li>
-              <li>собираем рабочую рамку</li>
-              <li>формулируем критерии, относительно которых дальше можно исследовать и оценивать возможные решения</li>
-            </ul>
-          </div>
-          <div class="dgroup">
-            <div class="dh">Важно</div>
-            <p>Книга, продукты и партнёрства на этом этапе присутствуют как исходные гипотезы, а не как принятые решения.</p>
-          </div>
-        </div>
+    <div class="deep" id="deep-1"><div class="dinner"><div class="dbody">
+      <div class="dgroup"><div class="dh">Вместе со Светланой</div>
+        <p>Разбираем:</p>
+        <ul><li>личные цели</li><li>бизнес-цели</li><li>исходные замыслы</li><li>желаемый масштаб</li><li>роль самой Светланы</li><li>ограничения</li><li>горизонт, на котором рассматриваем замысел</li><li>критерии желаемого результата</li></ul>
       </div>
-    </div>
+      <div class="dgroup"><div class="dh">Между встречами</div>
+        <ul><li>структурируем исходные гипотезы</li><li>выявляем противоречия</li><li>собираем рабочую рамку</li><li>формулируем критерии, относительно которых дальше можно исследовать и оценивать возможные решения</li></ul>
+      </div>
+      <div class="dgroup"><div class="dh">Важно</div>
+        <p>Книга, продукты и партнёрства на этом этапе присутствуют как исходные гипотезы, а не как принятые решения.</p>
+      </div>
+    </div></div></div>
   </div>
 </section>
 
-<!-- ЭТАП 02 -->
 <section class="chap" id="stage-2">
   <div class="wrap">
-    <div class="cn">02</div>
-    <h3 class="ser">Исследование поля</h3>
-    <p class="cintro">С чем реально имеем дело и что из исходных предположений выдерживает проверку реальностью.</p>
-
-    <div class="motif" aria-hidden="true">
-      <svg viewBox="0 0 400 128">
-        <circle cx="40" cy="40" r="4" fill="#4a443c"/>
-        <circle cx="112" cy="26" r="3" fill="#a49a8e"/>
-        <circle cx="196" cy="52" r="4" fill="#4a443c"/>
-        <circle cx="268" cy="30" r="3" fill="#a49a8e"/>
-        <circle cx="348" cy="60" r="5" fill="#a45132"/>
-        <circle cx="76" cy="92" r="3" fill="#a49a8e"/>
-        <circle cx="160" cy="104" r="4" fill="#4a443c"/>
-        <circle cx="244" cy="88" r="3" fill="#a49a8e"/>
-        <circle cx="324" cy="106" r="3" fill="#a49a8e"/>
-        <line x1="105" y1="19" x2="119" y2="33" stroke="#a49a8e" stroke-width="1"/>
-        <line x1="261" y1="23" x2="275" y2="37" stroke="#a49a8e" stroke-width="1"/>
-        <line x1="69" y1="85" x2="83" y2="99" stroke="#a49a8e" stroke-width="1"/>
-        <line x1="237" y1="81" x2="251" y2="95" stroke="#a49a8e" stroke-width="1"/>
-        <line x1="317" y1="99" x2="331" y2="113" stroke="#a49a8e" stroke-width="1"/>
-        <line x1="0" y1="126" x2="400" y2="126" stroke="#d8cfc3" stroke-width="1"/>
-      </svg>
-      <div class="cap">Проверка реальностью</div>
+    <div class="top">
+      <div>
+        <div class="cn">02</div>
+        <h3 class="ser">Исследование поля</h3>
+        <p class="cintro">С чем реально имеем дело и что из исходных предположений выдерживает проверку реальностью.</p>
+      </div>
+      <div class="motif"><svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><line x1="133" y1="143" x2="147" y2="157" stroke="#cdc4b8" stroke-width="1" opacity="0.9"/><line x1="93" y1="239" x2="107" y2="253" stroke="#cdc4b8" stroke-width="1" opacity="0.9"/><line x1="325" y1="45" x2="339" y2="59" stroke="#cdc4b8" stroke-width="1" opacity="0.9"/><line x1="289" y1="261" x2="303" y2="275" stroke="#cdc4b8" stroke-width="1" opacity="0.9"/><circle cx="140" cy="150" r="3" fill="#cdc4b8" opacity="0.9"/><circle cx="100" cy="246" r="3" fill="#cdc4b8" opacity="0.9"/><circle cx="332" cy="52" r="3" fill="#cdc4b8" opacity="0.9"/><circle cx="296" cy="268" r="3" fill="#cdc4b8" opacity="0.9"/><path d="M 58 60 L 216 92" fill="none" stroke="#ddd5c9" stroke-width="1" opacity="1" stroke-linejoin="round" stroke-linecap="round"/><path d="M 216 92 L 250 208" fill="none" stroke="#ddd5c9" stroke-width="1" opacity="1" stroke-linejoin="round" stroke-linecap="round"/><path d="M 250 208 L 358 160" fill="none" stroke="#ddd5c9" stroke-width="1" opacity="1" stroke-linejoin="round" stroke-linecap="round"/><path d="M 358 160 L 456 118" fill="none" stroke="#ddd5c9" stroke-width="1" opacity="1" stroke-linejoin="round" stroke-linecap="round"/><path d="M 58 60 L 250 208" fill="none" stroke="#ddd5c9" stroke-width="1" opacity="1" stroke-linejoin="round" stroke-linecap="round"/><path d="M 216 92 L 358 160" fill="none" stroke="#ddd5c9" stroke-width="1" opacity="1" stroke-linejoin="round" stroke-linecap="round"/><circle cx="58" cy="60" r="6" fill="#4a443c" opacity="1"/><circle cx="216" cy="92" r="6" fill="#4a443c" opacity="1"/><circle cx="250" cy="208" r="6" fill="#4a443c" opacity="1"/><circle cx="358" cy="160" r="6" fill="#4a443c" opacity="1"/><circle cx="456" cy="118" r="6" fill="#4a443c" opacity="1"/></svg><div class="cap">Проверка реальностью</div></div>
     </div>
-
-    <div class="forms">
+    <div class="focus">
       <div class="fl">Фокус этапа</div>
-      <ul>
-        <li>Целевые аудитории</li>
-        <li>Активы и дефициты</li>
-        <li>Ключевые стейкхолдеры</li>
-      </ul>
-      <div class="also">Параллельно начинают проверяться гипотезы продуктовой стратегии.</div>
+      <div>
+        <ul><li>Целевые аудитории</li><li>Активы и дефициты</li><li>Ключевые стейкхолдеры</li></ul>
+        <div class="also">Параллельно начинают проверяться гипотезы продуктовой стратегии.</div>
+      </div>
     </div>
-
     <div class="res">
       <div class="rl">После этапа</div>
       <div class="rx ser">Есть рабочая картина поля: кому и что действительно может быть нужно, что подтверждается реальностью, на что уже можно опереться, чего не хватает и где находятся потенциальные возможности.</div>
     </div>
-
     <button class="more" type="button" aria-expanded="false" aria-controls="deep-2">
       <span class="txt">Подробнее об этапе</span><span class="sign">+</span>
     </button>
-    <div class="deep" id="deep-2">
-      <div class="dinner">
-        <div class="dbody">
-          <div class="dgroup">
-            <div class="dh">Вместе со Светланой</div>
-            <p>Уточняем гипотезы:</p>
-            <ul>
-              <li>об аудиториях</li>
-              <li>продуктах</li>
-              <li>существующих активах</li>
-              <li>ограничениях</li>
-              <li>связях</li>
-              <li>потенциально интересных стейкхолдерах</li>
-            </ul>
-          </div>
-          <div class="dgroup">
-            <div class="dh">Между встречами</div>
-            <ul>
-              <li>исследуем аудитории и их задачи</li>
-              <li>анализируем существующие продукты, проекты и модели, конкурирующие способы решения задачи и свободные возможности</li>
-              <li>проверяем исходные продуктовые гипотезы</li>
-              <li>собираем и структурируем активы, оцениваем ключевые из них по трудноповторимости, устойчивости и востребованности</li>
-              <li>выявляем дефициты</li>
-              <li>исследуем потенциальных стейкхолдеров</li>
-              <li>проверяем возникающие по ходу работы гипотезы</li>
-              <li>там, где для принятия решения недостаточно имеющейся информации, проводим интервью с представителями целевой аудитории, экспертами и другими релевантными участниками</li>
-            </ul>
-          </div>
-          <div class="dgroup">
-            <div class="dh">Важно</div>
-            <p>Картина продолжает уточняться в ходе следующего этапа.</p>
-          </div>
-        </div>
+    <div class="deep" id="deep-2"><div class="dinner"><div class="dbody">
+      <div class="dgroup"><div class="dh">Вместе со Светланой</div>
+        <p>Уточняем гипотезы:</p>
+        <ul><li>об аудиториях</li><li>продуктах</li><li>существующих активах</li><li>ограничениях</li><li>связях</li><li>потенциально интересных стейкхолдерах</li></ul>
       </div>
-    </div>
+      <div class="dgroup"><div class="dh">Между встречами</div>
+        <ul><li>исследуем аудитории и их задачи</li><li>анализируем существующие продукты, проекты и модели, конкурирующие способы решения задачи и свободные возможности</li><li>проверяем исходные продуктовые гипотезы</li><li>собираем и структурируем активы, оцениваем ключевые из них по трудноповторимости, устойчивости и востребованности</li><li>выявляем дефициты</li><li>исследуем потенциальных стейкхолдеров</li><li>проверяем возникающие по ходу работы гипотезы</li><li>там, где для принятия решения недостаточно имеющейся информации, проводим интервью с представителями целевой аудитории, экспертами и другими релевантными участниками</li></ul>
+      </div>
+      <div class="dgroup"><div class="dh">Важно</div>
+        <p>Картина продолжает уточняться в ходе следующего этапа.</p>
+      </div>
+    </div></div></div>
   </div>
 </section>
 
-<!-- ЭТАП 03 -->
 <section class="chap" id="stage-3">
   <div class="wrap">
-    <div class="cn">03</div>
-    <h3 class="ser">Стратегические конфигурации</h3>
-    <p class="cintro">Что действительно имеет смысл строить и как соединить продукты, аудитории, смыслы, ресурсы и потенциальных партнёров в работающую стратегическую конструкцию.</p>
-
-    <div class="motif" aria-hidden="true">
-      <svg viewBox="0 0 400 128">
-        <circle cx="26" cy="64" r="5" fill="#a45132"/>
-        <path d="M32 64 C 140 64, 180 22, 300 22" stroke="#4a443c" stroke-width="1" fill="none"/>
-        <path d="M32 64 C 140 64, 180 64, 300 64" stroke="#4a443c" stroke-width="1" fill="none"/>
-        <path d="M32 64 C 140 64, 180 106, 300 106" stroke="#4a443c" stroke-width="1" fill="none"/>
-        <circle cx="306" cy="22" r="4" fill="#4a443c"/>
-        <text x="322" y="27" font-family="Georgia,serif" font-size="15" fill="#4a443c">A</text>
-        <circle cx="306" cy="64" r="4" fill="#4a443c"/>
-        <text x="322" y="69" font-family="Georgia,serif" font-size="15" fill="#4a443c">B</text>
-        <circle cx="306" cy="106" r="4" fill="#4a443c"/>
-        <text x="322" y="111" font-family="Georgia,serif" font-size="15" fill="#4a443c">C</text>
-      </svg>
-      <div class="cap">Стратегические конфигурации</div>
+    <div class="top">
+      <div>
+        <div class="cn">03</div>
+        <h3 class="ser">Стратегические конфигурации</h3>
+        <p class="cintro">Что действительно имеет смысл строить и как соединить продукты, аудитории, смыслы, ресурсы и потенциальных партнёров в работающую стратегическую конструкцию.</p>
+      </div>
+      <div class="motif"><svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="140" cy="150" r="2.5" fill="#cdc4b8" opacity="0.45"/><circle cx="100" cy="246" r="2.5" fill="#cdc4b8" opacity="0.45"/><circle cx="332" cy="52" r="2.5" fill="#cdc4b8" opacity="0.45"/><circle cx="296" cy="268" r="2.5" fill="#cdc4b8" opacity="0.45"/><path d="M 58 60 L 216 92 L 358 160 L 456 118" fill="none" stroke="#4a443c" stroke-width="1.6" opacity="1" stroke-linejoin="round" stroke-linecap="round"/><path d="M 58 60 L 216 92 L 250 208 L 456 118" fill="none" stroke="#4a443c" stroke-width="1.6" opacity="0.72" stroke-dasharray="1.5 4" stroke-linejoin="round" stroke-linecap="round"/><path d="M 58 60 L 250 208 L 358 160 L 456 118" fill="none" stroke="#4a443c" stroke-width="1.6" opacity="0.72" stroke-dasharray="7 4" stroke-linejoin="round" stroke-linecap="round"/><circle cx="58" cy="60" r="5.5" fill="#4a443c" opacity="1"/><circle cx="216" cy="92" r="5.5" fill="#4a443c" opacity="1"/><circle cx="250" cy="208" r="5.5" fill="#4a443c" opacity="1"/><circle cx="358" cy="160" r="5.5" fill="#4a443c" opacity="1"/><circle cx="456" cy="118" r="5.5" fill="#4a443c" opacity="1"/><text x="216" y="74" font-family="Cormorant Garamond,Georgia,serif" font-size="15" fill="#a89f93" text-anchor="middle">A</text><text x="250" y="190" font-family="Cormorant Garamond,Georgia,serif" font-size="15" fill="#a89f93" text-anchor="middle">B</text><text x="250" y="230" font-family="Cormorant Garamond,Georgia,serif" font-size="15" fill="#a89f93" text-anchor="middle">C</text></svg><div class="cap">Стратегические конфигурации</div></div>
     </div>
-
-    <div class="forms">
+    <div class="focus">
       <div class="fl">Фокус этапа</div>
-      <ul>
-        <li>Продуктовая стратегия</li>
-        <li>Смыслы и позиционирование</li>
-        <li>Взаимная ценность</li>
-        <li>Стратегические рычаги и асимметричные ходы</li>
-      </ul>
-      <div class="also">Также продолжают уточняться аудитории, активы и дефициты, ключевые стейкхолдеры.</div>
+      <div>
+        <ul><li>Продуктовая стратегия</li><li>Смыслы и позиционирование</li><li>Взаимная ценность</li><li>Стратегические рычаги и асимметричные ходы</li></ul>
+        <div class="also">Также продолжают уточняться аудитории, активы и дефициты, ключевые стейкхолдеры.</div>
+      </div>
     </div>
-
     <div class="res">
       <div class="rl">После этапа</div>
       <div class="rx ser">Понятно, какие продукты имеют смысл, для кого они создаются, как связаны между собой, какую роль играет книга и за счёт каких ресурсов, партнёрств и стратегических ходов конструкцию можно усилить. Сформировано несколько обоснованных стратегических конфигураций, которые можно сравнивать между собой.</div>
     </div>
-
     <button class="more" type="button" aria-expanded="false" aria-controls="deep-3">
       <span class="txt">Подробнее об этапе</span><span class="sign">+</span>
     </button>
-    <div class="deep" id="deep-3">
-      <div class="dinner">
-        <div class="dbody">
-          <div class="dgroup">
-            <div class="dh">Вместе со Светланой</div>
-            <ul>
-              <li>обсуждаем возникающие продуктовые гипотезы</li>
-              <li>определяем возможную роль книги</li>
-              <li>рассматриваем продуктовую линейку и связи между продуктами</li>
-              <li>проверяем соответствие решений личному и бизнес-замыслу</li>
-              <li>обсуждаем позиционирование</li>
-              <li>рассматриваем потенциальных стейкхолдеров</li>
-              <li>обсуждаем возможную взаимную ценность</li>
-              <li>рассматриваем возникающие стратегические конфигурации</li>
-            </ul>
-          </div>
-          <div class="dgroup">
-            <div class="dh">Между встречами</div>
-            <ul>
-              <li>проектируем и проверяем продуктовые конфигурации</li>
-              <li>уточняем аудитории</li>
-              <li>формируем продуктовую линейку</li>
-              <li>определяем функции различных продуктов</li>
-              <li>отдельно прорабатываем роль книги в общей конструкции</li>
-              <li>прорабатываем смыслы и позиционирование</li>
-              <li>ищем комбинации собственных активов и внешних ресурсов</li>
-              <li>исследуем взаимную ценность со стейкхолдерами</li>
-              <li>ищем стратегические рычаги</li>
-              <li>проектируем асимметричные ходы</li>
-              <li>возвращаем возникающие гипотезы в исследование для проверки</li>
-            </ul>
-          </div>
-          <div class="dgroup">
-            <div class="dh">Важно</div>
-            <p>Этапы 02 и 03 частично идут параллельно: новые данные меняют проектируемые решения, а новые решения создают гипотезы, которые возвращаются в исследование.</p>
-          </div>
-        </div>
+    <div class="deep" id="deep-3"><div class="dinner"><div class="dbody">
+      <div class="dgroup"><div class="dh">Вместе со Светланой</div>
+        <ul><li>обсуждаем возникающие продуктовые гипотезы</li><li>определяем возможную роль книги</li><li>рассматриваем продуктовую линейку и связи между продуктами</li><li>проверяем соответствие решений личному и бизнес-замыслу</li><li>обсуждаем позиционирование</li><li>рассматриваем потенциальных стейкхолдеров</li><li>обсуждаем возможную взаимную ценность</li><li>рассматриваем возникающие стратегические конфигурации</li></ul>
       </div>
-    </div>
+      <div class="dgroup"><div class="dh">Между встречами</div>
+        <ul><li>проектируем и проверяем продуктовые конфигурации</li><li>уточняем аудитории</li><li>формируем продуктовую линейку</li><li>определяем функции различных продуктов</li><li>отдельно прорабатываем роль книги в общей конструкции</li><li>прорабатываем смыслы и позиционирование</li><li>ищем комбинации собственных активов и внешних ресурсов</li><li>исследуем взаимную ценность со стейкхолдерами</li><li>ищем стратегические рычаги</li><li>проектируем асимметричные ходы</li><li>возвращаем возникающие гипотезы в исследование для проверки</li></ul>
+      </div>
+      <div class="dgroup"><div class="dh">Важно</div>
+        <p>Этапы 02 и 03 частично идут параллельно: новые данные меняют проектируемые решения, а новые решения создают гипотезы, которые возвращаются в исследование.</p>
+      </div>
+    </div></div></div>
   </div>
 </section>
 
-<!-- ЭТАП 04 -->
-<section class="chap" id="stage-4">
+<section class="chap peak" id="stage-4">
   <div class="wrap">
-    <div class="cn">04</div>
-    <h3 class="ser">Стратегический выбор</h3>
-    <p class="cintro">На какой стратегической конфигурации действительно стоит концентрировать ресурсы.</p>
-
-    <div class="motif" aria-hidden="true">
-      <svg viewBox="0 0 400 128">
-        <circle cx="26" cy="22" r="4" fill="#4a443c"/>
-        <circle cx="26" cy="64" r="4" fill="#4a443c"/>
-        <circle cx="26" cy="106" r="4" fill="#4a443c"/>
-        <path d="M32 22 C 150 22, 190 64, 300 64" stroke="#a49a8e" stroke-width="1" fill="none"/>
-        <path d="M32 64 C 150 64, 190 64, 300 64" stroke="#a45132" stroke-width="1.4" fill="none"/>
-        <path d="M32 106 C 150 106, 190 64, 300 64" stroke="#a49a8e" stroke-width="1" fill="none"/>
-        <circle cx="306" cy="64" r="6.5" fill="#a45132"/>
-      </svg>
-      <div class="cap">Сужение к выбору</div>
+    <div class="top">
+      <div>
+        <div class="cn">04</div>
+        <h3 class="ser">Стратегический выбор</h3>
+        <p class="cintro">На какой стратегической конфигурации действительно стоит концентрировать ресурсы.</p>
+      </div>
+      <div class="motif"><svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="140" cy="150" r="2.5" fill="#3c4c46" opacity="0.3"/><circle cx="100" cy="246" r="2.5" fill="#3c4c46" opacity="0.3"/><circle cx="332" cy="52" r="2.5" fill="#3c4c46" opacity="0.3"/><circle cx="296" cy="268" r="2.5" fill="#3c4c46" opacity="0.3"/><path d="M 58 60 L 216 92 L 358 160 L 456 118" fill="none" stroke="#5f736b" stroke-width="1" opacity="0.28" stroke-dasharray="2 6" stroke-linejoin="round" stroke-linecap="round"/><path d="M 58 60 L 216 92 L 250 208 L 456 118" fill="none" stroke="#5f736b" stroke-width="1" opacity="0.28" stroke-dasharray="2 6" stroke-linejoin="round" stroke-linecap="round"/><circle cx="216" cy="92" r="4" fill="#5f736b" opacity="0.38"/><path d="M 58 60 L 250 208 L 358 160 L 456 118" fill="none" stroke="#ca9072" stroke-width="2.6" opacity="1" stroke-linejoin="round" stroke-linecap="round"/><circle cx="58" cy="60" r="6.5" fill="#ca9072" opacity="1"/><circle cx="250" cy="208" r="6.5" fill="#ca9072" opacity="1"/><circle cx="358" cy="160" r="6.5" fill="#ca9072" opacity="1"/><circle cx="456" cy="118" r="6.5" fill="#ca9072" opacity="1"/><circle cx="456" cy="118" r="15" fill="none" stroke="#ca9072" stroke-width="1" opacity=".55"/><circle cx="456" cy="118" r="24" fill="none" stroke="#ca9072" stroke-width="1" opacity=".25"/></svg><div class="cap">Сужение к выбору</div></div>
     </div>
-
-    <div class="forms decision">
+    <div class="focus">
       <div class="fl">Фокус этапа</div>
-      <div class="dec">Выбор конфигурации · основания выбора · сознательные отказы</div>
+      <div>
+        <div class="dec ser">Выбор конфигурации · основания выбора · сознательные отказы</div>
+      </div>
     </div>
-
     <div class="res">
       <div class="rl">После этапа</div>
       <div class="rx ser">Понятно, на каком направлении концентрируемся, от чего сознательно отказываемся и почему выбран именно этот путь.</div>
     </div>
-
     <button class="more" type="button" aria-expanded="false" aria-controls="deep-4">
       <span class="txt">Подробнее об этапе</span><span class="sign">+</span>
     </button>
-    <div class="deep" id="deep-4">
-      <div class="dinner">
-        <div class="dbody">
-          <div class="dgroup">
-            <div class="dh">Вместе со Светланой</div>
-            <p>Сравниваем сформировавшиеся варианты относительно:</p>
-            <ul>
-              <li>исходного замысла</li>
-              <li>потенциального эффекта</li>
-              <li>необходимых ресурсов</li>
-              <li>доступности ресурсов</li>
-              <li>рисков</li>
-              <li>скорости</li>
-              <li>сложности реализации</li>
-              <li>соответствия самой Светлане</li>
-              <li>желаемой степени её личного участия</li>
-            </ul>
-          </div>
-          <div class="dgroup">
-            <div class="dh">Между встречами</div>
-            <ul>
-              <li>уточняем критические предположения</li>
-              <li>проверяем спорные гипотезы</li>
-              <li>оцениваем необходимые ресурсы</li>
-              <li>при необходимости возвращаем отдельные элементы в исследовательский контур</li>
-              <li>фиксируем не только выбранное направление, но и то, на чём сознательно не концентрируем ресурсы</li>
-              <li>уточняем основания выбора</li>
-            </ul>
-          </div>
-          <div class="dgroup">
-            <div class="dh">Важно</div>
-            <p>Это личная и бизнес-стратегия одновременно: решение оценивается не только по экономической эффективности, но и по соответствию роли и жизни, которую хочет строить Светлана.</p>
-          </div>
-        </div>
+    <div class="deep" id="deep-4"><div class="dinner"><div class="dbody">
+      <div class="dgroup"><div class="dh">Вместе со Светланой</div>
+        <p>Сравниваем сформировавшиеся варианты относительно:</p>
+        <ul><li>исходного замысла</li><li>потенциального эффекта</li><li>необходимых ресурсов</li><li>доступности ресурсов</li><li>рисков</li><li>скорости</li><li>сложности реализации</li><li>соответствия самой Светлане</li><li>желаемой степени её личного участия</li></ul>
       </div>
-    </div>
+      <div class="dgroup"><div class="dh">Между встречами</div>
+        <ul><li>уточняем критические предположения</li><li>проверяем спорные гипотезы</li><li>оцениваем необходимые ресурсы</li><li>при необходимости возвращаем отдельные элементы в исследовательский контур</li><li>фиксируем не только выбранное направление, но и то, на чём сознательно не концентрируем ресурсы</li><li>уточняем основания выбора</li></ul>
+      </div>
+      <div class="dgroup"><div class="dh">Важно</div>
+        <p>Это личная и бизнес-стратегия одновременно: решение оценивается не только по экономической эффективности, но и по соответствию роли и жизни, которую хочет строить Светлана.</p>
+      </div>
+    </div></div></div>
   </div>
 </section>
 
-<!-- ЭТАП 05 -->
 <section class="chap" id="stage-5">
   <div class="wrap">
-    <div class="cn">05</div>
-    <h3 class="ser">Проектирование реализации</h3>
-    <p class="cintro">Как превратить выбранную стратегическую конфигурацию в реалистичную систему реализации.</p>
-
-    <div class="motif" aria-hidden="true">
-      <svg viewBox="0 0 400 128">
-        <line x1="26" y1="64" x2="374" y2="64" stroke="#4a443c" stroke-width="1"/>
-        <circle cx="26" cy="64" r="6.5" fill="#a45132"/>
-        <circle cx="113" cy="64" r="4" fill="#4a443c"/>
-        <circle cx="200" cy="64" r="4" fill="#4a443c"/>
-        <circle cx="287" cy="64" r="4" fill="#4a443c"/>
-        <circle cx="374" cy="64" r="4" fill="#4a443c"/>
-        <line x1="113" y1="58" x2="113" y2="70" stroke="#d8cfc3" stroke-width="1"/>
-        <line x1="200" y1="58" x2="200" y2="70" stroke="#d8cfc3" stroke-width="1"/>
-        <line x1="287" y1="58" x2="287" y2="70" stroke="#d8cfc3" stroke-width="1"/>
-        <line x1="374" y1="58" x2="374" y2="70" stroke="#d8cfc3" stroke-width="1"/>
-      </svg>
-      <div class="cap">Маршрут реализации</div>
+    <div class="top">
+      <div>
+        <div class="cn">05</div>
+        <h3 class="ser">Проектирование реализации</h3>
+        <p class="cintro">Как превратить выбранную стратегическую конфигурацию в реалистичную систему реализации.</p>
+      </div>
+      <div class="motif"><svg viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><circle cx="140" cy="150" r="2.5" fill="#cdc4b8" opacity="0.28"/><circle cx="100" cy="246" r="2.5" fill="#cdc4b8" opacity="0.28"/><circle cx="332" cy="52" r="2.5" fill="#cdc4b8" opacity="0.28"/><circle cx="296" cy="268" r="2.5" fill="#cdc4b8" opacity="0.28"/><circle cx="216" cy="92" r="3.5" fill="#cdc4b8" opacity="0.4"/><path d="M 58 60 L 250 208 L 358 160 L 456 118" fill="none" stroke="#a89f93" stroke-width="1" opacity="0.3" stroke-dasharray="2 5" stroke-linejoin="round" stroke-linecap="round"/><path d="M 58 60 C 58 128.0, 62 128.0, 62 196" fill="none" stroke="#a89f93" stroke-width="1" opacity=".3" stroke-dasharray="2 5"/><path d="M 250 208 C 250 202.0, 196 202.0, 196 196" fill="none" stroke="#a89f93" stroke-width="1" opacity=".3" stroke-dasharray="2 5"/><path d="M 358 160 C 358 178.0, 330 178.0, 330 196" fill="none" stroke="#a89f93" stroke-width="1" opacity=".3" stroke-dasharray="2 5"/><path d="M 456 118 C 456 157.0, 458 157.0, 458 196" fill="none" stroke="#a89f93" stroke-width="1" opacity=".3" stroke-dasharray="2 5"/><line x1="50" y1="196" x2="470" y2="196" stroke="#a45132" stroke-width="2.4" opacity="1"/><circle cx="62" cy="196" r="6.5" fill="#a45132"/><line x1="62" y1="209" x2="62" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="52" y1="236" x2="72" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="129.0" y1="188" x2="129.0" y2="204" stroke="#a89f93" stroke-width="1" opacity="0.85"/><circle cx="196" cy="196" r="5.5" fill="#a45132"/><line x1="196" y1="209" x2="196" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="186" y1="236" x2="206" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="263.0" y1="188" x2="263.0" y2="204" stroke="#a89f93" stroke-width="1" opacity="0.85"/><circle cx="330" cy="196" r="5.5" fill="#a45132"/><line x1="330" y1="209" x2="330" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="320" y1="236" x2="340" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="394.0" y1="188" x2="394.0" y2="204" stroke="#a89f93" stroke-width="1" opacity="0.85"/><circle cx="458" cy="196" r="5.5" fill="#a45132"/><line x1="458" y1="209" x2="458" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/><line x1="448" y1="236" x2="468" y2="236" stroke="#4a443c" stroke-width="1" opacity="0.55"/></svg><div class="cap">Маршрут реализации</div></div>
     </div>
-
-    <div class="forms">
+    <div class="focus">
       <div class="fl">Фокус этапа</div>
-      <ul>
-        <li>Стратегический маршрут</li>
-        <li>Конфигурация реализации</li>
-        <li>Бюджет и сценарии</li>
-        <li>Критерии эффективности</li>
-      </ul>
+      <div>
+        <ul><li>Стратегический маршрут</li><li>Конфигурация реализации</li><li>Бюджет и сценарии</li><li>Критерии эффективности</li></ul>
+      </div>
     </div>
-
-    <div class="after">
-      <div class="at">После этапа</div>
-      <div class="ad ser">Есть спроектированный маршрут реализации: что запускать и в какой последовательности, какие люди и компетенции для этого нужны, что должно находиться внутри доверенного контура Светланы, что можно привлекать извне, какие ресурсы потребуются и по каким критериям оценивать движение.</div>
+    <div class="res">
+      <div class="rl">После этапа</div>
+      <div class="rx ser">Есть спроектированный маршрут реализации: что запускать и в какой последовательности, какие люди и компетенции для этого нужны, что должно находиться внутри доверенного контура Светланы, что можно привлекать извне, какие ресурсы потребуются и по каким критериям оценивать движение.</div>
     </div>
-
     <button class="more" type="button" aria-expanded="false" aria-controls="deep-5">
       <span class="txt">Подробнее об этапе</span><span class="sign">+</span>
     </button>
-    <div class="deep" id="deep-5">
-      <div class="dinner">
-        <div class="dbody">
-          <div class="dgroup">
-            <div class="dh">Вместе со Светланой</div>
-            <p>Определяем:</p>
-            <ul>
-              <li>приоритеты</li>
-              <li>ограничения</li>
-              <li>допустимый темп</li>
-              <li>степень личного участия Светланы</li>
-              <li>существующих людей и компетенции</li>
-              <li>доверенный контур</li>
-              <li>ограничения по конфиденциальности</li>
-              <li>какие функции принципиально должны находиться на стороне Светланы</li>
-              <li>что может быть вынесено наружу</li>
-              <li>ключевые решения по реализации</li>
-            </ul>
-          </div>
-          <div class="dgroup">
-            <div class="dh">Между встречами</div>
-            <ul>
-              <li>раскладываем проекты и действия по временной шкале, определяем последовательность, зависимости, параллельные потоки и контрольные точки</li>
-              <li>собираем стратегический маршрут</li>
-              <li>проектируем конфигурацию реализации</li>
-              <li>учитываем существующих людей Светланы</li>
-              <li>определяем недостающие роли и компетенции</li>
-              <li>распределяем функции между внутренним контуром, внешними исполнителями и партнёрами</li>
-              <li>учитываем требования конфиденциальности и контроля</li>
-              <li>оцениваем необходимые ресурсы</li>
-              <li>формируем бюджетные сценарии</li>
-              <li>формируем критерии эффективности</li>
-            </ul>
-          </div>
-        </div>
+    <div class="deep" id="deep-5"><div class="dinner"><div class="dbody">
+      <div class="dgroup"><div class="dh">Вместе со Светланой</div>
+        <p>Определяем:</p>
+        <ul><li>приоритеты</li><li>ограничения</li><li>допустимый темп</li><li>степень личного участия Светланы</li><li>существующих людей и компетенции</li><li>доверенный контур</li><li>ограничения по конфиденциальности</li><li>какие функции принципиально должны находиться на стороне Светланы</li><li>что может быть вынесено наружу</li><li>ключевые решения по реализации</li></ul>
       </div>
-    </div>
+      <div class="dgroup"><div class="dh">Между встречами</div>
+        <ul><li>раскладываем проекты и действия по временной шкале, определяем последовательность, зависимости, параллельные потоки и контрольные точки</li><li>собираем стратегический маршрут</li><li>проектируем конфигурацию реализации</li><li>учитываем существующих людей Светланы</li><li>определяем недостающие роли и компетенции</li><li>распределяем функции между внутренним контуром, внешними исполнителями и партнёрами</li><li>учитываем требования конфиденциальности и контроля</li><li>оцениваем необходимые ресурсы</li><li>формируем бюджетные сценарии</li><li>формируем критерии эффективности</li></ul>
+      </div>
+    </div></div></div>
   </div>
 </section>
 
-<!-- ЧЕРЕЗ 6–8 НЕДЕЛЬ -->
 <section class="dark" id="results-final">
   <div class="wrap">
-    <div class="eyebrow">Через 6–8 недель</div>
-    <h2>От набора возможностей — к обоснованной стратегии</h2>
-
+    <div class="col"><div class="eyebrow">Через 6–8 недель</div>
+    <h2>От набора возможностей — к обоснованной стратегии</h2></div>
     <div class="certs">
-      <div class="cert"><div class="ct">Что строить</div>
-        <div class="cd ser">Понятна продуктовая и бизнес-конструкция, которая соответствует исходному замыслу.</div></div>
-      <div class="cert"><div class="ct">Для кого</div>
-        <div class="cd ser">Понятно, какие аудитории приоритетны и какую ценность для них создаём.</div></div>
-      <div class="cert"><div class="ct">На что опереться</div>
-        <div class="cd ser">Понятно, какие активы уже есть, чего не хватает и где находятся недостающие возможности.</div></div>
-      <div class="cert"><div class="ct">С кем</div>
-        <div class="cd ser">Понятно, какие стейкхолдеры могут усилить конструкцию и на чём строится взаимная ценность.</div></div>
-      <div class="cert"><div class="ct">Какой путь выбрать</div>
-        <div class="cd ser">Понятно, на какой стратегической конфигурации концентрируемся и почему.</div></div>
-      <div class="cert"><div class="ct">Как реализовать</div>
-        <div class="cd ser">Понятно, какие проекты запускать, в какой последовательности, какой конфигурацией людей и ролей, с какими ресурсами и бюджетом.</div></div>
+      <div class="cert"><div class="ct">Что строить</div><div class="cd ser">Понятна продуктовая и бизнес-конструкция, которая соответствует исходному замыслу.</div></div>
+      <div class="cert"><div class="ct">Для кого</div><div class="cd ser">Понятно, какие аудитории приоритетны и какую ценность для них создаём.</div></div>
+      <div class="cert"><div class="ct">На что опереться</div><div class="cd ser">Понятно, какие активы уже есть, чего не хватает и где находятся недостающие возможности.</div></div>
+      <div class="cert"><div class="ct">С кем</div><div class="cd ser">Понятно, какие стейкхолдеры могут усилить конструкцию и на чём строится взаимная ценность.</div></div>
+      <div class="cert"><div class="ct">Какой путь выбрать</div><div class="cd ser">Понятно, на какой стратегической конфигурации концентрируемся и почему.</div></div>
+      <div class="cert"><div class="ct">Как реализовать</div><div class="cd ser">Понятно, какие проекты запускать, в какой последовательности, какой конфигурацией людей и ролей, с какими ресурсами и бюджетом.</div></div>
     </div>
   </div>
 </section>
 
-<!-- ОТ СТРАТЕГИИ К РЕАЛИЗАЦИИ -->
 <section id="next">
-  <div class="wrap narrow">
-    <div class="eyebrow">Следующий этап</div>
+  <div class="wrap">
+    <div class="col"><div class="eyebrow">Следующий этап</div>
     <h2>От стратегии — к реализации</h2>
     <p class="lead">Проектирование заканчивается не документом, а пониманием того, что именно предстоит реализовывать, в какой последовательности, какими силами и с какими ресурсами.</p>
     <p class="lead">Как в проектировании здания: состав команды, бюджет и сроки строительства можно определить только тогда, когда понятен сам проект. Здесь та же логика: параметры реализации становятся определимы только после того, как спроектирована сама стратегия.</p>
-
+    </div>
     <div class="bnd">
-      <div class="bi2">
-        <div class="bl">Что проектируем</div>
+      <div class="bi2"><div class="bl">Что проектируем</div><div>
         <div class="bt2">Стратегию, маршрут её реализации и конфигурацию людей, компетенций и ответственности, которая позволит эту стратегию реализовать.</div>
-      </div>
-      <div class="bi2">
-        <div class="bl">Что остаётся на руках</div>
+      </div></div>
+      <div class="bi2"><div class="bl">Что остаётся на руках</div><div>
         <div class="bt2 lead2">Результат работы — система принятых и обоснованных стратегических решений.</div>
         <div class="bt2">Она фиксируется в итоговом стратегическом документе: ключевые решения, основания выбора, продуктовая конструкция, стратегические ходы, маршрут реализации, конфигурация людей и ролей, бюджетные сценарии и критерии эффективности. К нему — рабочие материалы и схемы, на которых основаны решения.</div>
-      </div>
-      <div class="bi2">
-        <div class="bl">Ресурсы с моей стороны</div>
+      </div></div>
+      <div class="bi2"><div class="bl">Ресурсы с моей стороны</div><div>
         <div class="bt2">В проектировании я определяю не только то, какие внешние ресурсы нужны для реализации, но и то, какие из них могу подключить со своей стороны — через собственную экспертизу, профессиональный контур и релевантных внешних специалистов. Конкретный состав определяется после того, как понятны задачи реализации.</div>
-      </div>
-      <div class="bi2">
-        <div class="bl">Что может входить в реализацию</div>
+      </div></div>
+      <div class="bi2"><div class="bl">Что может входить в реализацию</div><div>
         <div class="bt2">В зависимости от выбранной стратегии этап реализации может включать запуск конкретных проектов, производство, формирование команды и найм, работу с подрядчиками, партнёрские переговоры, продвижение и операционное управление.</div>
-      </div>
-      <div class="bi2">
-        <div class="bl">Как можем продолжить</div>
+      </div></div>
+      <div class="bi2"><div class="bl">Как можем продолжить</div><div>
         <div class="bt2">После завершения проектирования мы можем продолжить совместную работу на этапе реализации. Конкретный формат и объём моего участия определим, когда станет понятно, какие проекты запускаем и какая поддержка для них действительно нужна.</div>
-      </div>
-      <div class="bi2">
-        <div class="bl">Стратегия остаётся живой</div>
+      </div></div>
+      <div class="bi2"><div class="bl">Стратегия остаётся живой</div><div>
         <div class="bt2">Стратегия задаёт не статичный план, а систему решений и критериев: в реализации гипотезы проверяются на практике, работающие направления усиливаются, а решения корректируются по новым данным.</div>
-      </div>
+      </div></div>
     </div>
-    <p class="bfin ser">Реализация конкретных проектов не входит в стоимость текущего этапа.</p>
+    <p class="bfin">Реализация конкретных проектов не входит в стоимость текущего этапа.</p>
   </div>
 </section>
 
-<!-- СТОИМОСТЬ -->
 <section class="final" id="price">
   <div class="wrap">
     <div class="line"></div>
     <h2 class="ser">Проектирование<br>стратегии</h2>
-    <div class="price ser">600 000 ₽</div>
-    <div class="rows terms">
+    <div class="price">600 000 ₽</div>
+    <div class="terms">
       <div class="fr"><b>6–8 недель</b><span>Срок проектирования</span></div>
       <div class="fr"><b>6 рабочих встреч</b><span>Между встречами — исследование, аналитика, проверка гипотез и проектирование решений</span></div>
     </div>
@@ -1120,30 +781,23 @@ body.lock{overflow:hidden}
 
 <footer><div class="wrap">Вагэ Хачатрян</div></footer>
 
-
 <script>
-/* при перезагрузке всегда открывать сверху */
 if('scrollRestoration' in history) history.scrollRestoration='manual';
 if(!location.hash) window.scrollTo(0,0);
 window.addEventListener('load',function(){ if(!location.hash) window.scrollTo(0,0); });
-
 (function(){
-  var nav=document.getElementById('nav'), here=document.getElementById('here'),
+  var nav=document.getElementById('nav'), here=document.getElementById('here'), track=document.getElementById('track'),
       sheet=document.getElementById('sheet'), btnOpen=document.getElementById('mopen'),
       btnClose=document.getElementById('mclose'), cover=document.getElementById('cover');
+  var LABELS={"situation": "Исходная ситуация", "task": "Задача", "results-overview": "Архитектура стратегии", "process": "Как строится работа", "results-final": "Через 6–8 недель", "next": "От стратегии — к реализации", "price": "Стоимость", "stage-1": "01|Видение и замыслы", "stage-2": "02|Исследование поля", "stage-3": "03|Стратегические конфигурации", "stage-4": "04|Стратегический выбор", "stage-5": "05|Проектирование реализации"};
+  var SHORT={"stage-1": "01|Замыслы", "stage-2": "02|Исследование", "stage-3": "03|Конфигурации", "stage-4": "04|Выбор", "stage-5": "05|Реализация"};
+  var ORDER=["situation", "task", "results-overview", "process", "stage-1", "stage-2", "stage-3", "stage-4", "stage-5", "results-final", "next", "price"];
 
-  var LABELS={'situation':'Исходная ситуация','task':'Задача','results-overview':'Архитектура стратегии','process':'Как строится работа',
-    'stage-1':'01|Видение и замыслы','stage-2':'02|Исследование поля','stage-3':'03|Стратегические конфигурации',
-    'stage-4':'04|Стратегический выбор','stage-5':'05|Проектирование реализации',
-    'results-final':'Через 6–8 недель','next':'От стратегии — к реализации','price':'Стоимость'};
-  var SHORT={'stage-1':'01|Замыслы','stage-2':'02|Исследование','stage-3':'03|Конфигурации',
-    'stage-4':'04|Выбор','stage-5':'05|Реализация'};
-
-  /* ——— раскрытия этапов ——— */
   document.querySelectorAll('.more').forEach(function(btn){
     var panel=document.getElementById(btn.getAttribute('aria-controls'));
     if(!panel) return;
     var label=btn.querySelector('.txt'), sign=btn.querySelector('.sign');
+    var open0=label.textContent;
     btn.addEventListener('click',function(){
       var opening=!panel.classList.contains('on');
       if(!opening){
@@ -1152,33 +806,36 @@ window.addEventListener('load',function(){ if(!location.hash) window.scrollTo(0,
       }
       panel.classList.toggle('on',opening);
       btn.setAttribute('aria-expanded',opening?'true':'false');
-      label.textContent=opening?'Свернуть':'Подробнее об этапе';
+      label.textContent=opening?'Свернуть':open0;
       sign.textContent=opening?'−':'+';
     });
   });
 
-  /* ——— scrollspy ——— */
-  var ids=Object.keys(LABELS), secs=ids.map(function(i){return document.getElementById(i);}).filter(Boolean);
+  var secs=ORDER.map(function(i){return document.getElementById(i);}).filter(Boolean);
   var current=null;
   function setActive(id){
     if(id===current) return; current=id;
     document.querySelectorAll('.sheet a').forEach(function(a){
       a.classList.toggle('act', a.getAttribute('href')==='#'+id);
     });
-    var l=(window.innerWidth<520 && SHORT[id]) ? SHORT[id] : (LABELS[id]||'');
+    var isStage=id.indexOf('stage-')===0;
+    nav.classList.toggle('stages', isStage);
+    if(track) track.querySelectorAll('a').forEach(function(a){
+      a.classList.toggle('act', a.getAttribute('href')==='#'+id);
+    });
+    var l=(window.innerWidth<560 && SHORT[id]) ? SHORT[id] : (LABELS[id]||'');
     var p=l.split('|');
     here.innerHTML = p.length>1 ? '<em>'+p[0]+'</em>'+p[1] : l;
     var el=document.getElementById(id);
-    document.body.classList.toggle('on-dark', !!el && (el.classList.contains('dark')||el.classList.contains('final')));
+    document.body.classList.toggle('on-dark', !!el && (el.classList.contains('dark')||el.classList.contains('peak')||el.classList.contains('final')));
   }
-
   var tick=false;
   function update(){
     tick=false;
     var y=window.pageYOffset, h=window.innerHeight;
     nav.classList.toggle('on', y > cover.offsetTop + cover.offsetHeight - h*0.35);
-    var line = y + h*0.42, act = secs[0];
-    for(var i=0;i<secs.length;i++){ if(secs[i].offsetTop <= line) act = secs[i]; }
+    var line=y+h*0.42, act=secs[0];
+    for(var i=0;i<secs.length;i++){ if(secs[i].offsetTop<=line) act=secs[i]; }
     if(act) setActive(act.id);
   }
   function onScroll(){ if(!tick){ tick=true; requestAnimationFrame(update); } }
@@ -1186,7 +843,6 @@ window.addEventListener('load',function(){ if(!location.hash) window.scrollTo(0,
   window.addEventListener('resize', function(){ current=null; onScroll(); });
   update();
 
-  /* ——— оглавление ——— */
   var lastFocus=null;
   function focusables(){ return sheet.querySelectorAll('a[href], button'); }
   function openSheet(){
@@ -1203,10 +859,7 @@ window.addEventListener('load',function(){ if(!location.hash) window.scrollTo(0,
   }
   btnOpen.addEventListener('click',openSheet);
   btnClose.addEventListener('click',closeSheet);
-  sheet.addEventListener('click',function(e){
-    if(e.target===sheet) closeSheet();
-    if(e.target.tagName==='A') closeSheet();
-  });
+  sheet.addEventListener('click',function(e){ if(e.target===sheet||e.target.tagName==='A') closeSheet(); });
   document.addEventListener('keydown',function(e){
     if(e.key==='Escape'){ closeSheet(); return; }
     if(e.key!=='Tab' || !sheet.classList.contains('on')) return;
@@ -1216,13 +869,11 @@ window.addEventListener('load',function(){ if(!location.hash) window.scrollTo(0,
     else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
   });
 
-  /* ——— переходы с учётом высоты полосы ——— */
-  document.querySelectorAll('.sheet a').forEach(function(a){
+  document.querySelectorAll('.sheet a, .nav .track a').forEach(function(a){
     a.addEventListener('click',function(e){
       var id=a.getAttribute('href').slice(1), el=document.getElementById(id);
       if(!el) return; e.preventDefault();
-      var y=el.getBoundingClientRect().top+window.pageYOffset-70;
-      window.scrollTo({top:y, behavior:'smooth'});
+      window.scrollTo({top:el.getBoundingClientRect().top+window.pageYOffset-70, behavior:'smooth'});
       history.replaceState(null,'','#'+id);
     });
   });
