@@ -437,70 +437,73 @@ footer{background:var(--dk);color:#7a7264;font-size:13.5px;padding:0 0 44px;lett
 .task .th{font-size:23px;max-width:none}
 .qq .qt{font-size:25px}
 }
-
 /* ═══════════ СОДЕРЖАНИЕ — архитектурная карта ═══════════ */
+/* header */
+/* карта */
+/* уровень 1 — основные разделы */
+/* уровень 2 — этапы, вложенный слой */
+/* активный: терракотовый номер + черта слева, без заливки и подчёркивания */
+
+/* ═══════════ СОДЕРЖАНИЕ — навигационная карта ═══════════ */
 .sheet{position:fixed;inset:0;z-index:70;background:var(--paper);overflow-y:auto;
   opacity:0;visibility:hidden;transform:translateY(-6px);
-  transition:opacity .2s ease,visibility .2s ease,transform .2s ease;
-  -webkit-overflow-scrolling:touch}
+  transition:opacity .2s ease,visibility .2s ease,transform .2s ease;-webkit-overflow-scrolling:touch}
 .sheet.on{opacity:1;visibility:visible;transform:none}
-.sheet .inner{max-width:1120px;margin:0 auto;padding:clamp(20px,4vh,34px) clamp(22px,5vw,56px) clamp(60px,10vh,110px)}
+.sheet .inner{max-width:1120px;margin:0 auto;
+  padding:clamp(20px,4vh,34px) clamp(22px,5vw,56px) clamp(56px,9vh,100px)}
 
 /* header */
 .sheet .sh{display:flex;justify-content:space-between;align-items:center;
-  padding-bottom:clamp(18px,2.4vh,24px);border-bottom:1px solid var(--line)}
+  padding-bottom:clamp(16px,2.2vh,22px);border-bottom:1px solid var(--line)}
 .sheet .sh span{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--mut);font-weight:700}
 .sheet .sh button{display:inline-flex;align-items:center;gap:10px;border:0;background:none;font-family:inherit;
   font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--accink);
-  cursor:pointer;padding:8px 0;transition:color .18s}
-.sheet .sh button i{font-style:normal;font-size:20px;line-height:1;font-weight:400;color:var(--acc);
-  transform:translateY(-1px);transition:transform .18s}
+  cursor:pointer;padding:8px 0;transition:color .18s ease}
+.sheet .sh button i{font-style:normal;font-size:19px;line-height:1;font-weight:400;color:var(--acc);
+  transform:translateY(-1px);transition:color .18s ease}
 .sheet .sh button:hover{color:var(--acc)}
-.sheet .sh button:hover i{transform:translateY(-1px) rotate(90deg)}
+.sheet .sh button:hover i{color:var(--accink)}
 .sheet .sh button:focus-visible{outline:2px solid var(--acc);outline-offset:4px}
 
 /* карта */
-.sheet .toc{margin-top:clamp(34px,5vh,58px);max-width:640px}
-.sheet a{display:grid;grid-template-columns:60px 1fr;align-items:baseline;text-decoration:none;
-  position:relative;transition:color .18s}
-.sheet a .n{font-family:'Instrument Sans',sans-serif;font-size:12px;letter-spacing:.12em;
-  color:var(--faint);font-weight:600;transition:color .18s}
-.sheet a .t{font-family:'Instrument Sans',-apple-system,sans-serif;letter-spacing:-.006em;color:var(--ink);
-  transition:color .18s}
+.sheet .toc{margin-top:clamp(32px,4.6vh,52px);max-width:600px}
+.sheet a{display:block;text-decoration:none;position:relative}
+.sheet a .t{font-family:'Instrument Sans',-apple-system,sans-serif;letter-spacing:-.006em;
+  color:var(--ink);transition:color .18s ease}
+.sheet a .n{font-family:'Instrument Sans',-apple-system,sans-serif;font-size:11.5px;letter-spacing:.12em;
+  color:var(--faint);font-weight:600;transition:color .18s ease}
 
-/* уровень 1 — основные разделы */
-.sheet a.lv1{padding:clamp(12px,1.7vh,16px) 0}
-.sheet a.lv1 .t{font-size:clamp(21px,2.2vw,25px);font-weight:500;line-height:1.24}
+/* группа A и C — глобальные разделы, без номеров */
+.sheet a.lv1{padding:clamp(11px,1.6vh,15px) 0}
+.sheet a.lv1 .t{font-size:clamp(21px,2.2vw,25px);font-weight:500;line-height:1.26}
 .sheet a.lv1:hover .t{color:var(--accink)}
 
-/* уровень 2 — этапы, вложенный слой */
-.sheet .sub{margin:clamp(26px,4vh,40px) 0 clamp(30px,4.4vh,46px);padding-left:60px}
+/* группа B — этапы, вложенный уровень с номерами */
+.sheet .sub{margin:clamp(34px,5.4vh,58px) 0;padding-left:clamp(20px,3vw,40px)}
 .sheet .sl{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut);font-weight:700;
-  padding-bottom:12px;border-bottom:1px solid var(--hair);margin-bottom:8px}
-.sheet a.lv2{padding:clamp(9px,1.3vh,12px) 0;grid-template-columns:44px 1fr}
-.sheet a.lv2 .n{font-size:11.5px}
+  padding-bottom:12px;border-bottom:1px solid var(--hair);margin-bottom:10px}
+.sheet a.lv2{display:grid;grid-template-columns:42px 1fr;align-items:baseline;padding:clamp(8px,1.2vh,11px) 0}
 .sheet a.lv2 .t{font-size:clamp(17px,1.7vw,19px);font-weight:400;line-height:1.3;color:var(--body)}
 .sheet a.lv2:hover .t{color:var(--ink)}
 
-/* активный: терракотовый номер + черта слева, без заливки и подчёркивания */
-.sheet a.act .n{color:var(--acc)}
+/* active — единая тихая система: терракотовая черта слева, у этапов ещё и номер */
 .sheet a.act .t{color:var(--ink)}
 .sheet a.act::before{content:'';position:absolute;left:-22px;top:50%;transform:translateY(-50%);
   width:11px;height:1px;background:var(--acc)}
 .sheet a.lv2.act::before{left:-18px}
+.sheet a.lv2.act .n{color:var(--acc)}
 .sheet a:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
 
 @media(max-width:620px){
   .sheet .inner{padding-left:22px;padding-right:22px}
-  .sheet .toc{margin-top:30px}
-  .sheet a{grid-template-columns:44px 1fr}
-  .sheet a.lv1{padding:14px 0}
+  .sheet .toc{margin-top:28px}
+  .sheet a.lv1{padding:13px 0}
   .sheet a.lv1 .t{font-size:20px}
-  .sheet .sub{padding-left:44px;margin:24px 0 26px}
-  .sheet a.lv2{grid-template-columns:36px 1fr;padding:11px 0}
+  .sheet .sub{margin:26px 0;padding-left:20px}
+  .sheet a.lv2{grid-template-columns:36px 1fr;padding:10px 0}
   .sheet a.lv2 .t{font-size:16.5px}
-  .sheet a.act::before{left:-16px}
-  .sheet a.lv2.act::before{left:-14px}
+  .sheet a.act::before{left:-15px}
+  .sheet a.lv2.act::before{left:-13px}
 }
 
 </style>
@@ -525,10 +528,12 @@ footer{background:var(--dk);color:#7a7264;font-size:13.5px;padding:0 0 44px;lett
   <div class="inner">
     <div class="sh"><span>Содержание</span><button type="button" id="mclose">Закрыть <i>&#215;</i></button></div>
     <nav class="toc">
-      <a class="lv1" href="#situation"><span class="n">01</span><span class="t">Исходная ситуация</span></a>
-      <a class="lv1" href="#task"><span class="n">02</span><span class="t">Задача</span></a>
-      <a class="lv1" href="#results-overview"><span class="n">03</span><span class="t">Архитектура стратегии</span></a>
-      <a class="lv1" href="#process"><span class="n">04</span><span class="t">Как строится работа</span></a>
+      <div class="grp1">
+        <a class="lv1" href="#situation"><span class="t">Исходная ситуация</span></a>
+        <a class="lv1" href="#task"><span class="t">Задача</span></a>
+        <a class="lv1" href="#results-overview"><span class="t">Архитектура стратегии</span></a>
+        <a class="lv1" href="#process"><span class="t">Как строится работа</span></a>
+      </div>
       <div class="sub">
         <div class="sl">Этапы</div>
         <a class="lv2" href="#stage-1"><span class="n">01</span><span class="t">Видение и замыслы</span></a>
@@ -537,9 +542,11 @@ footer{background:var(--dk);color:#7a7264;font-size:13.5px;padding:0 0 44px;lett
         <a class="lv2" href="#stage-4"><span class="n">04</span><span class="t">Стратегический выбор</span></a>
         <a class="lv2" href="#stage-5"><span class="n">05</span><span class="t">Проектирование реализации</span></a>
       </div>
-      <a class="lv1" href="#results-final"><span class="n">05</span><span class="t">Через 6–8 недель</span></a>
-      <a class="lv1" href="#next"><span class="n">06</span><span class="t">От стратегии — к реализации</span></a>
-      <a class="lv1" href="#price"><span class="n">07</span><span class="t">Стоимость</span></a>
+      <div class="grp3">
+        <a class="lv1" href="#results-final"><span class="t">Через 6–8 недель</span></a>
+        <a class="lv1" href="#next"><span class="t">От стратегии — к реализации</span></a>
+        <a class="lv1" href="#price"><span class="t">Стоимость</span></a>
+      </div>
     </nav>
   </div>
 </div>
