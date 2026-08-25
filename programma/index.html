@@ -77,7 +77,8 @@ h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54p
 .grp .gt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(25px,3.4vw,36px);font-weight:500;
   line-height:1.12;letter-spacing:-.018em;color:var(--grnink)}
 .grp .gt em{font-style:normal;color:var(--grnacc);margin-right:14px}
-.grp .items{margin-top:clamp(22px,3vw,32px);display:grid;grid-template-columns:1fr 1fr;
+.grp .gd{font-size:17px;color:var(--grnbody);margin-top:14px;line-height:1.55;max-width:52ch}
+.grp .items{margin-top:clamp(26px,3.4vw,36px);display:grid;grid-template-columns:1fr 1fr;
   column-gap:clamp(30px,5vw,64px);row-gap:clamp(16px,2.2vw,22px)}
 .grp.solo .items{grid-template-columns:1fr}
 .ri{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:baseline}
@@ -88,6 +89,32 @@ h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54p
   .ri{grid-template-columns:32px 1fr;gap:10px}
   .ri .rt{font-size:18px}
 }
+
+/* ——— маршрут ——— */
+.route{margin-top:clamp(48px,7vw,78px);position:relative}
+.route .rail{display:grid;grid-template-columns:repeat(5,auto);justify-content:space-between;
+  align-items:end;position:relative;padding-bottom:26px}
+.route .rail::before{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--line)}
+.route .pt{position:relative;text-align:left;padding-right:clamp(8px,2vw,20px)}
+.route .pt::after{content:'';position:absolute;left:0;bottom:-4px;width:7px;height:7px;border-radius:50%;
+  background:var(--accsoft)}
+.route .pt.last::after{background:var(--acc);width:9px;height:9px;bottom:-5px}
+.route .pn{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:var(--acc);letter-spacing:.06em}
+.route .pw{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(19px,2.6vw,28px);font-weight:500;
+  letter-spacing:-.015em;line-height:1.1;margin-top:8px;color:var(--txt)}
+.route .cone{margin-top:22px;height:52px;width:100%}
+.route .rnote{font-size:16.5px;color:var(--mut);margin-top:clamp(26px,3.4vw,34px);max-width:62ch;line-height:1.6}
+@media(max-width:720px){
+  .route .rail{grid-template-columns:1fr;justify-content:start;gap:20px;padding-bottom:0;padding-left:22px}
+  .route .rail::before{left:4px;right:auto;top:6px;bottom:6px;width:1px;height:auto}
+  .route .pt::after{left:-22px;bottom:auto;top:8px}
+  .route .cone{display:none}
+}
+
+/* ——— микросхемы этапов ——— */
+.motif{margin-top:clamp(30px,4vw,42px);max-width:400px}
+.motif svg{width:100%;height:auto;display:block}
+.motif .cap{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:700;margin-top:14px}
 
 /* ——— обзор этапов ——— */
 .ov{margin-top:clamp(30px,5vw,50px)}
@@ -167,6 +194,10 @@ h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54p
 .fi:last-child{border-bottom:1px solid var(--line)}
 .fi .fv{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(26px,4.4vw,40px);font-weight:500;letter-spacing:-.02em;line-height:1.1}
 .fi .fd{font-size:16px;color:var(--mut);margin-top:10px;max-width:58ch;line-height:1.6}
+
+#value{padding:clamp(66px,10vw,116px) 0 clamp(50px,8vw,90px)}
+.vstate{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(26px,4.2vw,42px);font-weight:400;
+  line-height:1.22;letter-spacing:-.015em;max-width:22ch;color:var(--txt)}
 
 /* ——— финал ——— */
 .final{background:var(--dk);color:var(--dkink);min-height:82vh;display:flex;flex-direction:column;justify-content:center;padding:clamp(70px,12vh,110px) 0}
@@ -345,6 +376,7 @@ body.lock{overflow:hidden}
     <div class="map">
       <div class="grp">
         <div class="gt ser"><em>I</em>Что строим</div>
+        <div class="gd">Определяем продуктовую конструкцию, приоритетные аудитории, роль книги и позиционирование.</div>
         <div class="items">
           <div class="ri"><div class="rn">01</div><div class="rt">Видение и замыслы</div></div>
           <div class="ri"><div class="rn">02</div><div class="rt">Целевые аудитории</div></div>
@@ -354,6 +386,7 @@ body.lock{overflow:hidden}
       </div>
       <div class="grp">
         <div class="gt ser"><em>II</em>На что опираемся</div>
+        <div class="gd">Понимаем, какие активы уже дают преимущество, чего не хватает и у кого необходимые ресурсы уже существуют.</div>
         <div class="items">
           <div class="ri"><div class="rn">05</div><div class="rt">Активы и дефициты</div></div>
           <div class="ri"><div class="rn">06</div><div class="rt">Ключевые стейкхолдеры</div></div>
@@ -362,6 +395,7 @@ body.lock{overflow:hidden}
       </div>
       <div class="grp">
         <div class="gt ser"><em>III</em>Какой путь выбираем</div>
+        <div class="gd">Формируем несколько способов реализации замысла и ищем наиболее сильную комбинацию.</div>
         <div class="items">
           <div class="ri"><div class="rn">08</div><div class="rt">Стратегические рычаги и асимметричные ходы</div></div>
           <div class="ri"><div class="rn">09</div><div class="rt">Стратегические альтернативы и приоритеты</div></div>
@@ -369,6 +403,7 @@ body.lock{overflow:hidden}
       </div>
       <div class="grp">
         <div class="gt ser"><em>IV</em>Как реализуем</div>
+        <div class="gd">Переводим выбранный вариант в последовательность действий, конфигурацию реализации и бюджет.</div>
         <div class="items">
           <div class="ri"><div class="rn">10</div><div class="rt">Стратегический маршрут</div></div>
           <div class="ri"><div class="rn">11</div><div class="rt">Конфигурация реализации</div></div>
@@ -377,6 +412,7 @@ body.lock{overflow:hidden}
       </div>
       <div class="grp solo">
         <div class="gt ser"><em>V</em>Как понимаем, что работает</div>
+        <div class="gd">Определяем критерии, по которым можно понимать, что стратегия работает и когда её необходимо корректировать.</div>
         <div class="items">
           <div class="ri"><div class="rn">13</div><div class="rt">Критерии эффективности</div></div>
         </div>
@@ -390,42 +426,23 @@ body.lock{overflow:hidden}
   <div class="wrap">
     <div class="eyebrow">Последовательность</div>
     <h2>Как строится работа</h2>
-    <div class="ov">
-      <div class="ovi">
-        <div class="on">01</div>
-        <div>
-          <div class="ot">Замыслы и рамка</div>
-          <div class="od">Что хотим построить и относительно чего принимаем решения.</div>
-        </div>
+    <div class="route">
+      <div class="rail">
+        <div class="pt"><div class="pn">01</div><div class="pw">Замысел</div></div>
+        <div class="pt"><div class="pn">02</div><div class="pw">Реальность</div></div>
+        <div class="pt"><div class="pn">03</div><div class="pw">Варианты</div></div>
+        <div class="pt"><div class="pn">04</div><div class="pw">Выбор</div></div>
+        <div class="pt last"><div class="pn">05</div><div class="pw">Реализация</div></div>
       </div>
-      <div class="ovi">
-        <div class="on">02</div>
-        <div>
-          <div class="ot">Исходная позиция</div>
-          <div class="od">Где есть спрос, на что можем опереться и чего не хватает.</div>
-        </div>
-      </div>
-      <div class="ovi">
-        <div class="on">03</div>
-        <div>
-          <div class="ot">Стратегические варианты</div>
-          <div class="od">Какими способами можно реализовать замысел.</div>
-        </div>
-      </div>
-      <div class="ovi">
-        <div class="on">04</div>
-        <div>
-          <div class="ot">Выбор стратегии</div>
-          <div class="od">На какой комбинации решений имеет смысл концентрировать ресурсы.</div>
-        </div>
-      </div>
-      <div class="ovi">
-        <div class="on">05</div>
-        <div>
-          <div class="ot">Проектирование реализации</div>
-          <div class="od">Что запускать, в каком порядке, какой командой и с каким бюджетом.</div>
-        </div>
-      </div>
+      <svg class="cone" viewBox="0 0 800 52" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M4 4 L796 24" stroke="#d9b8a4" stroke-width="1" fill="none"/>
+        <path d="M4 48 L796 28" stroke="#d9b8a4" stroke-width="1" fill="none"/>
+        <path d="M4 16 L796 25.4" stroke="#e4dcd0" stroke-width="1" fill="none"/>
+        <path d="M4 36 L796 26.6" stroke="#e4dcd0" stroke-width="1" fill="none"/>
+        <path d="M4 26 L796 26" stroke="#e4dcd0" stroke-width="1" fill="none"/>
+        <circle cx="796" cy="26" r="3.5" fill="#b67454"/>
+      </svg>
+      <p class="rnote">Каждый следующий этап сокращает неопределённость: от поля возможных решений — к выбранной стратегии и конкретному маршруту реализации.</p>
     </div>
   </div>
 </section>
@@ -436,6 +453,22 @@ body.lock{overflow:hidden}
     <div class="cn">01</div>
     <h3 class="ser">Определяем замыслы и рамку стратегии</h3>
     <p class="cintro">Фиксируем, чего хотим достичь и относительно чего дальше будем принимать решения.</p>
+
+    <div class="motif" aria-hidden="true">
+      <svg viewBox="0 0 400 128">
+        <circle cx="40" cy="40" r="4" fill="#d9b8a4"/>
+        <circle cx="112" cy="26" r="4" fill="#d9b8a4"/>
+        <circle cx="196" cy="52" r="4" fill="#d9b8a4"/>
+        <circle cx="268" cy="30" r="4" fill="#d9b8a4"/>
+        <circle cx="348" cy="60" r="4" fill="#d9b8a4"/>
+        <circle cx="76" cy="92" r="4" fill="#d9b8a4"/>
+        <circle cx="160" cy="104" r="4" fill="#d9b8a4"/>
+        <circle cx="244" cy="88" r="4" fill="#d9b8a4"/>
+        <circle cx="324" cy="106" r="4" fill="#d9b8a4"/>
+        <line x1="0" y1="126" x2="400" y2="126" stroke="#e4dcd0" stroke-width="1"/>
+      </svg>
+      <div class="cap">Поле замыслов</div>
+    </div>
 
     <div class="brief">
       <div class="bi"><div class="bt">Видение и замыслы</div>
@@ -487,6 +520,27 @@ body.lock{overflow:hidden}
     <div class="cn">02</div>
     <h3 class="ser">Исследуем исходную позицию</h3>
     <p class="cintro">Проверяем гипотезы и понимаем реальные возможности и ограничения.</p>
+
+    <div class="motif" aria-hidden="true">
+      <svg viewBox="0 0 400 128">
+        <circle cx="40" cy="40" r="4" fill="#d9b8a4"/>
+        <circle cx="112" cy="26" r="3" fill="#cfc6ba"/>
+        <circle cx="196" cy="52" r="4" fill="#d9b8a4"/>
+        <circle cx="268" cy="30" r="3" fill="#cfc6ba"/>
+        <circle cx="348" cy="60" r="4" fill="#b67454"/>
+        <circle cx="76" cy="92" r="3" fill="#cfc6ba"/>
+        <circle cx="160" cy="104" r="4" fill="#d9b8a4"/>
+        <circle cx="244" cy="88" r="3" fill="#cfc6ba"/>
+        <circle cx="324" cy="106" r="3" fill="#cfc6ba"/>
+        <line x1="105" y1="19" x2="119" y2="33" stroke="#cfc6ba" stroke-width="1"/>
+        <line x1="261" y1="23" x2="275" y2="37" stroke="#cfc6ba" stroke-width="1"/>
+        <line x1="69" y1="85" x2="83" y2="99" stroke="#cfc6ba" stroke-width="1"/>
+        <line x1="237" y1="81" x2="251" y2="95" stroke="#cfc6ba" stroke-width="1"/>
+        <line x1="317" y1="99" x2="331" y2="113" stroke="#cfc6ba" stroke-width="1"/>
+        <line x1="0" y1="126" x2="400" y2="126" stroke="#e4dcd0" stroke-width="1"/>
+      </svg>
+      <div class="cap">Проверка реальностью</div>
+    </div>
 
     <div class="brief">
       <div class="bi"><div class="bt">Аудитории</div>
@@ -544,6 +598,22 @@ body.lock{overflow:hidden}
     <h3 class="ser">Формируем стратегические варианты</h3>
     <p class="cintro">Ищем несколько сильных способов реализации замысла.</p>
 
+    <div class="motif" aria-hidden="true">
+      <svg viewBox="0 0 400 128">
+        <circle cx="26" cy="64" r="4.5" fill="#b67454"/>
+        <path d="M32 64 C 140 64, 180 22, 300 22" stroke="#d9b8a4" stroke-width="1" fill="none"/>
+        <path d="M32 64 C 140 64, 180 64, 300 64" stroke="#d9b8a4" stroke-width="1" fill="none"/>
+        <path d="M32 64 C 140 64, 180 106, 300 106" stroke="#d9b8a4" stroke-width="1" fill="none"/>
+        <circle cx="306" cy="22" r="4" fill="#d9b8a4"/>
+        <text x="322" y="27" font-family="Georgia,serif" font-size="15" fill="#6b6158">A</text>
+        <circle cx="306" cy="64" r="4" fill="#d9b8a4"/>
+        <text x="322" y="69" font-family="Georgia,serif" font-size="15" fill="#6b6158">B</text>
+        <circle cx="306" cy="106" r="4" fill="#d9b8a4"/>
+        <text x="322" y="111" font-family="Georgia,serif" font-size="15" fill="#6b6158">C</text>
+      </svg>
+      <div class="cap">Стратегическая развилка</div>
+    </div>
+
     <div class="brief">
       <div class="bi"><div class="bt">Продукты</div>
         <div class="bd">Что и для кого имеет смысл создавать.</div></div>
@@ -599,6 +669,19 @@ body.lock{overflow:hidden}
     <h3 class="ser">Выбираем стратегию</h3>
     <p class="cintro">Сравниваем варианты и определяем, на чём имеет смысл концентрировать ресурсы.</p>
 
+    <div class="motif" aria-hidden="true">
+      <svg viewBox="0 0 400 128">
+        <circle cx="26" cy="22" r="4" fill="#d9b8a4"/>
+        <circle cx="26" cy="64" r="4" fill="#d9b8a4"/>
+        <circle cx="26" cy="106" r="4" fill="#d9b8a4"/>
+        <path d="M32 22 C 150 22, 190 64, 300 64" stroke="#d9b8a4" stroke-width="1" fill="none"/>
+        <path d="M32 64 C 150 64, 190 64, 300 64" stroke="#b67454" stroke-width="1" fill="none"/>
+        <path d="M32 106 C 150 106, 190 64, 300 64" stroke="#d9b8a4" stroke-width="1" fill="none"/>
+        <circle cx="306" cy="64" r="6" fill="#b67454"/>
+      </svg>
+      <div class="cap">Сужение и выбор</div>
+    </div>
+
     <div class="brief">
       <div class="bi"><div class="bt">Эффект</div>
         <div class="bd">Какой результат способен дать вариант.</div></div>
@@ -649,6 +732,22 @@ body.lock{overflow:hidden}
     <div class="cn">05</div>
     <h3 class="ser">Проектируем реализацию</h3>
     <p class="cintro">Переводим выбранную стратегию в конкретный план действий.</p>
+
+    <div class="motif" aria-hidden="true">
+      <svg viewBox="0 0 400 128">
+        <line x1="26" y1="64" x2="374" y2="64" stroke="#d9b8a4" stroke-width="1"/>
+        <circle cx="26" cy="64" r="6" fill="#b67454"/>
+        <circle cx="113" cy="64" r="4" fill="#d9b8a4"/>
+        <circle cx="200" cy="64" r="4" fill="#d9b8a4"/>
+        <circle cx="287" cy="64" r="4" fill="#d9b8a4"/>
+        <circle cx="374" cy="64" r="4" fill="#d9b8a4"/>
+        <line x1="113" y1="58" x2="113" y2="70" stroke="#e4dcd0" stroke-width="1"/>
+        <line x1="200" y1="58" x2="200" y2="70" stroke="#e4dcd0" stroke-width="1"/>
+        <line x1="287" y1="58" x2="287" y2="70" stroke="#e4dcd0" stroke-width="1"/>
+        <line x1="374" y1="58" x2="374" y2="70" stroke="#e4dcd0" stroke-width="1"/>
+      </svg>
+      <div class="cap">Маршрут реализации</div>
+    </div>
 
     <div class="brief">
       <div class="bi"><div class="bt">Проекты</div>
@@ -720,6 +819,13 @@ body.lock{overflow:hidden}
     <h2>После проектирования становится понятно, что именно нужно реализовать</h2>
     <p class="lead">К этому моменту понятны проекты, объём работ, последовательность, сроки, необходимые компетенции и бюджетные сценарии.</p>
     <p class="lead">После этого отдельно определяются состав, сроки и стоимость реализации.</p>
+  </div>
+</section>
+
+<!-- ПЕРЕХОД К ЦЕНЕ -->
+<section id="value">
+  <div class="wrap narrow">
+    <p class="vstate ser">На выходе — не набор рекомендаций, а основание для принятия решений: что запускать, в какой последовательности и куда не тратить ресурсы.</p>
   </div>
 </section>
 
