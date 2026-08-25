@@ -67,6 +67,21 @@ h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54p
 .dark h2{color:var(--grnink)}
 .dark .lead{color:var(--grnbody)}
 
+/* ——— исходная ситуация ——— */
+.situ{padding:clamp(72px,12vw,130px) 0;border-bottom:1px solid var(--line)}
+.situ .sl{margin-top:clamp(34px,5vw,52px)}
+.situ .si2{padding:clamp(22px,3.2vw,30px) 0;border-top:1px solid var(--line);max-width:70ch}
+.situ .si2:last-of-type{border-bottom:1px solid var(--line)}
+.situ .sq{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(21px,2.9vw,28px);font-weight:500;
+  letter-spacing:-.015em;line-height:1.16;color:var(--txt);max-width:26ch}
+.situ .sx{font-size:17px;color:var(--body);margin-top:11px;line-height:1.6;max-width:58ch}
+.situ .hyp{margin-top:clamp(30px,4vw,42px);padding-left:clamp(16px,2.6vw,26px);border-left:1px solid var(--acc)}
+.situ .hl{font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--accink);font-weight:700}
+.situ .hx{font-size:17px;color:var(--body);margin-top:12px;line-height:1.62;max-width:58ch}
+.situ .hx + .hx{margin-top:11px}
+.situ .snote{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(20px,2.7vw,26px);font-weight:400;
+  line-height:1.26;color:var(--txt);margin-top:clamp(34px,5vw,48px);max-width:38ch}
+
 /* ——— задача ——— */
 .task{padding:0}
 .task .intro{min-height:96vh;display:flex;flex-direction:column;justify-content:center;
@@ -375,6 +390,7 @@ body.lock{overflow:hidden}
   <div class="inner">
     <div class="sh"><span>Содержание</span><button type="button" id="mclose">Закрыть</button></div>
     <div class="tg">О проекте</div>
+    <a href="#situation">Исходная ситуация</a>
     <a href="#task">Задача</a>
     <a href="#results-overview">Архитектура стратегии</a>
     <a href="#process">Как строится работа</a>
@@ -387,6 +403,7 @@ body.lock{overflow:hidden}
     <div class="tg">Итог</div>
     <a href="#results-final">Через 6–8 недель</a>
     <a href="#boundary">Границы работы</a>
+    <a href="#next">От стратегии — к реализации</a>
     <a href="#price">Стоимость</a>
   </div>
 </div>
@@ -404,6 +421,38 @@ body.lock{overflow:hidden}
     </div>
   </div>
 </header>
+
+<!-- ИСХОДНАЯ СИТУАЦИЯ -->
+<section class="situ" id="situation">
+  <div class="wrap">
+    <div class="eyebrow">Исходная ситуация</div>
+    <h2>С чего начинаем</h2>
+
+    <div class="sl">
+      <div class="si2">
+        <div class="sq ser">Книга — один из исходных замыслов</div>
+        <div class="sx">Книга о преемственности и наследовании капитала в семейных династиях уже написана. Какую роль она играет в более широкой конструкции — самостоятельный продукт, точка входа в аудиторию, основание для следующих продуктов — предстоит определить.</div>
+      </div>
+      <div class="si2">
+        <div class="sq ser">Вопрос шире продвижения книги</div>
+        <div class="sx">Мы начинали с вопроса, как продвигать книгу. Но за ним стоит другой: какая продуктовая и бизнес-конструкция имеет смысл вокруг экспертизы Светланы и её замысла.</div>
+      </div>
+      <div class="si2">
+        <div class="sq ser">Есть на что опереться</div>
+        <div class="sx">Экспертиза, собственный опыт, репутация, выступления, связи и отношения. Часть этих активов может стать основанием стратегии — какая именно, определяется в работе.</div>
+      </div>
+    </div>
+
+    <div class="hyp">
+      <div class="hl">Предварительные гипотезы</div>
+      <div class="hx">Приоритетная аудитория — состоявшиеся предприниматели со сформированным капиталом, находящиеся на этапе, когда возникают вопросы преемственности.</div>
+      <div class="hx">Доступ к такой аудитории сложно получить рекламой, но она уже собрана у других носителей — и там возможен обмен взаимной ценностью.</div>
+      <div class="hx">Обе гипотезы требуют проверки и могут измениться в ходе исследования.</div>
+    </div>
+
+    <p class="snote ser">Задача проектирования — не подтвердить заранее выбранную идею, а найти наиболее сильную конструкцию относительно личного и бизнес-замысла Светланы.</p>
+  </div>
+</section>
 
 <!-- ЗАДАЧА -->
 <section class="task" id="task">
@@ -1001,16 +1050,41 @@ body.lock{overflow:hidden}
         <div class="bt2">Определяем стратегию и проектируем маршрут и конфигурацию её реализации.</div>
       </div>
       <div class="bi2">
+        <div class="bl">Ресурсы с моей стороны</div>
+        <div class="bt2">В проектировании я определяю не только то, какие внешние ресурсы нужны для реализации, но и то, какие из них могу подключить со своей стороны — через собственную экспертизу, профессиональный контур и релевантных внешних специалистов. Конкретный состав определяется после того, как понятны задачи реализации.</div>
+      </div>
+      <div class="bi2">
         <div class="bl">Формат результата</div>
         <div class="bt2 lead2">Результат работы — система принятых и обоснованных стратегических решений.</div>
         <div class="bt2">Она фиксируется в итоговом стратегическом документе, в котором собраны ключевые решения, основания выбора, продуктовая конструкция, стратегические ходы, маршрут реализации, конфигурация людей и ролей, бюджетные сценарии и критерии эффективности. К нему — рабочие материалы и схемы, на которых основаны решения.</div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- СЛЕДУЮЩИЙ ЭТАП -->
+<section id="next">
+  <div class="wrap narrow">
+    <div class="eyebrow">Следующий этап</div>
+    <h2>От стратегии — к реализации</h2>
+    <p class="lead">Проектирование заканчивается не документом, а пониманием того, что именно предстоит реализовывать, в какой последовательности, какими силами и с какими ресурсами.</p>
+    <p class="lead">Как в проектировании здания: состав команды, бюджет и сроки строительства можно определить только тогда, когда понятен сам проект. Здесь та же логика — сначала проектируем стратегию и конфигурацию реализации, затем определяем параметры следующего этапа.</p>
+
+    <div class="bnd">
       <div class="bi2">
-        <div class="bl">Следующий этап</div>
-        <div class="bt2">Запуск конкретных проектов: производство, найм, подрядчики, партнёрские переговоры, продвижение, операционное управление и другие действия по реализации выбранной стратегии.</div>
+        <div class="bl">Что становится возможным</div>
+        <div class="bt2">По результатам проектирования можно определить содержание, команду, сроки и бюджет следующего этапа — реализации выбранной стратегии.</div>
+      </div>
+      <div class="bi2">
+        <div class="bl">Моё участие</div>
+        <div class="bt2">Я могу продолжить работу со Светланой на этапе реализации. Конкретный формат и объём участия определим после проектирования — когда станет понятно, какие проекты запускаем и какая поддержка действительно нужна.</div>
+      </div>
+      <div class="bi2">
+        <div class="bl">Стратегия остаётся живой</div>
+        <div class="bt2">Стратегия задаёт не статичный план, а систему решений и критериев: в реализации гипотезы проверяются на практике, работающие направления усиливаются, а решения корректируются по новым данным.</div>
       </div>
     </div>
-    <p class="bfin ser">Только после проектирования стратегии можно обоснованно оценить состав, сроки и стоимость её реализации.</p>
+    <p class="bfin ser">Реализация проектов не входит в стоимость текущего этапа.</p>
   </div>
 </section>
 
@@ -1022,8 +1096,10 @@ body.lock{overflow:hidden}
     <div class="price ser">600 000 ₽</div>
     <div class="rows terms">
       <div class="fr"><b>6–8 недель</b><span>Срок проектирования</span></div>
-      <div class="fr"><b>6 рабочих созвонов</b><span>Обсуждение промежуточных решений</span></div>
-      <div class="fr"><b>Между встречами</b><span>Исследование, аналитика, проверка гипотез и проектирование решений</span></div>
+      <div class="fr"><b>6 рабочих встреч</b><span>Около 90 минут каждая: обсуждение промежуточных решений и фиксация ключевых выборов</span></div>
+      <div class="fr"><b>1,5–2 часа в неделю</b><span>Ориентировочная нагрузка Светланы: ключевые решения и обратная связь</span></div>
+      <div class="fr"><b>Между встречами</b><span>Исследование, аналитику, интервью при необходимости, проверку гипотез и проектирование решений беру на себя</span></div>
+      <div class="fr"><b>Финальный разбор</b><span>Отдельная встреча, на которой разбираем собранную стратегию и маршрут её реализации</span></div>
     </div>
     <p class="note">Результат — обоснованная стратегия и спроектированный маршрут её реализации.</p>
   </div>
@@ -1043,10 +1119,10 @@ window.addEventListener('load',function(){ if(!location.hash) window.scrollTo(0,
       sheet=document.getElementById('sheet'), btnOpen=document.getElementById('mopen'),
       btnClose=document.getElementById('mclose'), cover=document.getElementById('cover');
 
-  var LABELS={'task':'Задача','results-overview':'Архитектура стратегии','process':'Как строится работа',
+  var LABELS={'situation':'Исходная ситуация','task':'Задача','results-overview':'Архитектура стратегии','process':'Как строится работа',
     'stage-1':'01|Видение и замысел','stage-2':'02|Исследование поля','stage-3':'03|Проектирование стратегии',
     'stage-4':'04|Стратегический выбор','stage-5':'05|Проектирование реализации',
-    'results-final':'Через 6–8 недель','boundary':'Границы работы','price':'Стоимость'};
+    'results-final':'Через 6–8 недель','boundary':'Границы работы','next':'От стратегии — к реализации','price':'Стоимость'};
   var SHORT={'stage-1':'01|Замысел','stage-2':'02|Исследование','stage-3':'03|Проектирование',
     'stage-4':'04|Выбор','stage-5':'05|Реализация'};
 
