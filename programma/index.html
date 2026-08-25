@@ -11,8 +11,19 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#f3efe9; --surface:#faf7f1; --txt:#171310; --body:#33322c; --mut:#6b6158; --faint:#6f665c;
-  --line:#e4dcd0; --acc:#b67454; --accink:#9c5c3d; --accsoft:#d9b8a4;
+  /* светлые «бумажные» секции */
+  --bg:#f3eee6; --surface:#faf7f1;
+  --txt:#17130f;          /* primary — почти чёрный тёплый графит */
+  --body:#2c2620;         /* основной содержательный текст */
+  --mut:#5c554c;          /* secondary — тёмный тёплый серый */
+  --faint:#5c554c;
+  --line:#d8cfc3;         /* разделители */
+  --acc:#a45132;          /* акцент на светлом — глубокий терракот */
+  --accink:#8e4426;       /* акцент для мелкого текста */
+  --accsoft:#b98a70;      /* только декоративное */
+  --ink:#4a443c;          /* нейтральный графит для схем */
+  --inkq:#8d857b;         /* приглушённый графит для схем */
+  /* тёмно-зелёные секции */
   --grn:#0b1e1a; --grnink:#f0e9dc; --grnbody:#d3dacc; --grnmut:#a7b1a3; --grnacc:#ca9072;
   --dk:#14100d; --dkink:#efe7dd; --dkmut:#a89f92;
 }
@@ -51,7 +62,7 @@ section{padding:clamp(62px,11vw,120px) 0}
 .eyebrow{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--accink);font-weight:700}
 .dark .eyebrow{color:var(--grnacc)}
 h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54px);font-weight:500;letter-spacing:-.02em;line-height:1.06;margin:18px 0 0}
-.lead{font-size:clamp(16px,2vw,19px);color:var(--mut);margin-top:24px;max-width:64ch}
+.lead{font-size:clamp(16px,2vw,19px);color:var(--body);margin-top:24px;max-width:64ch}
 .dark{background:var(--grn);color:var(--grnink)}
 .dark h2{color:var(--grnink)}
 .dark .lead{color:var(--grnbody)}
@@ -60,13 +71,13 @@ h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54p
 .task{padding:clamp(80px,14vw,150px) 0}
 .task .th{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(34px,6.6vw,72px);font-weight:500;
   line-height:1.04;letter-spacing:-.022em;margin-top:22px;max-width:15ch}
-.task .tsub{font-size:clamp(17px,2.2vw,21px);color:var(--mut);margin-top:26px;max-width:50ch;line-height:1.55}
+.task .tsub{font-size:clamp(17px,2.2vw,21px);color:var(--body);margin-top:26px;max-width:50ch;line-height:1.55}
 .qs{margin-top:clamp(66px,10vw,116px);display:grid;grid-template-columns:1fr 1fr;
   column-gap:clamp(46px,8vw,120px);row-gap:clamp(48px,7vw,84px)}
 .q .qn{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:var(--acc);letter-spacing:.08em}
 .q .qt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(27px,3.6vw,38px);font-weight:500;
   letter-spacing:-.02em;line-height:1.1;margin-top:12px}
-.q .qd{font-size:16.5px;color:var(--mut);margin-top:14px;line-height:1.55;max-width:36ch}
+.q .qd{font-size:16.5px;color:var(--body);margin-top:14px;line-height:1.55;max-width:36ch}
 @media(max-width:800px){.qs{grid-template-columns:1fr;row-gap:clamp(42px,9vw,58px)}}
 
 /* ——— 13 результатов ——— */
@@ -97,13 +108,13 @@ h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54p
 .route .rail::before{content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--line)}
 .route .pt{position:relative;text-align:left;padding-right:clamp(8px,2vw,20px)}
 .route .pt::after{content:'';position:absolute;left:0;bottom:-4px;width:7px;height:7px;border-radius:50%;
-  background:var(--accsoft)}
+  background:var(--inkq)}
 .route .pt.last::after{background:var(--acc);width:9px;height:9px;bottom:-5px}
-.route .pn{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:var(--acc);letter-spacing:.06em}
+.route .pn{font-family:'Cormorant Garamond',Georgia,serif;font-size:15px;color:var(--mut);letter-spacing:.06em}
 .route .pw{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(19px,2.6vw,28px);font-weight:500;
   letter-spacing:-.015em;line-height:1.1;margin-top:8px;color:var(--txt)}
 .route .cone{margin-top:22px;height:52px;width:100%}
-.route .rnote{font-size:16.5px;color:var(--mut);margin-top:clamp(26px,3.4vw,34px);max-width:62ch;line-height:1.6}
+.route .rnote{font-size:16.5px;color:var(--body);margin-top:clamp(26px,3.4vw,34px);max-width:62ch;line-height:1.6}
 @media(max-width:720px){
   .route .rail{grid-template-columns:1fr;justify-content:start;gap:20px;padding-bottom:0;padding-left:22px}
   .route .rail::before{left:4px;right:auto;top:6px;bottom:6px;width:1px;height:auto}
@@ -114,7 +125,7 @@ h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54p
 /* ——— микросхемы этапов ——— */
 .motif{margin-top:clamp(30px,4vw,42px);max-width:400px}
 .motif svg{width:100%;height:auto;display:block}
-.motif .cap{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);font-weight:700;margin-top:14px}
+.motif .cap{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);font-weight:700;margin-top:16px}
 
 /* ——— обзор этапов ——— */
 .ov{margin-top:clamp(30px,5vw,50px)}
@@ -128,9 +139,9 @@ h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54p
 
 /* ——— глава-этап ——— */
 .chap{padding:clamp(72px,12vw,132px) 0;border-top:1px solid var(--line)}
-.chap .cn{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(46px,10vw,90px);font-weight:400;color:var(--accsoft);line-height:.9;letter-spacing:-.03em}
+.chap .cn{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(46px,10vw,90px);font-weight:400;color:var(--acc);line-height:.9;letter-spacing:-.03em}
 .chap h3{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(32px,6.4vw,62px);font-weight:500;line-height:1.04;letter-spacing:-.02em;margin:14px 0 0;max-width:16ch}
-.chap .cintro{font-size:clamp(16px,2vw,19px);color:var(--mut);margin-top:24px;max-width:60ch;line-height:1.6}
+.chap .cintro{font-size:clamp(16px,2vw,19px);color:var(--body);margin-top:24px;max-width:60ch;line-height:1.6}
 
 /* ——— короткие направления этапа ——— */
 .brief{margin-top:clamp(36px,5vw,54px)}
@@ -156,7 +167,7 @@ h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54p
 .more{display:inline-flex;align-items:baseline;gap:11px;margin-top:clamp(24px,3.4vw,32px);
   border:0;background:none;padding:6px 0;cursor:pointer;font-family:inherit;
   font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--accink);
-  border-bottom:1px solid var(--accsoft);transition:color .2s,border-color .2s}
+  border-bottom:1px solid var(--line);transition:color .2s,border-color .2s}
 .more:hover{color:var(--acc);border-color:var(--acc)}
 .more:focus-visible{outline:2px solid var(--acc);outline-offset:4px}
 .more .sign{font-family:'Cormorant Garamond',Georgia,serif;font-size:19px;line-height:0;color:var(--acc);transform:translateY(1px)}
@@ -193,7 +204,7 @@ h2{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(30px,5.4vw,54p
 .fi{padding:clamp(22px,3.4vw,30px) 0;border-top:1px solid var(--line)}
 .fi:last-child{border-bottom:1px solid var(--line)}
 .fi .fv{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(26px,4.4vw,40px);font-weight:500;letter-spacing:-.02em;line-height:1.1}
-.fi .fd{font-size:16px;color:var(--mut);margin-top:10px;max-width:58ch;line-height:1.6}
+.fi .fd{font-size:16px;color:var(--body);margin-top:10px;max-width:58ch;line-height:1.6}
 
 #value{padding:clamp(66px,10vw,116px) 0 clamp(50px,8vw,90px)}
 .vstate{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(26px,4.2vw,42px);font-weight:400;
@@ -418,12 +429,12 @@ body.lock{overflow:hidden}
         <div class="pt last"><div class="pn">05</div><div class="pw">Реализация</div></div>
       </div>
       <svg class="cone" viewBox="0 0 800 52" preserveAspectRatio="none" aria-hidden="true">
-        <path d="M4 4 L796 24" stroke="#d9b8a4" stroke-width="1" fill="none"/>
-        <path d="M4 48 L796 28" stroke="#d9b8a4" stroke-width="1" fill="none"/>
-        <path d="M4 16 L796 25.4" stroke="#e4dcd0" stroke-width="1" fill="none"/>
-        <path d="M4 36 L796 26.6" stroke="#e4dcd0" stroke-width="1" fill="none"/>
-        <path d="M4 26 L796 26" stroke="#e4dcd0" stroke-width="1" fill="none"/>
-        <circle cx="796" cy="26" r="3.5" fill="#b67454"/>
+        <path d="M4 4 L796 24" stroke="#8d857b" stroke-width="1" fill="none"/>
+        <path d="M4 48 L796 28" stroke="#8d857b" stroke-width="1" fill="none"/>
+        <path d="M4 16 L796 25.4" stroke="#b3aa9e" stroke-width="1" fill="none"/>
+        <path d="M4 36 L796 26.6" stroke="#b3aa9e" stroke-width="1" fill="none"/>
+        <path d="M4 26 L796 26" stroke="#b3aa9e" stroke-width="1" fill="none"/>
+        <circle cx="794" cy="26" r="4" fill="#a45132"/>
       </svg>
       <p class="rnote">Каждый следующий этап сокращает неопределённость: от поля возможных решений — к выбранной стратегии и конкретному маршруту реализации.</p>
     </div>
@@ -439,16 +450,16 @@ body.lock{overflow:hidden}
 
     <div class="motif" aria-hidden="true">
       <svg viewBox="0 0 400 128">
-        <circle cx="40" cy="40" r="4" fill="#d9b8a4"/>
-        <circle cx="112" cy="26" r="4" fill="#d9b8a4"/>
-        <circle cx="196" cy="52" r="4" fill="#d9b8a4"/>
-        <circle cx="268" cy="30" r="4" fill="#d9b8a4"/>
-        <circle cx="348" cy="60" r="4" fill="#d9b8a4"/>
-        <circle cx="76" cy="92" r="4" fill="#d9b8a4"/>
-        <circle cx="160" cy="104" r="4" fill="#d9b8a4"/>
-        <circle cx="244" cy="88" r="4" fill="#d9b8a4"/>
-        <circle cx="324" cy="106" r="4" fill="#d9b8a4"/>
-        <line x1="0" y1="126" x2="400" y2="126" stroke="#e4dcd0" stroke-width="1"/>
+        <circle cx="40" cy="40" r="4" fill="#4a443c"/>
+        <circle cx="112" cy="26" r="4" fill="#4a443c"/>
+        <circle cx="196" cy="52" r="4" fill="#4a443c"/>
+        <circle cx="268" cy="30" r="4" fill="#4a443c"/>
+        <circle cx="348" cy="60" r="4" fill="#4a443c"/>
+        <circle cx="76" cy="92" r="4" fill="#4a443c"/>
+        <circle cx="160" cy="104" r="4" fill="#4a443c"/>
+        <circle cx="244" cy="88" r="4" fill="#4a443c"/>
+        <circle cx="324" cy="106" r="4" fill="#4a443c"/>
+        <line x1="0" y1="126" x2="400" y2="126" stroke="#d8cfc3" stroke-width="1"/>
       </svg>
       <div class="cap">Поле замыслов</div>
     </div>
@@ -506,21 +517,21 @@ body.lock{overflow:hidden}
 
     <div class="motif" aria-hidden="true">
       <svg viewBox="0 0 400 128">
-        <circle cx="40" cy="40" r="4" fill="#d9b8a4"/>
-        <circle cx="112" cy="26" r="3" fill="#cfc6ba"/>
-        <circle cx="196" cy="52" r="4" fill="#d9b8a4"/>
-        <circle cx="268" cy="30" r="3" fill="#cfc6ba"/>
-        <circle cx="348" cy="60" r="4" fill="#b67454"/>
-        <circle cx="76" cy="92" r="3" fill="#cfc6ba"/>
-        <circle cx="160" cy="104" r="4" fill="#d9b8a4"/>
-        <circle cx="244" cy="88" r="3" fill="#cfc6ba"/>
-        <circle cx="324" cy="106" r="3" fill="#cfc6ba"/>
-        <line x1="105" y1="19" x2="119" y2="33" stroke="#cfc6ba" stroke-width="1"/>
-        <line x1="261" y1="23" x2="275" y2="37" stroke="#cfc6ba" stroke-width="1"/>
-        <line x1="69" y1="85" x2="83" y2="99" stroke="#cfc6ba" stroke-width="1"/>
-        <line x1="237" y1="81" x2="251" y2="95" stroke="#cfc6ba" stroke-width="1"/>
-        <line x1="317" y1="99" x2="331" y2="113" stroke="#cfc6ba" stroke-width="1"/>
-        <line x1="0" y1="126" x2="400" y2="126" stroke="#e4dcd0" stroke-width="1"/>
+        <circle cx="40" cy="40" r="4" fill="#4a443c"/>
+        <circle cx="112" cy="26" r="3" fill="#a49a8e"/>
+        <circle cx="196" cy="52" r="4" fill="#4a443c"/>
+        <circle cx="268" cy="30" r="3" fill="#a49a8e"/>
+        <circle cx="348" cy="60" r="5" fill="#a45132"/>
+        <circle cx="76" cy="92" r="3" fill="#a49a8e"/>
+        <circle cx="160" cy="104" r="4" fill="#4a443c"/>
+        <circle cx="244" cy="88" r="3" fill="#a49a8e"/>
+        <circle cx="324" cy="106" r="3" fill="#a49a8e"/>
+        <line x1="105" y1="19" x2="119" y2="33" stroke="#a49a8e" stroke-width="1"/>
+        <line x1="261" y1="23" x2="275" y2="37" stroke="#a49a8e" stroke-width="1"/>
+        <line x1="69" y1="85" x2="83" y2="99" stroke="#a49a8e" stroke-width="1"/>
+        <line x1="237" y1="81" x2="251" y2="95" stroke="#a49a8e" stroke-width="1"/>
+        <line x1="317" y1="99" x2="331" y2="113" stroke="#a49a8e" stroke-width="1"/>
+        <line x1="0" y1="126" x2="400" y2="126" stroke="#d8cfc3" stroke-width="1"/>
       </svg>
       <div class="cap">Проверка реальностью</div>
     </div>
@@ -583,16 +594,16 @@ body.lock{overflow:hidden}
 
     <div class="motif" aria-hidden="true">
       <svg viewBox="0 0 400 128">
-        <circle cx="26" cy="64" r="4.5" fill="#b67454"/>
-        <path d="M32 64 C 140 64, 180 22, 300 22" stroke="#d9b8a4" stroke-width="1" fill="none"/>
-        <path d="M32 64 C 140 64, 180 64, 300 64" stroke="#d9b8a4" stroke-width="1" fill="none"/>
-        <path d="M32 64 C 140 64, 180 106, 300 106" stroke="#d9b8a4" stroke-width="1" fill="none"/>
-        <circle cx="306" cy="22" r="4" fill="#d9b8a4"/>
-        <text x="322" y="27" font-family="Georgia,serif" font-size="15" fill="#6b6158">A</text>
-        <circle cx="306" cy="64" r="4" fill="#d9b8a4"/>
-        <text x="322" y="69" font-family="Georgia,serif" font-size="15" fill="#6b6158">B</text>
-        <circle cx="306" cy="106" r="4" fill="#d9b8a4"/>
-        <text x="322" y="111" font-family="Georgia,serif" font-size="15" fill="#6b6158">C</text>
+        <circle cx="26" cy="64" r="5" fill="#a45132"/>
+        <path d="M32 64 C 140 64, 180 22, 300 22" stroke="#4a443c" stroke-width="1" fill="none"/>
+        <path d="M32 64 C 140 64, 180 64, 300 64" stroke="#4a443c" stroke-width="1" fill="none"/>
+        <path d="M32 64 C 140 64, 180 106, 300 106" stroke="#4a443c" stroke-width="1" fill="none"/>
+        <circle cx="306" cy="22" r="4" fill="#4a443c"/>
+        <text x="322" y="27" font-family="Georgia,serif" font-size="15" fill="#4a443c">A</text>
+        <circle cx="306" cy="64" r="4" fill="#4a443c"/>
+        <text x="322" y="69" font-family="Georgia,serif" font-size="15" fill="#4a443c">B</text>
+        <circle cx="306" cy="106" r="4" fill="#4a443c"/>
+        <text x="322" y="111" font-family="Georgia,serif" font-size="15" fill="#4a443c">C</text>
       </svg>
       <div class="cap">Стратегическая развилка</div>
     </div>
@@ -654,13 +665,13 @@ body.lock{overflow:hidden}
 
     <div class="motif" aria-hidden="true">
       <svg viewBox="0 0 400 128">
-        <circle cx="26" cy="22" r="4" fill="#d9b8a4"/>
-        <circle cx="26" cy="64" r="4" fill="#d9b8a4"/>
-        <circle cx="26" cy="106" r="4" fill="#d9b8a4"/>
-        <path d="M32 22 C 150 22, 190 64, 300 64" stroke="#d9b8a4" stroke-width="1" fill="none"/>
-        <path d="M32 64 C 150 64, 190 64, 300 64" stroke="#b67454" stroke-width="1" fill="none"/>
-        <path d="M32 106 C 150 106, 190 64, 300 64" stroke="#d9b8a4" stroke-width="1" fill="none"/>
-        <circle cx="306" cy="64" r="6" fill="#b67454"/>
+        <circle cx="26" cy="22" r="4" fill="#4a443c"/>
+        <circle cx="26" cy="64" r="4" fill="#4a443c"/>
+        <circle cx="26" cy="106" r="4" fill="#4a443c"/>
+        <path d="M32 22 C 150 22, 190 64, 300 64" stroke="#a49a8e" stroke-width="1" fill="none"/>
+        <path d="M32 64 C 150 64, 190 64, 300 64" stroke="#a45132" stroke-width="1.4" fill="none"/>
+        <path d="M32 106 C 150 106, 190 64, 300 64" stroke="#a49a8e" stroke-width="1" fill="none"/>
+        <circle cx="306" cy="64" r="6.5" fill="#a45132"/>
       </svg>
       <div class="cap">Сужение и выбор</div>
     </div>
@@ -718,16 +729,16 @@ body.lock{overflow:hidden}
 
     <div class="motif" aria-hidden="true">
       <svg viewBox="0 0 400 128">
-        <line x1="26" y1="64" x2="374" y2="64" stroke="#d9b8a4" stroke-width="1"/>
-        <circle cx="26" cy="64" r="6" fill="#b67454"/>
-        <circle cx="113" cy="64" r="4" fill="#d9b8a4"/>
-        <circle cx="200" cy="64" r="4" fill="#d9b8a4"/>
-        <circle cx="287" cy="64" r="4" fill="#d9b8a4"/>
-        <circle cx="374" cy="64" r="4" fill="#d9b8a4"/>
-        <line x1="113" y1="58" x2="113" y2="70" stroke="#e4dcd0" stroke-width="1"/>
-        <line x1="200" y1="58" x2="200" y2="70" stroke="#e4dcd0" stroke-width="1"/>
-        <line x1="287" y1="58" x2="287" y2="70" stroke="#e4dcd0" stroke-width="1"/>
-        <line x1="374" y1="58" x2="374" y2="70" stroke="#e4dcd0" stroke-width="1"/>
+        <line x1="26" y1="64" x2="374" y2="64" stroke="#4a443c" stroke-width="1"/>
+        <circle cx="26" cy="64" r="6.5" fill="#a45132"/>
+        <circle cx="113" cy="64" r="4" fill="#4a443c"/>
+        <circle cx="200" cy="64" r="4" fill="#4a443c"/>
+        <circle cx="287" cy="64" r="4" fill="#4a443c"/>
+        <circle cx="374" cy="64" r="4" fill="#4a443c"/>
+        <line x1="113" y1="58" x2="113" y2="70" stroke="#d8cfc3" stroke-width="1"/>
+        <line x1="200" y1="58" x2="200" y2="70" stroke="#d8cfc3" stroke-width="1"/>
+        <line x1="287" y1="58" x2="287" y2="70" stroke="#d8cfc3" stroke-width="1"/>
+        <line x1="374" y1="58" x2="374" y2="70" stroke="#d8cfc3" stroke-width="1"/>
       </svg>
       <div class="cap">Маршрут реализации</div>
     </div>
