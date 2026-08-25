@@ -284,7 +284,7 @@ body.lock{overflow:hidden}
 /* ——— архитектура стратегии ——— */
 #results-overview .sec2{font-size:clamp(16px,2vw,19px);color:var(--grnmut);margin-top:12px}
 .arch{margin-top:clamp(46px,7vw,76px)}
-.layer{padding-top:clamp(34px,5vw,54px)}
+.layer{padding-top:clamp(30px,4.4vw,46px)}
 .layer:first-child{padding-top:0}
 .layer .lt{font-size:11.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--grnacc);font-weight:700;
   padding-bottom:16px;border-bottom:1px solid rgba(240,233,220,.18)}
@@ -293,7 +293,14 @@ body.lock{overflow:hidden}
 .res-item .rn{font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;color:var(--grnacc)}
 .res-item .rt{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3vw,28px);font-weight:500;
   line-height:1.16;letter-spacing:-.015em;color:var(--grnink)}
-.res-item .rd{font-size:16.5px;color:var(--grnbody);margin-top:10px;line-height:1.58;max-width:60ch}
+.res-item .rs{font-size:16px;color:var(--grnmut);margin-top:8px;line-height:1.5;max-width:50ch}
+.more.onDark{color:var(--grnacc);border-bottom-color:rgba(240,233,220,.28)}
+.more.onDark:hover{color:var(--grnink);border-bottom-color:var(--grnacc)}
+.more.onDark .sign{color:var(--grnacc)}
+.dark .dbody{border-left-color:rgba(240,233,220,.18)}
+.dark .part{border-top-color:rgba(240,233,220,.12)}
+.dark .part .pt{color:var(--grnacc)}
+.dark .part .pd{color:var(--grnbody)}
 @media(max-width:560px){.res-item{grid-template-columns:34px 1fr;gap:10px}}
 
 /* ——— карта процесса ——— */
@@ -319,6 +326,7 @@ body.lock{overflow:hidden}
 .forms li{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(18px,2.3vw,22px);
   color:var(--txt);line-height:1.3}
 .forms li:not(:last-child)::after{content:'·';color:var(--acc);margin:0 12px}
+.forms .dec{font-size:clamp(17px,2.2vw,20px);color:var(--body);margin-top:13px;line-height:1.5;max-width:52ch}
 .forms .also{font-size:15.5px;color:var(--mut);margin-top:12px;line-height:1.55;max-width:56ch}
 
 /* ——— раскрытие: два режима работы ——— */
@@ -375,7 +383,7 @@ body.lock{overflow:hidden}
     <a href="#stage-5"><i>05</i>Проектирование реализации</a>
     <div class="tg">Итог</div>
     <a href="#results-final">Через 6–8 недель</a>
-    <a href="#boundary">Граница</a>
+    <a href="#boundary">Границы работы</a>
     <a href="#price">Стоимость</a>
   </div>
 </div>
@@ -449,45 +457,79 @@ body.lock{overflow:hidden}
     <div class="arch">
       <div class="layer">
         <div class="lt">Куда идём</div>
-        <div class="res-item"><div class="rn">01</div><div><div class="rt ser">Видение и замыслы</div><div class="rd">Личная и бизнес-стратегия Светланы: куда она хочет прийти, какую роль занимать и какую конструкцию создать вокруг своей экспертизы и деятельности. Все последующие решения оцениваются относительно этого замысла.</div></div></div>
+        <div class="res-item"><div class="rn">01</div><div><div class="rt ser">Видение и замыслы</div><div class="rs">Личная и бизнес-конструкция, к которой хотим прийти.</div></div></div>
       </div>
       <div class="layer">
         <div class="lt">Для кого</div>
-        <div class="res-item"><div class="rn">02</div><div><div class="rt ser">Целевые аудитории</div><div class="rd">Для кого создаётся ценность, какие аудитории существуют и какие из них являются приоритетными.</div></div></div>
+        <div class="res-item"><div class="rn">02</div><div><div class="rt ser">Целевые аудитории</div><div class="rs">Кому создаём ценность и какие аудитории приоритетны.</div></div></div>
       </div>
       <div class="layer">
         <div class="lt">Что строим</div>
-        <div class="res-item"><div class="rn">03</div><div><div class="rt ser">Продуктовая стратегия</div><div class="rd">Какие продукты имеют смысл, как они связаны между собой и какую роль в общей конструкции должна играть книга.</div></div></div>
+        <div class="res-item"><div class="rn">03</div><div><div class="rt ser">Продуктовая стратегия</div><div class="rs">Продукты, их взаимосвязь и роль книги.</div></div></div>
       </div>
       <div class="layer">
         <div class="lt">Какую позицию занимаем</div>
-        <div class="res-item"><div class="rn">04</div><div><div class="rt ser">Смыслы и позиционирование</div><div class="rd">Какую позицию Светлана и её продукты занимают для аудитории, какую идею и ценность несут и чем отличаются от альтернатив.</div></div></div>
+        <div class="res-item"><div class="rn">04</div><div><div class="rt ser">Смыслы и позиционирование</div><div class="rs">Какую идею несём и чем отличаемся от альтернатив.</div></div></div>
       </div>
       <div class="layer">
         <div class="lt">На что опираемся</div>
-        <div class="res-item"><div class="rn">05</div><div><div class="rt ser">Активы и дефициты</div><div class="rd">Что уже есть для реализации замысла и чего объективно не хватает: ресурсов, компетенций, доступов, инфраструктуры, аудитории.</div></div></div>
+        <div class="res-item"><div class="rn">05</div><div><div class="rt ser">Активы и дефициты</div><div class="rs">Что уже есть и чего объективно не хватает.</div></div></div>
       </div>
       <div class="layer">
         <div class="lt">Кто может усилить</div>
-        <div class="res-item"><div class="rn">06</div><div><div class="rt ser">Ключевые стейкхолдеры</div><div class="rd">Кто обладает ресурсами, аудиториями, компетенциями, доступами, влиянием или инфраструктурой, которые могут быть важны для реализации стратегии.</div></div></div>
+        <div class="res-item"><div class="rn">06</div><div><div class="rt ser">Ключевые стейкхолдеры</div><div class="rs">Люди и организации с необходимыми нам ресурсами.</div></div></div>
       </div>
       <div class="layer">
         <div class="lt">Почему им это интересно</div>
-        <div class="res-item"><div class="rn">07</div><div><div class="rt ser">Взаимная ценность</div><div class="rd">Почему потенциальным стейкхолдерам может быть интересно взаимодействовать со Светланой и какую ценность каждая сторона может дать другой.</div></div></div>
+        <div class="res-item"><div class="rn">07</div><div><div class="rt ser">Взаимная ценность</div><div class="rs">На чём может строиться обмен ценностью.</div></div></div>
       </div>
       <div class="layer">
         <div class="lt">За счёт чего усиливаем</div>
-        <div class="res-item"><div class="rn">08</div><div><div class="rt ser">Стратегические рычаги и асимметричные ходы</div><div class="rd">Где можно получить непропорционально большой эффект относительно необходимых ресурсов и какие неочевидные комбинации позволяют это сделать.</div></div></div>
+        <div class="res-item"><div class="rn">08</div><div><div class="rt ser">Стратегические рычаги и асимметричные ходы</div><div class="rs">Где эффект непропорционален затраченным ресурсам.</div></div></div>
       </div>
       <div class="layer">
         <div class="lt">Как переводим в реализацию</div>
-        <div class="res-item"><div class="rn">09</div><div><div class="rt ser">Стратегический маршрут</div><div class="rd">Что имеет смысл запускать и в какой последовательности.</div></div></div>
-        <div class="res-item"><div class="rn">10</div><div><div class="rt ser">Конфигурация реализации</div><div class="rd">Какая конфигурация людей, компетенций и ответственности позволит реализовать стратегию: что остаётся внутри доверенного контура, где необходимо личное участие Светланы, каких ролей не хватает и что можно привлекать снаружи.</div></div></div>
-        <div class="res-item"><div class="rn">11</div><div><div class="rt ser">Бюджет и сценарии</div><div class="rd">Какие ресурсы потребуются для реализации и как отличаются возможные сценарии по стоимости, скорости и масштабу.</div></div></div>
+        <div class="res-item"><div class="rn">09</div><div><div class="rt ser">Стратегический маршрут</div><div class="rs">Что запускаем, в каком порядке и с какими контрольными точками.</div></div></div>
+        <div class="res-item"><div class="rn">10</div><div><div class="rt ser">Конфигурация реализации</div><div class="rs">Кто и что делает: внутренний контур, внешние, партнёры.</div></div></div>
+        <div class="res-item"><div class="rn">11</div><div><div class="rt ser">Бюджет и сценарии</div><div class="rs">Какие ресурсы нужны и чем отличаются сценарии.</div></div></div>
       </div>
       <div class="layer">
         <div class="lt">Как оцениваем движение</div>
-        <div class="res-item"><div class="rn">12</div><div><div class="rt ser">Критерии эффективности</div><div class="rd">По каким показателям и контрольным точкам можно оценивать движение к замыслу и принимать решения: продолжать, усиливать, корректировать или останавливать отдельные направления.</div></div></div>
+        <div class="res-item"><div class="rn">12</div><div><div class="rt ser">Критерии эффективности</div><div class="rs">По чему понимаем, что движемся к замыслу.</div></div></div>
+      </div>
+    </div>
+
+    <button class="more onDark" type="button" aria-expanded="false" aria-controls="deep-arch">
+      <span class="txt">Подробнее о 12 результатах</span><span class="sign">+</span>
+    </button>
+    <div class="deep" id="deep-arch">
+      <div class="dinner">
+        <div class="dbody">
+          <div class="part"><div class="pt">01 · Видение и замыслы</div>
+            <div class="pd">Личная и бизнес-стратегия Светланы: куда она хочет прийти, какую роль занимать и какую конструкцию создать вокруг своей экспертизы и деятельности. Все последующие решения оцениваются относительно этого замысла.</div></div>
+          <div class="part"><div class="pt">02 · Целевые аудитории</div>
+            <div class="pd">Для кого создаётся ценность, какие аудитории существуют и какие из них являются приоритетными.</div></div>
+          <div class="part"><div class="pt">03 · Продуктовая стратегия</div>
+            <div class="pd">Какие продукты имеют смысл, как они связаны между собой и какую роль в общей конструкции должна играть книга.</div></div>
+          <div class="part"><div class="pt">04 · Смыслы и позиционирование</div>
+            <div class="pd">Какую позицию Светлана и её продукты занимают для аудитории, какую идею и ценность несут и чем отличаются от альтернатив.</div></div>
+          <div class="part"><div class="pt">05 · Активы и дефициты</div>
+            <div class="pd">Что уже есть для реализации замысла и чего объективно не хватает: ресурсов, компетенций, доступов, инфраструктуры, аудитории.</div></div>
+          <div class="part"><div class="pt">06 · Ключевые стейкхолдеры</div>
+            <div class="pd">Кто обладает ресурсами, аудиториями, компетенциями, доступами, влиянием или инфраструктурой, которые могут быть важны для реализации стратегии.</div></div>
+          <div class="part"><div class="pt">07 · Взаимная ценность</div>
+            <div class="pd">Почему потенциальным стейкхолдерам может быть интересно взаимодействовать со Светланой и какую ценность каждая сторона может дать другой.</div></div>
+          <div class="part"><div class="pt">08 · Стратегические рычаги и асимметричные ходы</div>
+            <div class="pd">Где можно получить непропорционально большой эффект относительно необходимых ресурсов и какие неочевидные комбинации позволяют это сделать.</div></div>
+          <div class="part"><div class="pt">09 · Стратегический маршрут</div>
+            <div class="pd">Последовательность ключевых проектов и промежуточных результатов, через которые реализуется выбранная стратегия: что запускается, в каком порядке, какие существуют зависимости и контрольные точки.</div></div>
+          <div class="part"><div class="pt">10 · Конфигурация реализации</div>
+            <div class="pd">Какая конфигурация людей, компетенций и ответственности позволит реализовать стратегию: что остаётся внутри доверенного контура, где необходимо личное участие Светланы, каких ролей не хватает и что можно привлекать снаружи.</div></div>
+          <div class="part"><div class="pt">11 · Бюджет и сценарии</div>
+            <div class="pd">Какие ресурсы потребуются для реализации и как отличаются возможные сценарии по стоимости, скорости и масштабу.</div></div>
+          <div class="part"><div class="pt">12 · Критерии эффективности</div>
+            <div class="pd">По каким показателям и контрольным точкам можно оценивать движение к замыслу и принимать решения: продолжать, усиливать, корректировать или останавливать отдельные направления.</div></div>
+        </div>
       </div>
     </div>
   </div>
@@ -524,6 +566,7 @@ body.lock{overflow:hidden}
     </div>
 
     <p class="remark">Этапы задают логику движения, но работа не строго линейна: исследование, проектирование и проверка гипотез частично идут параллельно и уточняют друг друга.</p>
+    <p class="remark">Количество встреч не привязано жёстко к этапам: отдельные этапы могут занимать несколько встреч, а часть работы между ними идёт параллельно.</p>
   </div>
 </section>
 
@@ -551,7 +594,7 @@ body.lock{overflow:hidden}
     </div>
 
     <div class="forms">
-      <div class="fl">Что формируется</div>
+      <div class="fl">Фокус этапа</div>
       <ul>
         <li>Видение и замыслы</li>
       </ul>
@@ -578,6 +621,7 @@ body.lock{overflow:hidden}
               <li>желаемый масштаб</li>
               <li>роль самой Светланы</li>
               <li>ограничения</li>
+              <li>горизонт, на котором рассматриваем замысел</li>
               <li>критерии желаемого результата</li>
             </ul>
           </div>
@@ -629,7 +673,7 @@ body.lock{overflow:hidden}
     </div>
 
     <div class="forms">
-      <div class="fl">Что формируется</div>
+      <div class="fl">Фокус этапа</div>
       <ul>
         <li>Целевые аудитории</li>
         <li>Активы и дефициты</li>
@@ -640,7 +684,7 @@ body.lock{overflow:hidden}
 
     <div class="res">
       <div class="rl">После этапа</div>
-      <div class="rx ser">Есть рабочая картина исходной позиции: что подтверждается реальностью, на что уже можно опереться, чего не хватает и где находятся потенциальные возможности.</div>
+      <div class="rx ser">Есть рабочая картина поля: кому и что действительно может быть нужно, что подтверждается реальностью, на что уже можно опереться, чего не хватает и где находятся потенциальные возможности.</div>
     </div>
 
     <button class="more" type="button" aria-expanded="false" aria-controls="deep-2">
@@ -665,12 +709,13 @@ body.lock{overflow:hidden}
             <div class="dh">Между встречами</div>
             <ul>
               <li>исследуем аудитории и их задачи</li>
-              <li>анализируем контекст и существующие решения</li>
+              <li>анализируем существующие продукты, проекты и модели, конкурирующие способы решения задачи и свободные возможности</li>
               <li>проверяем исходные продуктовые гипотезы</li>
-              <li>собираем и структурируем активы</li>
+              <li>собираем и структурируем активы, оцениваем ключевые из них по трудноповторимости, устойчивости и востребованности</li>
               <li>выявляем дефициты</li>
               <li>исследуем потенциальных стейкхолдеров</li>
               <li>проверяем возникающие по ходу работы гипотезы</li>
+              <li>там, где для принятия решения недостаточно имеющейся информации, проводим интервью с представителями целевой аудитории, экспертами и другими релевантными участниками</li>
             </ul>
           </div>
           <div class="dgroup">
@@ -707,7 +752,7 @@ body.lock{overflow:hidden}
     </div>
 
     <div class="forms">
-      <div class="fl">Что формируется</div>
+      <div class="fl">Фокус этапа</div>
       <ul>
         <li>Продуктовая стратегия</li>
         <li>Смыслы и позиционирование</li>
@@ -787,6 +832,11 @@ body.lock{overflow:hidden}
       <div class="cap">Сужение к выбору</div>
     </div>
 
+    <div class="forms decision">
+      <div class="fl">Фокус этапа</div>
+      <div class="dec">Выбор конфигурации · основания выбора · сознательные отказы</div>
+    </div>
+
     <div class="res">
       <div class="rl">После этапа</div>
       <div class="rx ser">Понятно, на каком направлении концентрируемся, от чего сознательно отказываемся и почему выбран именно этот путь.</div>
@@ -820,6 +870,7 @@ body.lock{overflow:hidden}
               <li>проверяем спорные гипотезы</li>
               <li>оцениваем необходимые ресурсы</li>
               <li>при необходимости возвращаем отдельные элементы в исследовательский контур</li>
+              <li>фиксируем не только выбранное направление, но и то, на чём сознательно не концентрируем ресурсы</li>
               <li>уточняем основания выбора</li>
             </ul>
           </div>
@@ -857,7 +908,7 @@ body.lock{overflow:hidden}
     </div>
 
     <div class="forms">
-      <div class="fl">Что формируется</div>
+      <div class="fl">Фокус этапа</div>
       <ul>
         <li>Стратегический маршрут</li>
         <li>Конфигурация реализации</li>
@@ -898,7 +949,7 @@ body.lock{overflow:hidden}
             <ul>
               <li>проектируем последовательность проектов</li>
               <li>определяем зависимости между ними</li>
-              <li>определяем, что может идти параллельно</li>
+              <li>раскладываем проекты и действия по временной шкале, определяем последовательность, зависимости, параллельные потоки и контрольные точки</li>
               <li>собираем стратегический маршрут</li>
               <li>проектируем конфигурацию реализации</li>
               <li>учитываем существующих людей Светланы</li>
@@ -943,12 +994,16 @@ body.lock{overflow:hidden}
 <!-- ГРАНИЦА -->
 <section id="boundary">
   <div class="wrap narrow">
-    <div class="eyebrow">Граница</div>
+    <div class="eyebrow">Границы работы</div>
     <h2>Где заканчивается проектирование</h2>
     <div class="bnd">
       <div class="bi2">
         <div class="bl">В рамках этой работы</div>
         <div class="bt2">Определяем стратегию и проектируем маршрут и конфигурацию её реализации.</div>
+      </div>
+      <div class="bi2">
+        <div class="bl">Формат результата</div>
+        <div class="bt2">Итоговый стратегический документ, в котором зафиксированы ключевые решения, основания выбора, продуктовая конструкция, стратегические ходы, маршрут реализации, конфигурация людей и ролей, бюджетные сценарии и критерии эффективности. К нему — рабочие материалы и схемы, на которых основаны решения.</div>
       </div>
       <div class="bi2">
         <div class="bl">Следующий этап</div>
@@ -991,7 +1046,7 @@ window.addEventListener('load',function(){ if(!location.hash) window.scrollTo(0,
   var LABELS={'task':'Задача','results-overview':'Архитектура стратегии','process':'Как строится работа',
     'stage-1':'01|Видение и замысел','stage-2':'02|Исследование поля','stage-3':'03|Проектирование стратегии',
     'stage-4':'04|Стратегический выбор','stage-5':'05|Проектирование реализации',
-    'results-final':'Через 6–8 недель','boundary':'Граница','price':'Стоимость'};
+    'results-final':'Через 6–8 недель','boundary':'Границы работы','price':'Стоимость'};
   var SHORT={'stage-1':'01|Замысел','stage-2':'02|Исследование','stage-3':'03|Проектирование',
     'stage-4':'04|Выбор','stage-5':'05|Реализация'};
 
@@ -1003,8 +1058,8 @@ window.addEventListener('load',function(){ if(!location.hash) window.scrollTo(0,
     btn.addEventListener('click',function(){
       var opening=!panel.classList.contains('on');
       if(!opening){
-        var sec=btn.closest('.chap'), top=sec.getBoundingClientRect().top;
-        if(top<0) window.scrollTo({top:sec.offsetTop-70, behavior:'auto'});
+        var sec=btn.closest('section');
+        if(sec && sec.getBoundingClientRect().top<0) window.scrollTo({top:sec.offsetTop-70, behavior:'auto'});
       }
       panel.classList.toggle('on',opening);
       btn.setAttribute('aria-expanded',opening?'true':'false');
